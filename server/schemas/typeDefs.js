@@ -9,6 +9,10 @@ type User {
     friends: [User]
 }
 
+type Query {
+    me: User
+}
+
 type Guess {
     _id: ID
     guessBody: String
