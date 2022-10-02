@@ -4,9 +4,9 @@ const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 //create the schema for the model using the Schema constructor and outline the fields
-const quessSchema = new Schema(
+const guessSchema = new Schema(
     {
-        quessBody: {
+        guessBody: {
             type: String,
             required: true,
             maxlength: 280
