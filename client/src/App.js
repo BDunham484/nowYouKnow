@@ -8,7 +8,7 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-import Home from './pages/Home';
+import Home from './pages/Home/index';
 import Game from './pages/Game';
 import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
