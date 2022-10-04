@@ -3,7 +3,7 @@ const { Schema, model } = require('mongoose');
 //import bcrypt package for password encryption
 const bcrypt = require('bcrypt');
 const Game = require('./Game');
-const currentGame = require('./currentGame');
+const currentGame = require('./CurrentGame');
 
 //create the schema for the model using the Schema contructor and outline the fields
 const userSchema = new Schema(
@@ -25,19 +25,11 @@ const userSchema = new Schema(
             required: true,
             minlength: 5
         },
-        games: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'Game'
-            }
-        ],
+        games: [Game.schema],
         inGame: {
             type: Boolean
         },
-        currentGame: {
-            type: Schema.Types.ObjectId,
-            ref: 'currentGame'
-        }
+        currentGame: currentGame.schema
     },
     {
         toJSON: {

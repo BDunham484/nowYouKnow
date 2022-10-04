@@ -6,25 +6,18 @@ type User {
     _id: ID
     username: String
     email: String
-    friends: [User]
 }
 
 type Query {
     me: User
-}
-
-type Guess {
-    _id: ID
-    guessBody: String
-    username: String
-    createdAt: String
+    users: [User]
+    user(username: String!): User
 }
 
 type Question {
     questionText: String
     createdAt: String
     username: String
-    guesses: [Guess]
 }
 
 type Auth {
@@ -36,8 +29,6 @@ type Mutation {
     login(email: String!, password:String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
 }
-    
-
 `;
 
 module.exports = typeDefs;
