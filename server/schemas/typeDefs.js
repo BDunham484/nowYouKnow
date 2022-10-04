@@ -16,7 +16,7 @@ type Game {
     yourScore: Int
     opponentScore: Int
     winner: String
-    questions: Question
+    questions: [Question]
 }
 
 type Question {
@@ -58,7 +58,7 @@ type Auth {
 type Mutation {
     login(email: String!, password:String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addGame(opponent: ID!, yourScore: Int, opponentScore: Int, winner: String): User
+    addGame(opponent: ID!, yourScore: Int, opponentScore: Int, winner: String, questions: [String]): User
 }
 `;
 
