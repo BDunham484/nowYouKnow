@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Titillium+Web:wght@300;400;700&display=swap");
+
+$Poppins: "Poppins", sans-serif;
+
+//colors
+$dark: rgb(8, 76, 97);
+$light: #f0f7ee;
+$primary: rgb(166, 144, 164);
+$bg: rgb(240, 247, 238);
+
+//spacing
+$spacing-md: 16px;
+$spacing-lg: 32px;
+
+//border radius
+$borderRadius: 12px;
+
+//header height
+$headerHeight: 100px;
+
+@mixin breakpoint($point) {
+  @if $point ==md {
+    //168px
+    @media (min-width: 48em) {
+      @content;
+    }
+  }
+}
