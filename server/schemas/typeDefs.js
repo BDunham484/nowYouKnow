@@ -6,11 +6,12 @@ type User {
     _id: ID
     username: String
     email: String
-    friends: [User]
 }
 
 type Query {
     me: User
+    users: [User]
+    user(username: String!): User
 }
 
 type Question {
