@@ -42,6 +42,7 @@ type Query {
     me: User
     users: [User]
     user(username: String!): User
+    games(_id: ID!): [Game]
 }
 
 type Question {

@@ -8,7 +8,7 @@ const resolvers = {
         me: async (parent, args, context) => {
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
-                .select('-__v -password')
+                    .select('-__v -password')
                 return userData;
             }
             throw new AuthenticationError('You are not logged in');
@@ -20,8 +20,8 @@ const resolvers = {
         },
 
         // get user by username
-        user: async (parent, {username}) => {
-            return User.findOne({username})
+        user: async (parent, { username }) => {
+            return User.findOne({ username })
                 .select('-__v -password')
         },
     },
@@ -33,18 +33,18 @@ const resolvers = {
             return { token, user };
         },
         login: async (parent, { email, password }) => {
-            const user = await User.findOne( { email });
+            const user = await User.findOne({ email });
             if (!user) {
                 throw new AuthenticationError('Invalid Username')
             }
             const correctPw = await user.isCorrectPassword(password);
-            if(!correctPw) {
+            if (!correctPw) {
                 throw new AuthenticationError('Invalid Password')
             }
             const token = signToken(user);
             return { token, user };
         }
     }
-  };
-  
-  module.exports = resolvers;
+};
+
+module.exports = resolvers;
