@@ -2,6 +2,8 @@
 const { Schema, model } = require('mongoose');
 //import bcrypt package for password encryption
 const bcrypt = require('bcrypt');
+const Game = require('./Game');
+const currentGame = require('./currentGame');
 
 //create the schema for the model using the Schema contructor and outline the fields
 const userSchema = new Schema(
@@ -23,18 +25,19 @@ const userSchema = new Schema(
             required: true,
             minlength: 5
         },
-        questions: [
+        games: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'Question'
+                ref: 'Game'
             }
         ],
-        friends: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'User'
-            }
-        ]
+        inGame: {
+            type: Boolean
+        },
+        currentGame: {
+            type: Schema.Types.ObjectId,
+            ref: 'currentGame'
+        }
     },
     {
         toJSON: {
@@ -58,8 +61,8 @@ userSchema.methods.isCorrectPassword = async function(password) {
 };
 
 //get total count of friends on retrieval
-userSchema.virtual('friendCount').get(function() {
-    return this.friends.length;
+userSchema.virtual('gameCount').get(function() {
+    return this.games.length;
 });
 
 //create the user model using the UserSchema
