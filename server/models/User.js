@@ -4,6 +4,8 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 const Game = require('./Game');
 const CurrentGame = require('./CurrentGame');
+const Invite = require('./Invite')
+
 
 //create the schema for the model using the Schema contructor and outline the fields
 const userSchema = new Schema(
@@ -30,7 +32,7 @@ const userSchema = new Schema(
             type: Boolean
         },
         currentGame: CurrentGame.schema,
-        openInvites: [{type: String}]
+        openInvites: [Invite.schema]
     },
     {
         toJSON: {

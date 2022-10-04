@@ -35,8 +35,14 @@ type User {
     email: String
     inGame: Boolean
     currentGame: CurrentGame
-    openInvites: [String]
+    openInvites: [Invite]
     games: [Game]
+}
+
+type Invite {
+    _id: ID
+    username: String
+    accepted: Boolean
 }
 
 type Query {
