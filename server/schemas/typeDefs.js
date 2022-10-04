@@ -12,7 +12,7 @@ type CurrentGame {
 }
 
 type Game {
-    Opponent: User
+    opponent: User
     yourScore: Int
     opponentScore: Int
     winner: String
@@ -42,7 +42,6 @@ type Query {
     me: User
     users: [User]
     user(username: String!): User
-    games(_id: ID!): [Game]
 }
 
 type Question {
@@ -59,6 +58,7 @@ type Auth {
 type Mutation {
     login(email: String!, password:String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
+    addGame(opponent: ID!, yourScore: Int, opponentScore: Int, winner: String): User
 }
 `;
 
