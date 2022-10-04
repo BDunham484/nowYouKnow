@@ -17,7 +17,6 @@ type Question {
     questionText: String
     createdAt: String
     username: String
-    guesses: [Guess]
 }
 
 type Auth {
