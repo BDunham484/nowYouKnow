@@ -51,6 +51,12 @@ const resolvers = {
                 {'username': username} , {$push: {openInvites: 'hello'}})
                 return username
         },
+        cancelInvite: async (parent, { username }, context) => {
+            console.log(username);
+            await User.findOneAndUpdate( 
+                {'username': username} , {$pull: {openInvites: context.user.username}})
+                return username
+        },
         //adds game to current user games array
         addGame: async (parent, args, context) => {
             console.log('ARGS!!!!!')
