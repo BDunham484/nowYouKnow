@@ -12,11 +12,7 @@ type CurrentGame {
 }
 
 type Game {
-<<<<<<< HEAD
-    Opponent: User
-=======
     opponent: User
->>>>>>> develop
     yourScore: Int
     opponentScore: Int
     winner: String
@@ -39,6 +35,7 @@ type User {
     email: String
     inGame: Boolean
     currentGame: CurrentGame
+    openInvites: [String]
     games: [Game]
 }
 
@@ -62,11 +59,8 @@ type Auth {
 type Mutation {
     login(email: String!, password:String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-<<<<<<< HEAD
     sendInvite(username: String!): String
-=======
     addGame(opponent: ID!, yourScore: Int, opponentScore: Int, winner: String, questions: [String]): User
->>>>>>> develop
 }
 `;
 

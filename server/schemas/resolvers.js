@@ -45,8 +45,11 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        sendInvite: async (parent, { username }, context) => {
-            await User.findOneAndUpdate( {'username': username} , {$push: {openInvites: context.user.username}})
+        sendInvite: async (parent, { username }) => {
+            console.log(username);
+            await User.findOneAndUpdate( 
+                {'username': username} , {$push: {openInvites: 'hello'}})
+                return username
         },
         //adds game to current user games array
         addGame: async (parent, args, context) => {
