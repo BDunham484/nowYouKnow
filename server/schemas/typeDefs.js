@@ -1,11 +1,41 @@
 const {gql} = require('apollo-server-express');
 
 const typeDefs = gql `
-    
+
+type CurrentGame {
+    _id: ID
+    currentQuestion: Int
+    answersSubmitted: Boolean
+    answer: String
+    guess: String
+    createdAt: String
+}
+
+type Game {
+    Opponent: User
+    yourScore: Int
+    opponentScore: Int
+    winner: String
+    questions: Question
+}
+
+type Question {
+    questionBody: String
+    yourAnswer: String
+    opponentAnswer: String
+    yourGuess: String
+    opponentGuess: String
+    youCorrect: Boolean
+    opponentCorrect: Boolean
+}
+
 type User {
     _id: ID
     username: String
     email: String
+    inGame: Boolean
+    currentGame: CurrentGame
+    games: [Game]
 }
 
 type Query {
