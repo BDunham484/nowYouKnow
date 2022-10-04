@@ -4,7 +4,7 @@ const typeDefs = gql `
 
 type CurrentGame {
     _id: ID
-    currentQuestion: Int
+    currentQuestion: Number
     answersSubmitted: Boolean
     answer: String
     guess: String
