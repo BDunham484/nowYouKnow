@@ -12,10 +12,10 @@ const gameSchema = new Schema(
             ref: 'User'
         },
         yourScore: {
-            type: Int
+           // type: Int
         },
         opponentScore: {
-            type: Int
+            //type: Int
         },
         winner: {
             type: String
