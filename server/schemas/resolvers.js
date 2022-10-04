@@ -13,7 +13,6 @@ const resolvers = {
             }
             throw new AuthenticationError('You are not logged in');
         },
-
         // get all users
         users: async () => {
             return User.find()
