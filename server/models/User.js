@@ -29,7 +29,8 @@ const userSchema = new Schema(
         inGame: {
             type: Boolean
         },
-        currentGame: CurrentGame.schema
+        currentGame: CurrentGame.schema,
+        openInvites: [{type: String}]
     },
     {
         toJSON: {

@@ -43,6 +43,9 @@ const resolvers = {
             }
             const token = signToken(user);
             return { token, user };
+        },
+        sendInvite: async (parent, { username }, context) => {
+            await User.findOneAndUpdate( {'username': username} , {$push: {openInvites: context.user.username}})
         }
     }
   };

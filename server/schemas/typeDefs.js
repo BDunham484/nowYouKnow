@@ -4,7 +4,7 @@ const typeDefs = gql `
 
 type CurrentGame {
     _id: ID
-    currentQuestion: Number
+    currentQuestion: Int
     answersSubmitted: Boolean
     answer: String
     guess: String
@@ -13,8 +13,8 @@ type CurrentGame {
 
 type Game {
     Opponent: User
-    yourScore: Number
-    opponentScore: Number
+    yourScore: Int
+    opponentScore: Int
     winner: String
     questions: Question
 }
@@ -41,7 +41,7 @@ type User {
 type Query {
     me: User
     users: [User]
-    user(username: String!): User
+    user(username: String!): User 
 }
 
 type Question {
@@ -58,6 +58,7 @@ type Auth {
 type Mutation {
     login(email: String!, password:String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
+    sendInvite(username: String!): String
 }
 `;
 
