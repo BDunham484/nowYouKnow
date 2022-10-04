@@ -1,0 +1,26 @@
+{
+  "name": "nowyouknow",
+  "version": "1.0.0",
+  "description": "A game where you try to guess who said what  using the MERN stack.",
+  "main": "server/server.js",
+  "devDependencies": {
+    "concurrently": "^7.4.0"
+  },
+  "scripts": {
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BDunham484/nowYouKnow.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BDunham484/nowYouKnow/issues"
+  },
+  "homepage": "https://github.com/BDunham484/nowYouKnow#readme"
+}
