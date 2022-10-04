@@ -4,16 +4,23 @@ const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 //create the schema for the model using the Schema constructor and outline the fields
-const guessSchema = new Schema(
-    {
-        guessBody: {
+const currentGameSchema = new Schema(
+    {   
+        currentQuestion: {
+            type: Int
+        },
+        answersSubmitted: {
+            type: Boolean
+        },
+        answer: {
             type: String,
             required: true,
             maxlength: 280
         },
-        username: {
+        guess: {
             type: String,
-            required: true
+            required: true,
+            maxlength: 280
         },
         createdAt: {
             type: Date,
@@ -21,12 +28,9 @@ const guessSchema = new Schema(
             get: timestamp => dateFormat(timestamp)
         }
     },
-    {
-        toJSON: {
-            getters: true
-        }
-    }
 );
 
+const CurrentGame = model('CurrentGame', currentGameSchema);
+
 //export the Guess schema
-module.exports = guessSchema;
+module.exports = CurrentGame;
