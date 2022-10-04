@@ -1,41 +1,54 @@
 //import the Schema contructor and the model function from mongoose
 const { Schema, model } = require('mongoose');
-//import Guess model
-const guessSchema = require('./Guess');
-//import date formatting 
-const dateFormat = require('../utils/dateFormat');
 
 //create the schema for the model using the Schema constructor and outline the fields
 const questionSchema = new Schema(
     {
-        questionText: {
+        questionBody: {
+            type: String
+        },
+        yourAnswer: {
             type: String,
-            required: 'You must enter a question!',
-            minlenth: 1,
+            required: 'You need to leave an answer!',
+            minlength: 1,
             maxlength: 280
         },
-        createdAt: {
-            type: Date,
-            default: Date.now,
-            get: timestamp => dateFormat(timestamp)
-        },
-        username: {
+        opponentAnswer: {
             type: String,
-            required: true
+            required: 'You need to leave an answer!',
+            minlength: 1,
+            maxlength: 280
         },
-        guesses: [guessSchema]
-    },
-    {
-        toJSON: {
-            getters: true
+        yourGuess: {
+            type: String,
+            required: 'You need to make a guess!',
+            minlength: 1,
+            maxlength: 280
+        },
+        opponentGuess: {
+            type: String,
+            required: 'You need to make a guess!',
+            minlength: 1,
+            maxlength: 280
+        },
+        youCorrect: {
+            type: Boolean
+        },
+        opponentCorrect: {
+            type: Boolean
         }
-    }
+    },
+    // {
+    //     toJSON: {
+    //         getters: true
+    //     }
+    // }
 );
 
-//get total count of guesses on retrieval
-questionSchema.virtual('guessCount').get(function() {
-    return this.guesses.length;
-});
+// //get total count of guesses on retrieval
+// questionSchema.virtual('guessCount').get(function () {
+//     return this.guesses.length;
+// });
 
 //create the comment model using the CommentSchema
 const Question = model('Question', questionSchema);
