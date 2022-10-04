@@ -44,12 +44,6 @@ type Query {
     user(username: String!): User
 }
 
-type Question {
-    questionText: String
-    createdAt: String
-    username: String
-}
-
 type Auth {
     token: ID!
     user: User
@@ -59,6 +53,7 @@ type Mutation {
     login(email: String!, password:String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addGame(opponent: ID!, yourScore: Int, opponentScore: Int, winner: String, questions: [String]): User
+    addQuestion(questionBody: String!): Game
 }
 `;
 

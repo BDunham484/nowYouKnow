@@ -59,6 +59,14 @@ const resolvers = {
                 );
                 return user;
             };
+        },
+        //adds question to current Game: questions[]
+        addQuestion: async (parent, args) => {
+                const question = await Game.find(
+                    { $push: { question: args }},
+                    { new: true }
+                );
+                return question;
         }
     }
 };
