@@ -55,8 +55,13 @@ const resolvers = {
         },
         cancelInvite: async (parent, { username }, context) => {
             await User.findOneAndUpdate( 
-                {'username': username} , {$pull: {openInvites: {'username': null}}})
+                {'username': username} , {$pull: {openInvites: {'username': context.user.username}}})
                 return username
+        },
+        acceptInvite: async (parent, {username}, context) => {
+            await User.findOneAndUpdate( 
+                {'username': context.user.username, "openInvites.username": username} , {'openInvites.$.accepted': true})
+                return context.user.username
         },
         //adds game to current user games array
         addGame: async (parent, args, context) => {
