@@ -13,18 +13,10 @@ type Query {
     me: User
 }
 
-type Guess {
-    _id: ID
-    guessBody: String
-    username: String
-    createdAt: String
-}
-
 type Question {
     questionText: String
     createdAt: String
     username: String
-    guesses: [Guess]
 }
 
 type Auth {
@@ -36,8 +28,6 @@ type Mutation {
     login(email: String!, password:String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
 }
-    
-
 `;
 
 module.exports = typeDefs;
