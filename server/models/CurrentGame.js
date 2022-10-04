@@ -7,7 +7,7 @@ const dateFormat = require('../utils/dateFormat');
 const currentGameSchema = new Schema(
     {   
         currentQuestion: {
-           type: Number
+            type: Number
         },
         answersSubmitted: {
             type: Boolean

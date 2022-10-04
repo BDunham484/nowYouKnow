@@ -25,19 +25,11 @@ const userSchema = new Schema(
             required: true,
             minlength: 5
         },
-        games: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'Game'
-            }
-        ],
+        games: [Game.schema],
         inGame: {
             type: Boolean
         },
-        currentGame: {
-            type: Schema.Types.ObjectId,
-            ref: 'currentGame'
-        }
+        currentGame: currentGame.schema
     },
     {
         toJSON: {
