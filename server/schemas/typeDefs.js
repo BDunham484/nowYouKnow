@@ -22,6 +22,7 @@ type Game {
 }
 
 type Question {
+    _id: ID
     questionBody: String
     yourAnswer: String
     opponentAnswer: String
@@ -37,6 +38,7 @@ type User {
     email: String
     inGame: Boolean
     currentGame: String
+    currentQuestion: String
     openInvites: [Invite]
     games: [Game]
 }
@@ -69,7 +71,7 @@ type Mutation {
     addQuestion(questionBody: String!, yourAnswer: String, opponentAnswer: String, yourGuess: String, opponentGuess: String, youCorrect: Boolean, opponentCorrect: Boolean): Game
     newGame(username: String): User
     newQuestion(questionBody: String): Question
-   
+
 }
 `;
 
