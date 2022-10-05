@@ -10,5 +10,7 @@ const Invite = require('./Invite')
 module.exports = { 
     User,
     Question,
-    Invite
+    Invite,
+    Game,
+    CurrentGame
 }

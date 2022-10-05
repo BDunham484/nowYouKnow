@@ -31,6 +31,7 @@ const userSchema = new Schema(
             type: Boolean
         },
         currentGame: String,
+        currentQuestion: String,
         openInvites: [Invite.schema]
     },
     {

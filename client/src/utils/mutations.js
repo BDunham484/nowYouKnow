@@ -55,3 +55,10 @@ export const ADD_GAME = gql`
   }
 }
 `;
+
+export const NEW_GAME = gql `
+  mutation newGame(
+    username: String
+  ): User
+`;
+
