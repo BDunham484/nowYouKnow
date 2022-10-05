@@ -1,7 +1,8 @@
 const { User, Invite } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
-const Game = require('../models/Game')
+const Game = require('../models/Game');
+const Question = require('../models/Question');
 
 
 const resolvers = {
@@ -122,7 +123,26 @@ const resolvers = {
                 return game;
             }
             throw new AuthenticationError('You need to be logged in!');
-        }
+        },
+
+        newQuestion: async (parent, args, context) => {
+            console.log('ARGS!!!!!')
+            console.log(args)
+            console.log("CONTEXT!!!!")
+            console.log(context.user)
+            if (context.user) {
+                const question = await Question.create({ username: context.user.username });
+
+                await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $set: { currentQuestion: question._id } },
+                    { new: true }
+                );
+                console.log(question._id)
+                return question;
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
     }
 };
 
