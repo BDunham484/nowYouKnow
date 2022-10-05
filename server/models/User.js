@@ -30,7 +30,7 @@ const userSchema = new Schema(
         inGame: {
             type: Boolean
         },
-        currentGame: [Game.schema],
+        currentGame: Game.schema,
         openInvites: [Invite.schema]
     },
     {

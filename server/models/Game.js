@@ -5,6 +5,9 @@ const Question = require('./Question')
 //create the schema for the model using the Schema contructor and outline the fields
 const gameSchema = new Schema(
     {
+        username: {
+            type: String
+        },
         opponent: {
             type: Schema.Types.ObjectId,
             ref: 'User'
