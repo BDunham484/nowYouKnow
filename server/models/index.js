@@ -11,6 +11,10 @@ module.exports = {
     User,
     Question,
     Invite,
+<<<<<<< HEAD
     Game,
     CurrentGame
+=======
+    Game
+>>>>>>> develop
 }

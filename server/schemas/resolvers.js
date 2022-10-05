@@ -1,7 +1,8 @@
 const { User, Invite } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
-const Game = require('../models/Game')
+const Game = require('../models/Game');
+const Question = require('../models/Question');
 
 
 const resolvers = {
@@ -25,6 +26,13 @@ const resolvers = {
             return User.findOne({ username })
                 .select('-__v -password')
         },
+        //get all games
+        game: async (parent, args, context) => {
+            if (context.user) {
+                return await Game.find();
+            }
+            
+        }
 
     },
     Mutation: {
@@ -122,7 +130,59 @@ const resolvers = {
                 return game;
             }
             throw new AuthenticationError('You need to be logged in!');
-        }
+        },
+
+        newQuestion: async (parent, args, context) => {
+            console.log('ARGS!!!!!')
+            console.log(args)
+            console.log("CONTEXT!!!!")
+            console.log(context.user)
+            if (context.user) {
+                const question = await Question.create({ username: context.user.username });
+
+                await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $set: { currentQuestion: question._id } },
+                    { new: true }
+                );
+                console.log(question._id)
+                return question;
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
+
+        addAnswer: async (parent, args, context) => {
+            console.log('ARGS!!!')
+            console.log(args)
+            console.log('CONTEXT!!!');
+            console.log(context.user)
+            if (context.user) {
+                const user = await User.findOne({ _id: context.user._id })
+
+                const answer = await Question.findByIdAndUpdate(
+                    { _id: user.currentQuestion },
+                    { $set: { yourAnswer: args.yourAnswer,
+                        opponentAnswer: args.opponentAnswer,
+                        yourGuess: args.yourGuess,
+                        opponentGuess: args.opponentGuess} },
+                    { new: true }
+                );
+               //just trying stuff out here.  will get it sorted and cleaned up tomorrow morning.         
+                const game = await Game.findByIdAndUpdate(
+                    { _id: user.currentGame },
+                    { $push: { questions: args } },
+                    { new: true }
+                );
+                console.log('Question ID!!!!')
+                console.log(user.currentQuestion)
+                console.log('Answer !!!')
+                console.log(answer)
+                console.log('GAME !!!!');
+                console.log(game);
+                return answer;
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
     }
 };
 
