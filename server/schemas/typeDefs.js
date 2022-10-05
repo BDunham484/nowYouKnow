@@ -51,12 +51,6 @@ type Query {
     user(username: String!): User 
 }
 
-type Question {
-    questionText: String
-    createdAt: String
-    username: String
-}
-
 type Auth {
     token: ID!
     user: User
@@ -69,6 +63,7 @@ type Mutation {
     cancelInvite(username: String!): String
     acceptInvite(username: String!): String
     addGame(opponent: ID!, yourScore: Int, opponentScore: Int, winner: String, questions: [String]): User
+    addQuestion(questionBody: String!): Game
 }
 `;
 
