@@ -54,6 +54,7 @@ type Query {
     users: [User]
     user(username: String!): User 
     questions: [Question]
+    game: Game
 }
 
 type Auth {

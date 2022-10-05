@@ -26,6 +26,13 @@ const resolvers = {
             return User.findOne({ username })
                 .select('-__v -password')
         },
+        //get all games
+        game: async (parent, args, context) => {
+            if (context.user) {
+                return await Game.find();
+            }
+            
+        }
 
     },
     Mutation: {
@@ -160,10 +167,18 @@ const resolvers = {
                         opponentGuess: args.opponentGuess} },
                     { new: true }
                 );
+
+                const game = await Game.findByIdAndUpdate(
+                    { _id: user.currentGame },
+                    { $push: { questions: args } },
+                    { new: true }
+                );
                 console.log('Question ID!!!!')
                 console.log(user.currentQuestion)
                 console.log('Answer !!!')
                 console.log(answer)
+                console.log('GAME !!!!');
+                console.log(game);
                 return answer;
             }
             throw new AuthenticationError('You need to be logged in!');
