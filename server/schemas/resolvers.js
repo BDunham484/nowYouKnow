@@ -121,11 +121,9 @@ const resolvers = {
                 console.log(game)
                 return game;
             }
-            // //is there a way to push the question to the Game model via the games field in the User model
-            // //or should we just add a questions field to the User Model like in the Game model.  Then the questions field in the Game model would reference the User model??(shrug)
-            
+            throw new AuthenticationError('You need to be logged in!');
         }
     }
 };
 
-module.exports = resolvers;
+module.exports = resolvers;    
