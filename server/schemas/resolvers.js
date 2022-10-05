@@ -1,4 +1,4 @@
-const { User, Invite, Question } = require('../models');
+const { User, Invite, Question, Game } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -79,9 +79,11 @@ const resolvers = {
             };
         },
         //adds question to current Game: questions[]
-        addQuestion: async (parent, args) => {
-                const question = await Game.find(
-                    { $push: { question: args }},
+        addQuestion: async (parent, args, context) => {
+            console.log(context)
+                const question = await Game.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $push: { questions: args }},
                     { new: true }
                 );
                 return question;

@@ -18,7 +18,8 @@ const gameSchema = new Schema(
         winner: {
             type: String
         },
-        questions: [Question.schema]
+        questions: [Question.schema],
+        // opponentQuestions: [Question.schema]
     },
 );
 
