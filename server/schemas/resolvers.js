@@ -1,4 +1,4 @@
-const { User, Game, Question } = require('../models');
+const { User, Invite, Question } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -44,6 +44,24 @@ const resolvers = {
             }
             const token = signToken(user);
             return { token, user };
+        },
+        sendInvite: async (parent, { username }, context) => {
+            console.log(username);
+            const invite = await Invite.create({'username': context.user.username, accepted: false})
+            await User.findOneAndUpdate( 
+                {'username': username} , {$push: {
+                    openInvites: invite}})
+                return username
+        },
+        cancelInvite: async (parent, { username }, context) => {
+            await User.findOneAndUpdate( 
+                {'username': username} , {$pull: {openInvites: {'username': context.user.username}}})
+                return username
+        },
+        acceptInvite: async (parent, {username}, context) => {
+            await User.findOneAndUpdate( 
+                {'username': context.user.username, "openInvites.username": username} , {'openInvites.$.accepted': true})
+                return context.user.username
         },
         //adds game to current user games array
         addGame: async (parent, args, context) => {
