@@ -96,6 +96,7 @@ const resolvers = {
                     { $set: { currentGame: game._id } },
                     { new: true }
                 );
+                console.log(game._id)
                 return game;
             }
             throw new AuthenticationError('You need to be logged in!');
@@ -110,11 +111,13 @@ const resolvers = {
                 const user = await User.findOne({ _id: context.user._id })
 
                 const game = await Game.findByIdAndUpdate(
-                    { _id: user.currentGame._id },
+                    { _id: user.currentGame },
                     { $push: { questions: args } },
                     { new: true }
                 );
-                console.log(user.currentGame._id)
+                console.log('GAME ID!!!!')
+                console.log(user.currentGame)
+                console.log('GAME !!!')
                 console.log(game)
                 return game;
             }

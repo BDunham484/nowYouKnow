@@ -36,7 +36,7 @@ type User {
     username: String
     email: String
     inGame: Boolean
-    currentGame: ID
+    currentGame: String
     openInvites: [Invite]
     games: [Game]
 }
