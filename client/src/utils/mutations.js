@@ -29,3 +29,29 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_GAME = gql`
+  mutation AddGame(
+    $opponent: ID!,
+    $yourScore: Int,
+    $opponentScore: Int,
+    $winner: String
+    ) {
+    addGame(
+      opponent: $opponent
+      yourScore: $yourScore
+      opponentScore: $opponentScore
+      winner: $winner) {
+        _id
+        username
+        games {
+          opponent {
+          _id
+        }
+        yourScore
+        opponentScore
+        winner
+    }
+  }
+}
+`;
