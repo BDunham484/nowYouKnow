@@ -71,7 +71,7 @@ type Mutation {
     addQuestion(questionBody: String!, yourAnswer: String, opponentAnswer: String, yourGuess: String, opponentGuess: String, youCorrect: Boolean, opponentCorrect: Boolean): Game
     newGame(username: String): User
     newQuestion(questionBody: String): Question
-
+    addAnswer(yourAnswer: String, opponentAnswer: String, yourGuess: String, opponentGuess: String): Question
 }
 `;
 

@@ -143,6 +143,31 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
+
+        addAnswer: async (parent, args, context) => {
+            console.log('ARGS!!!')
+            console.log(args)
+            console.log('CONTEXT!!!');
+            console.log(context.user)
+            if (context.user) {
+                const user = await User.findOne({ _id: context.user._id })
+
+                const answer = await Question.findByIdAndUpdate(
+                    { _id: user.currentQuestion },
+                    { $set: { yourAnswer: args.yourAnswer,
+                        opponentAnswer: args.opponentAnswer,
+                        yourGuess: args.yourGuess,
+                        opponentGuess: args.opponentGuess} },
+                    { new: true }
+                );
+                console.log('Question ID!!!!')
+                console.log(user.currentQuestion)
+                console.log('Answer !!!')
+                console.log(answer)
+                return answer;
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
     }
 };
 
