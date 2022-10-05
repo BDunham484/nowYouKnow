@@ -80,9 +80,14 @@ const resolvers = {
         },
         //adds question to current Game: questions[]
         addQuestion: async (parent, args, context) => {
-            console.log(context)
-                const question = await Game.findByIdAndUpdate(
+            console.log('ARGS!!!')
+            console.log(args)
+            console.log('CONTEXT!!!');
+            console.log(context.user)
+                const question = await User.findByIdAndUpdate(
                     { _id: context.user._id },
+                    //is there a way to push the question to the Game model via the games field in the User model
+                    //or should we just add a questions field to the User Model like in the Game model.  Then the questions field in the Game model would reference the User model??(shrug)
                     { $push: { questions: args }},
                     { new: true }
                 );
