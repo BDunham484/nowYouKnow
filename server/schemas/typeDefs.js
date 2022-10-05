@@ -13,6 +13,7 @@ type CurrentGame {
 
 type Game {
     _id: ID
+    username: User
     opponent: User
     yourScore: Int
     opponentScore: Int
@@ -35,7 +36,7 @@ type User {
     username: String
     email: String
     inGame: Boolean
-    currentGame: CurrentGame
+    currentGame: [Game]
     openInvites: [Invite]
     games: [Game]
 }
@@ -66,6 +67,7 @@ type Mutation {
     acceptInvite(username: String!): String
     addGame(opponent: ID!, yourScore: Int, opponentScore: Int, winner: String, questions: [String]): User
     addQuestion(questionBody: String!, yourAnswer: String, opponentAnswer: String, yourGuess: String, opponentGuess: String, youCorrect: Boolean, opponentCorrect: Boolean): Game
+    newGame(username: String): User
 }
 `;
 
