@@ -34,7 +34,7 @@ const Header = () => {
   return (
     <header className={classes.header}>
       <div className={classes.header__content}>
-        <h2 className={classes.header__content__logo}>NowYouKnow</h2>
+        <h2 className={classes.header__content__logo}><span>N</span>ow<span>Y</span>ou<span>K</span>now</h2>
 
         <nav
           className={`${classes.header__content__nav} ${
