@@ -3,7 +3,6 @@ const { Schema, model } = require('mongoose');
 //import bcrypt package for password encryption
 const bcrypt = require('bcrypt');
 const Game = require('./Game');
-const CurrentGame = require('./CurrentGame');
 const Invite = require('./Invite')
 
 
@@ -31,7 +30,8 @@ const userSchema = new Schema(
         inGame: {
             type: Boolean
         },
-        currentGame: CurrentGame.schema,
+        currentGame: String,
+        currentQuestion: String,
         openInvites: [Invite.schema]
     },
     {

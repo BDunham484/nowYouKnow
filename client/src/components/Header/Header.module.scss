@@ -15,7 +15,6 @@
     overflow: hidden;
     color: $light;
     margin: 0 auto;
-    // min-width: 1920px;
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -88,7 +87,9 @@
             transition: 0.3s ease all;
 
             &:hover {
-              background: rgba($light, 0.1);
+              cursor: pointer;
+              color: $primary;
+              transition: ease-in-out 200ms;
             }
             &:active {
               border-radius: calc(#{$borderRadius} + 6px);
