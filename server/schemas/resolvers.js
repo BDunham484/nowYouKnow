@@ -55,7 +55,6 @@ const resolvers = {
             return { token, user };
         },
         sendInvite: async (parent, { username }, context) => {
-            console.log(username);
             const invite = await Invite.create({ 'username': context.user.username, accepted: false })
             await User.findOneAndUpdate(
                 { 'username': username }, {
@@ -74,6 +73,11 @@ const resolvers = {
             await User.findOneAndUpdate(
                 { 'username': context.user.username, "openInvites.username": username }, { 'openInvites.$.accepted': true })
             return context.user.username
+        },
+        declineInvite: async (parent, { username }, context) => {
+            await User.findOneAndUpdate(
+                { 'username': context.user.username }, { $pull: { openInvites: { 'username': username } } })
+            return username
         },
         // adds game to current user games array
         addGame: async (parent, args, context) => {

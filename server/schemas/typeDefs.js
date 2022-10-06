@@ -68,6 +68,7 @@ type Mutation {
     sendInvite(username: String!): String
     cancelInvite(username: String!): String
     acceptInvite(username: String!): String
+    declineInvite(username: String!): String
     addGame(opponent: ID!, yourScore: Int, opponentScore: Int, winner: String, questions: [String]): User
     addQuestion(questionBody: String!, yourAnswer: String, opponentAnswer: String, yourGuess: String, opponentGuess: String, youCorrect: Boolean, opponentCorrect: Boolean): Game
     newGame(username: String): User
