@@ -97,7 +97,7 @@ const resolvers = {
             console.log("CONTEXT!!!!")
             console.log(context.user)
             if (context.user) {
-                const game = await Game.create({ username: context.user.username });
+                const game = await Game.create({ 'username': context.user.username });
 
                 await User.findByIdAndUpdate(
                     { _id: context.user._id },
@@ -138,7 +138,7 @@ const resolvers = {
             console.log("CONTEXT!!!!")
             console.log(context.user)
             if (context.user) {
-                const question = await Question.create({ username: context.user.username });
+                const question = await Question.create({ 'username': context.user.username });
 
                 await User.findByIdAndUpdate(
                     { _id: context.user._id },
@@ -168,17 +168,17 @@ const resolvers = {
                     { new: true }
                 );
                //just trying stuff out here.  will get it sorted and cleaned up tomorrow morning.         
-                const game = await Game.findByIdAndUpdate(
-                    { _id: user.currentGame },
-                    { $push: { questions: args } },
-                    { new: true }
-                );
+                // const game = await Game.findByIdAndUpdate(
+                //     { _id: user.currentGame },
+                //     { $push: { questions: args } },
+                //     { new: true }
+                // );
                 console.log('Question ID!!!!')
                 console.log(user.currentQuestion)
                 console.log('Answer !!!')
                 console.log(answer)
-                console.log('GAME !!!!');
-                console.log(game);
+                // console.log('GAME !!!!');
+                // console.log(game);
                 return answer;
             }
             throw new AuthenticationError('You need to be logged in!');
