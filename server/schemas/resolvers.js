@@ -31,7 +31,7 @@ const resolvers = {
             if (context.user) {
                 return await Game.find();
             }
-            
+
         }
 
     },
@@ -58,9 +58,9 @@ const resolvers = {
             const invite = await Invite.create({ 'username': context.user.username, accepted: false })
             await User.findOneAndUpdate(
                 { 'username': username }, {
-                    $push: {
-                        openInvites: invite
-                    }
+                $push: {
+                    openInvites: invite
+                }
             })
             return username
         },
@@ -101,11 +101,12 @@ const resolvers = {
             console.log("CONTEXT!!!!")
             console.log(context.user)
             if (context.user) {
-                const game = await Game.create({ 'username': context.user.username });
+                // const game = await Game.create({ 'username': context.user.username });
+                const currentGame = await CurrentGame.create({ 'answerSubmit': false });
 
                 await User.findByIdAndUpdate(
                     { _id: context.user._id },
-                    { $set: { currentGame: game._id } },
+                    { $set: { currentGame: currentGame } },
                     { new: true }
                 );
                 console.log(game._id)
@@ -155,35 +156,23 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         },
 
-        addAnswer: async (parent, args, context) => {
+        submitAnswer: async (parent, { QandA }, context) => {
             console.log('ARGS!!!')
             console.log(args)
             console.log('CONTEXT!!!');
             console.log(context.user)
             if (context.user) {
-                const user = await User.findOne({ _id: context.user._id })
+                const currentGame = await CurrentGame.create({
+                    'QandA': QandA,
+                    'answerSubmit': true
+                });
 
-                const answer = await Question.findByIdAndUpdate(
-                    { _id: user.currentQuestion },
-                    { $set: { yourAnswer: args.yourAnswer,
-                        opponentAnswer: args.opponentAnswer,
-                        yourGuess: args.yourGuess,
-                        opponentGuess: args.opponentGuess} },
+                await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $set: { currentGame: currentGame } },
                     { new: true }
                 );
-               //just trying stuff out here.  will get it sorted and cleaned up tomorrow morning.         
-                // const game = await Game.findByIdAndUpdate(
-                //     { _id: user.currentGame },
-                //     { $push: { questions: args } },
-                //     { new: true }
-                // );
-                console.log('Question ID!!!!')
-                console.log(user.currentQuestion)
-                console.log('Answer !!!')
-                console.log(answer)
-                // console.log('GAME !!!!');
-                // console.log(game);
-                return answer;
+                return user;
             }
             throw new AuthenticationError('You need to be logged in!');
         },
