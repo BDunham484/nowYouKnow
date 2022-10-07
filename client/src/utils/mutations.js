@@ -32,9 +32,9 @@ export const ADD_USER = gql`
 
 export const ADD_GAME = gql`
   mutation AddGame(
-    $opponent: ID!,
-    $yourScore: Int,
-    $opponentScore: Int,
+    $opponent: ID!
+    $yourScore: Int
+    $opponentScore: Int
     $winner: String
     ) {
     addGame(
@@ -55,3 +55,31 @@ export const ADD_GAME = gql`
   }
 }
 `;
+
+
+export const SEND_INVITE = gql`
+  mutation sendInvite($username: String!) {
+    sendInvite(username: $username)
+  }
+`;
+
+export const CANCEL_INVITE = gql`
+  mutation cancelInvite($username: String!) {
+    cancelInvite(username: $username)
+  }
+`;
+
+export const ACCEPT_INVITE = gql`
+  mutation acceptInvite($username: String!) {
+    acceptInvite(username: $username)
+  }
+`;
+
+export const DECLINE_INVITE = gql`
+  mutation declineInvite($username: String!) {
+    declineInvite(username: $username)
+  }
+`;
+
+
+

@@ -6,23 +6,16 @@ export const GET_ME = gql`
             _id
             username
             email
-            inGame
-            currentGame {
-                _id
-                currentQuestion
-                answersSubmitted
-                answer
-                guess
-                createdAt
-            }
-            games {
-                yourScore
-                opponentScore
-                winner
-                opponent {
-                    _id
-                    username
-                }
+        }
+    }
+`
+
+export const GET_INVITES = gql`
+    {
+        me {
+            openInvites {
+                username
+                accepted
             }
         }
     }
