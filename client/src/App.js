@@ -1,33 +1,33 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
-} from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
 
-import Home from './pages/Home/index';
-import Game from './pages/Game';
-import NoMatch from './pages/NoMatch';
-import Login from './pages/Login/Login';
-import Signup from './pages/Signup/Signup';
-import GameHistory from './pages/GameHistory';
-import GameResults from './pages/GameResults';
-import Layout from './components/Layout/Layout';
+import Layout from "./components/Layout/Layout";
+import Home from "./pages/Home";
+import Game from "./pages/Game";
+import NoMatch from "./pages/NoMatch";
+import Login from "./pages/Login/Login";
+import Signup from "./pages/Signup/Signup";
+import GameHistory from "./pages/GameHistory";
+import GameResults from "./pages/GameResults";
 // import { StoreProvider } from './utils/GlobalState'
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: "/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
+  const token = localStorage.getItem("id_token");
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : '',
+      authorization: token ? `Bearer ${token}` : "",
     },
   };
 });
@@ -42,7 +42,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-            <Layout>
+          <Layout>
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
@@ -52,7 +52,7 @@ function App() {
               <Route exact path="/results/:id" component={GameResults} />
               <Route component={NoMatch} />
             </Switch>
-            </Layout>
+          </Layout>
         </div>
       </Router>
     </ApolloProvider>
