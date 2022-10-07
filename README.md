@@ -20,6 +20,17 @@ A game where you try to guess who said what
 
 ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
 
+***Requirements***
+
+* React for the front end.
+* GraphQL with a Node.js and Express.js server.
+* MongoDB and the Mongoose ODM for the database.
+* Queries and mutations for retrieving, adding, updating, and deleting data.
+* Deployed using Heroku (with data).
+* Polished UI, Responsive, Interactive (i.e., accept and respond to user input).
+* Include authentication (JWT).
+* Protect sensitive API key information on the server.
+
 ## Usage
 
 ## Contributing
