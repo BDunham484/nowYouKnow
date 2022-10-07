@@ -4,51 +4,88 @@ const { Schema, model } = require('mongoose');
 //create the schema for the model using the Schema constructor and outline the fields
 const questionSchema = new Schema(
     {
-        questionBody: {
+        // questionBody: {
+        //     type: String
+        // },
+        // yourAnswer: {
+        //     type: String,
+        //     // required: 'You need to leave an answer!',
+        //     minlength: 1,
+        //     maxlength: 280
+        // },
+        // opponentAnswer: {
+        //     type: String,
+        //     // required: 'You need to leave an answer!',
+        //     minlength: 1,
+        //     maxlength: 280
+        // },
+        // yourGuess: {
+        //     type: String,
+        //     // required: 'You need to make a guess!',
+        //     minlength: 1,
+        //     maxlength: 280
+        // },
+        // opponentGuess: {
+        //     type: String,
+        //     // required: 'You need to make a guess!',
+        //     minlength: 1,
+        //     maxlength: 280
+        // },
+        // youCorrect: {
+        //     type: Boolean
+        // },
+        // opponentCorrect: {
+        //     type: Boolean
+        // },
+        questionBody1: {
             type: String
         },
-        yourAnswer: {
-            type: String,
-            // required: 'You need to leave an answer!',
-            minlength: 1,
-            maxlength: 280
+        yourAnswer1: {
+            type: String
         },
-        opponentAnswer: {
-            type: String,
-            // required: 'You need to leave an answer!',
-            minlength: 1,
-            maxlength: 280
+        yourGuess1: {
+            type: String
         },
-        yourGuess: {
-            type: String,
-            // required: 'You need to make a guess!',
-            minlength: 1,
-            maxlength: 280
+        questionBody2: {
+            type: String
         },
-        opponentGuess: {
-            type: String,
-            // required: 'You need to make a guess!',
-            minlength: 1,
-            maxlength: 280
+        yourAnswer2: {
+            type: String
         },
-        youCorrect: {
-            type: Boolean
+        yourGuess2: {
+            type: String
         },
-        opponentCorrect: {
-            type: Boolean
-        }
+        questionBody3: {
+            type: String
+        },
+        yourAnswer3: {
+            type: String
+        },
+        yourGuess3: {
+            type: String
+        },
+        questionBody4: {
+            type: String
+        },
+        yourAnswer4: {
+            type: String
+        },
+        yourGuess4: {
+            type: String
+        },
+        questionBody5: {
+            type: String
+        },
+        yourAnswer5: {
+            type: String
+        },
+        yourGuess5: {
+            type: String
+        },
     },
-    // {
-    //     toJSON: {
-    //         getters: true
-    //     }
-    // }
 );
 
-// //get total count of guesses on retrieval
-// questionSchema.virtual('guessCount').get(function () {
-//     return this.guesses.length;
-// });
+
 
 //create the comment model using the CommentSchema
 const Question = model('Question', questionSchema);
