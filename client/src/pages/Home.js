@@ -10,24 +10,8 @@ const Home = () => {
 const login = Auth.loggedIn()
 return (
   <div>
-    <div className="container">
-      <div className="particles"></div>
-      <div className="particles"></div>
-      <div className="particles"></div>
-      <div className="particles"></div>
-      <div className="particles"></div>
-      <div className="particles"></div>
-      <div className="particles"></div>
-      <div className="particles"></div>
-      <div className="particles"></div>
-      <div className="particles"></div>
-      <div className="particles"></div>
-      <div className="particles"></div>
-      <div className="particles"></div>
-      <div className="particles"></div>
-      <div className="particles"></div>
-      <div className="border"></div>
-      <div className="border"></div>
+    <div>
+    <button className="ripple">Start Game</button>
     </div>
   {login ? (
     <>
