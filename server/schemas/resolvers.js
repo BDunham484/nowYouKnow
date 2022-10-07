@@ -95,7 +95,7 @@ const resolvers = {
             };
         },
         //creates newGame, generates Game _id, and pushes it to currentGame array in User model
-        newGame: async (parent, args, context) => {
+        newGame: async (parent, context) => {
             console.log('ARGS!!!!!')
             console.log(args)
             console.log("CONTEXT!!!!")
@@ -162,6 +162,15 @@ const resolvers = {
             console.log('CONTEXT!!!');
             console.log(context.user)
             if (context.user) {
+                let finalArray = []
+                QandA.map(question => {
+                    const questionModel = Question.create({
+                        'questionBody': questionModel.question,
+                        'yourAnswer': questionModel.answer,
+                        'yourGuess': questionModel.guess
+                    })
+                    finalArray.push[questionModel]
+                })
                 const currentGame = await CurrentGame.create({
                     'QandA': QandA,
                     'answerSubmit': true
