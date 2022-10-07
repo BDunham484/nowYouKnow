@@ -8,14 +8,15 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-import Home from './pages/Home/index';
+import Layout from './components/Layout/Layout';
+import Home from './pages/Home';
 import Game from './pages/Game';
 import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import GameHistory from './pages/GameHistory';
 import GameResults from './pages/GameResults';
-import Layout from './components/Layout/Layout';
+
 // import { StoreProvider } from './utils/GlobalState'
 
 const httpLink = createHttpLink({
