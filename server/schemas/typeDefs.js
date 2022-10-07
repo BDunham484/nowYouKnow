@@ -4,10 +4,9 @@ const typeDefs = gql `
 
 type CurrentGame {
     _id: ID
-    currentQuestion: Int
-    answersSubmitted: Boolean
-    answer: String
-    guess: String
+    yourQandA: [Question]
+    opponentQandA: [Question]
+    opponentSubmit: Boolean
     createdAt: String
 }
 
