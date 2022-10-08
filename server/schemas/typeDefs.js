@@ -73,6 +73,7 @@ type Mutation {
     newGame(username: String): User
     newQuestion(questionBody: String): Question
     addAnswer(yourAnswer: String, opponentAnswer: String, yourGuess: String, opponentGuess: String): Question
+    
 }
 `;
 

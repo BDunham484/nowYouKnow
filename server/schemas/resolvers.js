@@ -45,7 +45,7 @@ const resolvers = {
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
             if (!user) {
-                throw new AuthenticationError('Invalid Username')
+                throw new AuthenticationError('Invalid email')
             }
             const correctPw = await user.isCorrectPassword(password);
             if (!correctPw) {
@@ -156,35 +156,35 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         },
 
-        submitAnswer: async (parent, { QandA }, context) => {
-            console.log('ARGS!!!')
-            console.log(args)
-            console.log('CONTEXT!!!');
-            console.log(context.user)
-            if (context.user) {
-                let finalArray = []
-                QandA.map(question => {
-                    const questionModel = Question.create({
-                        'questionBody': questionModel.question,
-                        'yourAnswer': questionModel.answer,
-                        'yourGuess': questionModel.guess
-                    })
-                    finalArray.push[questionModel]
-                })
-                const currentGame = await CurrentGame.create({
-                    'QandA': QandA,
-                    'answerSubmit': true
-                });
+        // submitAnswer: async (parent, { QandA }, context) => {
+        //     console.log('ARGS!!!')
+        //     console.log(args)
+        //     console.log('CONTEXT!!!');
+        //     console.log(context.user)
+        //     if (context.user) {
+        //         let finalArray = []
+        //         QandA.map(question => {
+        //             const questionModel = Question.create({
+        //                 'questionBody': questionModel.question,
+        //                 'yourAnswer': questionModel.answer,
+        //                 'yourGuess': questionModel.guess
+        //             })
+        //             finalArray.push[questionModel]
+        //         })
+        //         const currentGame = await CurrentGame.create({
+        //             'QandA': QandA,
+        //             'answerSubmit': true
+        //         });
 
-                await User.findByIdAndUpdate(
-                    { _id: context.user._id },
-                    { $set: { currentGame: currentGame } },
-                    { new: true }
-                );
-                return user;
-            }
-            throw new AuthenticationError('You need to be logged in!');
-        },
+        //         await User.findByIdAndUpdate(
+        //             { _id: context.user._id },
+        //             { $set: { currentGame: currentGame } },
+        //             { new: true }
+        //         );
+        //         return user;
+        //     }
+        //     throw new AuthenticationError('You need to be logged in!');
+        // }
     }
 };
 
