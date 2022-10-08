@@ -8,7 +8,6 @@ const Question = require('./Question');
 const currentGameSchema = new Schema(
     {   
         QandA: [Question.schema],
-        // opponentQandA: [Question.schema],
         answerSubmit: {
             type: Boolean
         },
@@ -25,7 +24,3 @@ const CurrentGame = model('CurrentGame', currentGameSchema);
 //export the Guess schema
 module.exports = CurrentGame;
 
-
-// submitAnswer(QandA: [Question]): Question
-
-// submitAnswer(questionBody: String, yourAnswer: String, yourGuess: String): Question

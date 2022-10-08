@@ -153,23 +153,11 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
-
+        //submit currentgame questions, answers, and guesses
         submitAnswer: async (parent, { questions, answers, guesses }, context) => {
-        // submitAnswer: async (parent, args, context) => {
-            console.log('questions: ' + questions);
-            console.log('answers: ' + answers);
-            console.log('guesses: ' + guesses);
-            // console.log(args)
             if (context.user) {
-                // let finalArray = []
-                // answers.map((answer, index) => {
-                //     const questionModel = {
-                //         'yourAnswer': answer,
-                //         'yourGuess': guesses[index]
-                //     }
-                //     finalArray.push(questionModel)
-                // })
                 let finalArray = []
+                //map through array of question ands save to variable along with corresponding answers and guesses as array of objects
                 questions.map((question, index) => {
                     const questionModel = {
                         questions: question,
@@ -178,23 +166,25 @@ const resolvers = {
                     }
                     finalArray.push(questionModel)
                 })
-                
-
-                console.log(finalArray);
+                //create new currentGame and assign all Q&A&G data to QandA field. Flip answerSubmit to true
                 const currentGame = await CurrentGame.create({
                     'QandA': finalArray,
                     'answerSubmit': true
                 });
-
+                //find current user and update currentGame field with new currentGame data
                 const user = await User.findByIdAndUpdate(
                     { _id: context.user._id },
                     { $set: { currentGame: currentGame } },
                     { new: true }
                 );
-                // return context.user.username;
+                //push the same currentGame to data to the current Users games field array. 
+                const games = await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $push: { games: currentGame }},
+                    { new: true }
+                )
                 return user
             }
-            
             throw new AuthenticationError('You need to be logged in!');
         },
     }
