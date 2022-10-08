@@ -155,15 +155,30 @@ const resolvers = {
         },
 
         submitAnswer: async (parent, { questions, answers, guesses }, context) => {
+        // submitAnswer: async (parent, args, context) => {
+            console.log('questions: ' + questions);
+            console.log('answers: ' + answers);
+            console.log('guesses: ' + guesses);
+            // console.log(args)
             if (context.user) {
+                // let finalArray = []
+                // answers.map((answer, index) => {
+                //     const questionModel = {
+                //         'yourAnswer': answer,
+                //         'yourGuess': guesses[index]
+                //     }
+                //     finalArray.push(questionModel)
+                // })
                 let finalArray = []
-                answers.map((answer, index) => {
+                questions.map((question, index) => {
                     const questionModel = {
-                        'yourAnswer': answer,
-                        'yourGuess': guesses[index]
+                        questions: question,
+                        answers: answers[index],
+                        guesses: guesses[index]
                     }
                     finalArray.push(questionModel)
                 })
+                
 
                 console.log(finalArray);
                 const currentGame = await CurrentGame.create({
@@ -176,8 +191,8 @@ const resolvers = {
                     { $set: { currentGame: currentGame } },
                     { new: true }
                 );
-                return context.user.username;
-                // return user
+                // return context.user.username;
+                return user
             }
             
             throw new AuthenticationError('You need to be logged in!');

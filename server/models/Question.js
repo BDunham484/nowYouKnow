@@ -4,6 +4,15 @@ const { Schema, model } = require('mongoose');
 //create the schema for the model using the Schema constructor and outline the fields
 const questionSchema = new Schema(
     {
+        questions: {
+            type: [String]
+        },
+        answers: {
+            type: [String]
+        },
+        guesses: {
+            type: [String]
+        }
         // questionBody: {
         //     type: String
         // },
@@ -37,51 +46,51 @@ const questionSchema = new Schema(
         // opponentCorrect: {
         //     type: Boolean
         // },
-        questionBody1: {
-            type: String
-        },
-        yourAnswer1: {
-            type: String
-        },
-        yourGuess1: {
-            type: String
-        },
-        questionBody2: {
-            type: String
-        },
-        yourAnswer2: {
-            type: String
-        },
-        yourGuess2: {
-            type: String
-        },
-        questionBody3: {
-            type: String
-        },
-        yourAnswer3: {
-            type: String
-        },
-        yourGuess3: {
-            type: String
-        },
-        questionBody4: {
-            type: String
-        },
-        yourAnswer4: {
-            type: String
-        },
-        yourGuess4: {
-            type: String
-        },
-        questionBody5: {
-            type: String
-        },
-        yourAnswer5: {
-            type: String
-        },
-        yourGuess5: {
-            type: String
-        },
+        // questionBody1: {
+        //     type: String
+        // },
+        // yourAnswer1: {
+        //     type: String
+        // },
+        // yourGuess1: {
+        //     type: String
+        // },
+        // questionBody2: {
+        //     type: String
+        // },
+        // yourAnswer2: {
+        //     type: String
+        // },
+        // yourGuess2: {
+        //     type: String
+        // },
+        // questionBody3: {
+        //     type: String
+        // },
+        // yourAnswer3: {
+        //     type: String
+        // },
+        // yourGuess3: {
+        //     type: String
+        // },
+        // questionBody4: {
+        //     type: String
+        // },
+        // yourAnswer4: {
+        //     type: String
+        // },
+        // yourGuess4: {
+        //     type: String
+        // },
+        // questionBody5: {
+        //     type: String
+        // },
+        // yourAnswer5: {
+        //     type: String
+        // },
+        // yourGuess5: {
+        //     type: String
+        // },
     },
 );
 
