@@ -78,27 +78,10 @@ type Mutation {
     declineInvite(username: String!): String
     addGame(opponent: ID!, yourScore: Int, opponentScore: Int, winner: String, questions: [String]): User
     addQuestion(questionBody: String!, yourAnswer: String, opponentAnswer: String, yourGuess: String, opponentGuess: String, youCorrect: Boolean, opponentCorrect: Boolean): Game
-    newGame(username: String): User
+    newGame: String
     newQuestion(questionBody: String): Question
-    
-    submitAnswer(
-        questionBody1: String
-        yourAnswer1: String
-        yourGuess1: String
-        questionBody2: String
-        yourAnswer2: String
-        yourGuess2: String
-        questionBody3: String
-        yourAnswer3: String
-        yourGuess3: String
-        questionBody4: String
-        yourAnswer4: String
-        yourGuess4: String
-        questionBody5: String
-        yourAnswer5: String
-        yourGuess5: String
-        ): User
-    
+    addAnswer(yourAnswer: String, opponentAnswer: String, yourGuess: String, opponentGuess: String): Question
+    submitAnswer(questions: [String]!, answers: [String]!, guesses: [String]!): String
 }
 `;
 
