@@ -175,6 +175,8 @@ const resolvers = {
                 //     })
                 //     finalArray.push[questionModel]
                 // })
+
+                
                 const currentGame = await CurrentGame.create({
                     'QandA': args,
                     'answerSubmit': true
@@ -185,6 +187,14 @@ const resolvers = {
                     { $set: { currentGame: currentGame } },
                     { new: true }
                 );
+
+                const gameStuff = await User.findByIdAndUpdate(
+                    {_id: context.user._id},
+                    { $push: { games: currentGame }},
+                    { new: true }
+                )
+
+                console.log(gameStuff);
                 console.log(currentGame)
                 return user;
             }
