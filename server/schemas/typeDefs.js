@@ -4,9 +4,8 @@ const typeDefs = gql `
 
 type CurrentGame {
     _id: ID
-    yourQandA: [Question]
-    opponentQandA: [Question]
-    opponentSubmit: Boolean
+    QandA: [Question]
+    answerSubmit: Boolean
     createdAt: String
 }
 
@@ -36,7 +35,7 @@ type User {
     username: String
     email: String
     inGame: Boolean
-    currentGame: String
+    currentGame: CurrentGame
     currentQuestion: String
     openInvites: [Invite]
     games: [Game]
@@ -70,9 +69,10 @@ type Mutation {
     declineInvite(username: String!): String
     addGame(opponent: ID!, yourScore: Int, opponentScore: Int, winner: String, questions: [String]): User
     addQuestion(questionBody: String!, yourAnswer: String, opponentAnswer: String, yourGuess: String, opponentGuess: String, youCorrect: Boolean, opponentCorrect: Boolean): Game
-    newGame(username: String): User
+    newGame: String
     newQuestion(questionBody: String): Question
     addAnswer(yourAnswer: String, opponentAnswer: String, yourGuess: String, opponentGuess: String): Question
+    submitAnswer(questions: [String]!, answers: [String]!, guesses: [String]!): String
 }
 `;
 
