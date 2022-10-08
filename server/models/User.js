@@ -27,7 +27,7 @@ const userSchema = new Schema(
             required: true,
             minlength: 5
         },
-        games: [Game.schema],
+        games: [CurrentGame.schema],
         inGame: {
             type: Boolean
         },

@@ -16,7 +16,7 @@ type Game {
     yourScore: Int
     opponentScore: Int
     winner: String
-    questions: [Question]
+    questions: [CurrentGame]
 }
 
 type Question {
@@ -43,7 +43,7 @@ type User {
     username: String
     email: String
     password: String
-    games: [Game]
+    games: [CurrentGame]
     inGame: Boolean
     currentGame: CurrentGame
     currentQuestion: String
