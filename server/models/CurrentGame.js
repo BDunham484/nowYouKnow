@@ -12,6 +12,12 @@ const currentGameSchema = new Schema(
         answerSubmit: {
             type: Boolean
         },
+        category: {
+            type: String
+        },
+        opponent: {
+            type: String
+        },
         createdAt: {
             type: Date,
             default: Date.now,

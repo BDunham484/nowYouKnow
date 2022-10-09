@@ -55,8 +55,9 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        sendInvite: async (parent, { username }, context) => {
-            const invite = await Invite.create({ 'username': context.user.username, accepted: false })
+        sendInvite: async (parent, { username, category }, context) => {
+            console.log(username);
+            const invite = await Invite.create({ 'username': context.user.username, accepted: false, 'category': category })
             await User.findOneAndUpdate(
                 { 'username': username }, {
                 $push: {
@@ -96,10 +97,12 @@ const resolvers = {
             };
         },
         //creates newGame, generates Game _id, and pushes it to currentGame array in User model
-        newGame: async (parent, args, context) => {
+        newGame: async (parent, { category, opponent }, context) => {
             if(context.user) {
             const currentGame = await CurrentGame.create({
-                'answerSubmit': false
+                'answerSubmit': false,
+                'category': category,
+                'opponent': opponent
             })
             await User.findOneAndUpdate(
                 { 'username': context.user.username }, {
@@ -110,6 +113,30 @@ const resolvers = {
             return context.user.username
         }
             throw new AuthenticationError('You need to be logged in!');
+        },
+        joinGame: async(parent, args, context) => {
+            if(context.user) {
+                await User.findOneAndUpdate(
+                    { 'username': context.user.username }, {
+                    $set: {
+                        inGame: true
+                    }
+                })
+                return context.user.username
+            }
+                throw new AuthenticationError('You need to be logged in!');
+        },
+        leaveGame: async(parent, args, context) => {
+            if(context.user) {
+                await User.findOneAndUpdate(
+                    { 'username': context.user.username }, {
+                    $set: {
+                        inGame: false
+                    }
+                })
+                return context.user.username
+            }
+                throw new AuthenticationError('You need to be logged in!');
         },
         //adds question to current Game: questions[]
         addQuestion: async (parent, args, context) => {

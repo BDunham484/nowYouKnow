@@ -6,6 +6,8 @@ type CurrentGame {
     _id: ID
     QandA: [Question]
     answerSubmit: Boolean
+    category: String
+    opponent: String
     createdAt: String
 }
 
@@ -44,6 +46,7 @@ type User {
 type Invite {
     _id: ID
     username: String
+    category: String
     accepted: Boolean
 }
 
@@ -63,13 +66,15 @@ type Auth {
 type Mutation {
     login(email: String!, password:String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    sendInvite(username: String!): String
+    sendInvite(username: String!, category: String!): String
     cancelInvite(username: String!): String
     acceptInvite(username: String!): String
     declineInvite(username: String!): String
     addGame(opponent: ID!, yourScore: Int, opponentScore: Int, winner: String, questions: [String]): User
     addQuestion(questionBody: String!, yourAnswer: String, opponentAnswer: String, yourGuess: String, opponentGuess: String, youCorrect: Boolean, opponentCorrect: Boolean): Game
-    newGame: String
+    newGame(category: String!, opponent: String!): String
+    joinGame: String
+    leaveGame: String
     newQuestion(questionBody: String): Question
     addAnswer(yourAnswer: String, opponentAnswer: String, yourGuess: String, opponentGuess: String): Question
     submitAnswer(questions: [String]!, answers: [String]!, guesses: [String]!): String
