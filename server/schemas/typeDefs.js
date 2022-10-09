@@ -36,11 +36,12 @@ type User {
     _id: ID
     username: String
     email: String
+    password: String
+    games: [Game]
     inGame: Boolean
     currentGame: CurrentGame
     currentQuestion: String
     openInvites: [Invite]
-    games: [Game]
 }
 
 type Invite {

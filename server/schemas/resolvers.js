@@ -3,7 +3,7 @@ const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 const Game = require('../models/Game');
 const Question = require('../models/Question');
-const CurrentGame = require('../models/CurrentGame')
+const CurrentGame = require('../models/CurrentGame');
 
 
 const resolvers = {
@@ -139,6 +139,7 @@ const resolvers = {
                 throw new AuthenticationError('You need to be logged in!');
         },
         //adds question to current Game: questions[]
+        //with the addition of asking/answering all 5 questions at once this resolver may not be needed.  Leaving for now. 
         addQuestion: async (parent, args, context) => {
             console.log('ARGS!!!')
             console.log(args)
@@ -160,7 +161,7 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
-
+        //with the addition of asking/answering all 5 questions at once this resolver may not be needed.  Leaving for now. 
         newQuestion: async (parent, args, context) => {
             console.log('ARGS!!!!!')
             console.log(args)
@@ -191,19 +192,19 @@ const resolvers = {
                     finalArray.push(questionModel)
                 })
 
-                console.log(finalArray);
                 const currentGame = await CurrentGame.create({
                     'QandA': finalArray,
                     'answerSubmit': true
                 });
 
-                await User.findByIdAndUpdate(
+                const user = await User.findByIdAndUpdate(
                     { _id: context.user._id },
                     { $set: { currentGame: currentGame } },
                     { new: true }
                 );
                 return context.user.username;
             }
+            
             throw new AuthenticationError('You need to be logged in!');
         },
     }

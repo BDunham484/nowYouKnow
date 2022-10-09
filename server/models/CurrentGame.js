@@ -30,3 +30,8 @@ const CurrentGame = model('CurrentGame', currentGameSchema);
 
 //export the Guess schema
 module.exports = CurrentGame;
+
+
+// submitAnswer(QandA: [Question]): Question
+
+// submitAnswer(questionBody: String, yourAnswer: String, yourGuess: String): Question

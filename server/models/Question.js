@@ -37,18 +37,10 @@ const questionSchema = new Schema(
         opponentCorrect: {
             type: Boolean
         }
-    },
-    // {
-    //     toJSON: {
-    //         getters: true
-    //     }
-    // }
+    }
 );
 
-// //get total count of guesses on retrieval
-// questionSchema.virtual('guessCount').get(function () {
-//     return this.guesses.length;
-// });
+
 
 //create the comment model using the CommentSchema
 const Question = model('Question', questionSchema);
