@@ -1,7 +1,6 @@
 //import the Schema contructor and the model function from mongoose
 const { Schema, model } = require('mongoose');
 const Question = require('./Question')
-const CurrentGame = require('./CurrentGame');
 
 //create the schema for the model using the Schema contructor and outline the fields
 const gameSchema = new Schema(
@@ -22,8 +21,7 @@ const gameSchema = new Schema(
         winner: {
             type: String
         },
-        questions: [CurrentGame.schema],
-        // opponentQuestions: [Question.schema]
+        questions: [Question.schema],
     },
 );
 
