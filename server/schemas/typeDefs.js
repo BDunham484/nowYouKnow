@@ -6,6 +6,8 @@ type CurrentGame {
     _id: ID
     QandA: [Question]
     answerSubmit: Boolean
+    category: String
+    opponent: String
     createdAt: String
 }
 
@@ -16,26 +18,18 @@ type Game {
     yourScore: Int
     opponentScore: Int
     winner: String
-    questions: [CurrentGame]
+    questions: [Question]
 }
 
 type Question {
     _id: ID
-    questionBody1: String
-    yourAnswer1: String
-    yourGuess1: String
-    questionBody2: String
-    yourAnswer2: String
-    yourGuess2: String
-    questionBody3: String
-    yourAnswer3: String
-    yourGuess3: String
-    questionBody4: String
-    yourAnswer4: String
-    yourGuess4: String
-    questionBody5: String
-    yourAnswer5: String
-    yourGuess5: String
+    questionBody: String
+    yourAnswer: String
+    opponentAnswer: String
+    yourGuess: String
+    opponentGuess: String
+    youCorrect: Boolean
+    opponentCorrect: Boolean
 }
 
 type User {
@@ -43,7 +37,7 @@ type User {
     username: String
     email: String
     password: String
-    games: [CurrentGame]
+    games: [Game]
     inGame: Boolean
     currentGame: CurrentGame
     currentQuestion: String
@@ -53,6 +47,7 @@ type User {
 type Invite {
     _id: ID
     username: String
+    category: String
     accepted: Boolean
 }
 
@@ -72,37 +67,18 @@ type Auth {
 type Mutation {
     login(email: String!, password:String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    sendInvite(username: String!): String
+    sendInvite(username: String!, category: String!): String
     cancelInvite(username: String!): String
     acceptInvite(username: String!): String
     declineInvite(username: String!): String
     addGame(opponent: ID!, yourScore: Int, opponentScore: Int, winner: String, questions: [String]): User
     addQuestion(questionBody: String!, yourAnswer: String, opponentAnswer: String, yourGuess: String, opponentGuess: String, youCorrect: Boolean, opponentCorrect: Boolean): Game
-    newGame(username: String): User
+    newGame(category: String!, opponent: String!): String
+    joinGame: String
+    leaveGame: String
     newQuestion(questionBody: String): Question
-<<<<<<< HEAD
     addAnswer(yourAnswer: String, opponentAnswer: String, yourGuess: String, opponentGuess: String): Question
-=======
-    
-    submitAnswer(
-        questionBody1: String
-        yourAnswer1: String
-        yourGuess1: String
-        questionBody2: String
-        yourAnswer2: String
-        yourGuess2: String
-        questionBody3: String
-        yourAnswer3: String
-        yourGuess3: String
-        questionBody4: String
-        yourAnswer4: String
-        yourGuess4: String
-        questionBody5: String
-        yourAnswer5: String
-        yourGuess5: String
-        ): User
->>>>>>> develop
-    
+    submitAnswer(questions: [String]!, answers: [String]!, guesses: [String]!): String
 }
 `;
 

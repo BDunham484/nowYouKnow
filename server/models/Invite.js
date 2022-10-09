@@ -6,6 +6,9 @@ const inviteSchema = new Schema(
         username: {
             type: String
         },
+        category: {
+            type: String
+        },
         accepted: {
             type: Boolean
         }

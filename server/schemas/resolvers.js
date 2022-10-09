@@ -55,8 +55,9 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        sendInvite: async (parent, { username }, context) => {
-            const invite = await Invite.create({ 'username': context.user.username, accepted: false })
+        sendInvite: async (parent, { username, category }, context) => {
+            console.log(username);
+            const invite = await Invite.create({ 'username': context.user.username, accepted: false, 'category': category })
             await User.findOneAndUpdate(
                 { 'username': username }, {
                 $push: {
@@ -96,24 +97,46 @@ const resolvers = {
             };
         },
         //creates newGame, generates Game _id, and pushes it to currentGame array in User model
-        newGame: async (parent, context) => {
-            console.log('ARGS!!!!!')
-            console.log(args)
-            console.log("CONTEXT!!!!")
-            console.log(context.user)
-            if (context.user) {
-                // const game = await Game.create({ 'username': context.user.username });
-                const currentGame = await CurrentGame.create({ 'answerSubmit': false });
-
-                await User.findByIdAndUpdate(
-                    { _id: context.user._id },
-                    { $set: { currentGame: currentGame } },
-                    { new: true }
-                );
-                console.log(game._id)
-                return game;
-            }
+        newGame: async (parent, { category, opponent }, context) => {
+            if(context.user) {
+            const currentGame = await CurrentGame.create({
+                'answerSubmit': false,
+                'category': category,
+                'opponent': opponent
+            })
+            await User.findOneAndUpdate(
+                { 'username': context.user.username }, {
+                $set: {
+                    currentGame: currentGame
+                }
+            })
+            return context.user.username
+        }
             throw new AuthenticationError('You need to be logged in!');
+        },
+        joinGame: async(parent, args, context) => {
+            if(context.user) {
+                await User.findOneAndUpdate(
+                    { 'username': context.user.username }, {
+                    $set: {
+                        inGame: true
+                    }
+                })
+                return context.user.username
+            }
+                throw new AuthenticationError('You need to be logged in!');
+        },
+        leaveGame: async(parent, args, context) => {
+            if(context.user) {
+                await User.findOneAndUpdate(
+                    { 'username': context.user.username }, {
+                    $set: {
+                        inGame: false
+                    }
+                })
+                return context.user.username
+            }
+                throw new AuthenticationError('You need to be logged in!');
         },
         //adds question to current Game: questions[]
         //with the addition of asking/answering all 5 questions at once this resolver may not be needed.  Leaving for now. 
@@ -158,27 +181,20 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         },
 
+        submitAnswer: async (parent, { questions, answers, guesses }, context) => {
 
-
-        submitAnswer: async (parent, args, context) => {
-            console.log('QandA!!!')
-            console.log(args)
-            console.log('CONTEXT!!!');
-            console.log(context.user)
             if (context.user) {
-                // let finalArray = []
-                // QandA.map(question => {
-                //     const questionModel = Question.create({
-                //         'questionBody': questionModel.question,
-                //         'yourAnswer': questionModel.answer,
-                //         'yourGuess': questionModel.guess
-                //     })
-                //     finalArray.push[questionModel]
-                // })
+                let finalArray = []
+                answers.map((answer, index) => {
+                    const questionModel = {
+                        'yourAnswer': answer,
+                        'yourGuess': guesses[index]
+                    }
+                    finalArray.push(questionModel)
+                })
 
-                
                 const currentGame = await CurrentGame.create({
-                    'QandA': args,
+                    'QandA': finalArray,
                     'answerSubmit': true
                 });
 
@@ -187,16 +203,7 @@ const resolvers = {
                     { $set: { currentGame: currentGame } },
                     { new: true }
                 );
-
-                const gameStuff = await User.findByIdAndUpdate(
-                    {_id: context.user._id},
-                    { $push: { games: currentGame }},
-                    { new: true }
-                )
-
-                console.log(gameStuff);
-                console.log(currentGame)
-                return user;
+                return context.user.username;
             }
             
             throw new AuthenticationError('You need to be logged in!');
