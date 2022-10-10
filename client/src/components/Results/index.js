@@ -81,8 +81,6 @@ const Results = () => {
 
     const testing = () => {
         console.log('TEST BUTTON CLICKED');
-        // console.log(data)
-        // console.log(answers)
         console.log(compareUsers(yourData, opponentData, questions))
         // compareUsers(yourData, opponentData)
     }

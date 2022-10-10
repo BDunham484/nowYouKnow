@@ -86,6 +86,35 @@ export const ADD_GAME = gql`
 }
 `;
 
+// //updated ADD_GAME to fit format returned by compareUser helper
+// export const ADD_GAME = gql`
+//   mutation AddGame(
+//     $username: String
+//     $opponent: String
+//     $yourScore: Int
+//     $opponentScore: Int
+//     $winner: String
+//     $questions: [Question]
+//     ) {
+//     addGame(
+//       username: $username
+//       opponent: $opponent
+//       yourScore: $yourScore
+//       opponentScore: $opponentScore
+//       winner: $winner) {
+//         username
+//         games {
+//           opponent {
+//           opponent
+//         }
+//         yourScore
+//         opponentScore
+//         winner
+//     }
+//   }
+// }
+// `;
+
 
 export const SEND_INVITE = gql`
   mutation sendInvite($username: String!, $category: String!) {

@@ -1,15 +1,10 @@
 
-
+//helper function that takes players data and the questions to output the game model
 export function compareUsers(yourData, opponentData, questions) {
-    console.log(questions)
     let yourQandA = yourData.me.currentGame.QandA;
     let opponentQandA = opponentData.user.currentGame.QandA;
     let username = yourData.me.username;
     let opponent = yourData.me.currentGame.opponent;
-    // console.log('yourData!!!!');
-    // console.log(yourQandA);
-    // console.log('opponentData!!!!');
-    // console.log(opponentQandA)
     var winner = '';
     let yourScore = 0;
     let opponentScore = 0;
@@ -20,9 +15,17 @@ export function compareUsers(yourData, opponentData, questions) {
         } 
         
         if (answer.yourGuess === opponentQandA[index].yourAnswer){
-            yourScore++
-            
+            yourScore++  
         }
+
+        const questionModel = {
+            'questionBody': questions[index],
+            'yourAnswer': answer.yourAnswer,
+            'opponentAnswer': opponentQandA[index].yourAnswer,
+            'yourGuess': answer.yourGuess,
+            'opponentGuess': opponentQandA[index].yourGuess
+        }
+        questionArray.push(questionModel);
     })
 
     if (yourScore > opponentScore) {
@@ -39,6 +42,6 @@ export function compareUsers(yourData, opponentData, questions) {
         yourScore: yourScore,
         opponentScore: opponentScore,
         winner: winner,
-        question: []
+        question: questionArray
     }
 }
