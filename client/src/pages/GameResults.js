@@ -1,10 +1,11 @@
 import React from "react";
-import { useMutation, useQuery } from '@apollo/client';
-import { GET_ME, GET_USER_INFO } from '../utils/queries'
+
+import Results from '../components/Results';
 
 const GameResults = () => {
   return (
     <div>
+      <Results />
     </div>
   );
 };

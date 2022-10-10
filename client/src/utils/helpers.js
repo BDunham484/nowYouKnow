@@ -1,5 +1,4 @@
-//compare yourAnswer with opponentGuess
-// compare yourGuess with opponentAnswer
+
 
 let yourScore = 0
 let opponentScore = 0
@@ -46,4 +45,13 @@ if (opponentScore > yourScore) {
 yourData = [
     {'yourAnswer': }
 ]
+
+
+// export const compareUsers = (yourData, opponentData) => {
+//     console.log('hello')
+// };
+
+export function compareUsers() {
+    console.log('hello')
+}
 
