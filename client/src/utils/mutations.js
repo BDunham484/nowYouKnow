@@ -30,6 +30,36 @@ export const ADD_USER = gql`
   }
 `;
 
+export const NEW_GAME = gql`
+  mutation newGame(
+    $category: String!
+    $opponent: String!
+  ) {
+    newGame(
+      category: $category
+      opponent: $opponent
+    )
+  }
+`
+
+export const JOIN_GAME = gql`
+  mutation joinGame {
+    joinGame
+  }
+`
+
+export const LEAVE_GAME = gql`
+  mutation leaveGame {
+    leaveGame
+  }
+`
+
+export const SUBMIT_ANSWERS = gql`
+mutation($questions: [String]!, $answers: [String]!, $guesses: [String]!) {
+  submitAnswer(questions: $questions, answers: $answers, guesses: $guesses)
+}
+`
+
 export const ADD_GAME = gql`
   mutation AddGame(
     $opponent: ID!
@@ -58,8 +88,8 @@ export const ADD_GAME = gql`
 
 
 export const SEND_INVITE = gql`
-  mutation sendInvite($username: String!) {
-    sendInvite(username: $username)
+  mutation sendInvite($username: String!, $category: String!) {
+    sendInvite(username: $username, category: $category)
   }
 `;
 

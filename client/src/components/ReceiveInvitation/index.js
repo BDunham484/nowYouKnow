@@ -1,23 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
-import { GET_INVITES } from '../../utils/queries'
-import { ACCEPT_INVITE, DECLINE_INVITE } from '../../utils/mutations'
+import { GET_INVITES, GET_ME } from '../../utils/queries'
+import { ACCEPT_INVITE, DECLINE_INVITE, NEW_GAME, JOIN_GAME } from '../../utils/mutations'
 
 
 
 const ReceiveInvites = () => {
-  const {loading, data} = useQuery(GET_INVITES, 
-    {pollInterval: 1000})
+    const {loading, data} = useQuery(GET_INVITES, 
+      {pollInterval: 1000})
+    const {loading: myLoading, data: myData} = useQuery(GET_ME, 
+      {pollInterval: 1000})
     const [acceptInvite, { error }] = useMutation(ACCEPT_INVITE);
     const [declineInvite] = useMutation(DECLINE_INVITE);
+    const [newGame] = useMutation(NEW_GAME)
+    const [joinGame] = useMutation(JOIN_GAME)
 
-    if(!loading){
-        console.log(data.me.openInvites);
-        data.me.openInvites.map(invite => {
-            console.log(invite.username);
-        })
+    const startGame = async (username, category) => {
+      try {
+        await newGame({
+          variables: { category: category, opponent: username },
+        });
+      } catch (e) {
+        console.log(e);
+      }
+      try {
+        await joinGame();
+      } catch (e) {
+        console.log(e);
+      }
+      window.location.replace('/Game')
     }
-    const handleAccept = async (username) => {
+    const handleAccept = async (username, category) => {
         try {
           await acceptInvite({
             variables: { username: username },
@@ -25,6 +38,8 @@ const ReceiveInvites = () => {
         } catch (e) {
           console.log(e);
         }
+        startGame(username, category)
+
       };
 
     const handleDeny = async (username) => {
@@ -46,9 +61,9 @@ const ReceiveInvites = () => {
               {data.me.openInvites.map(invite => (
               <div>
                   <h4>
-                  {invite.username} invited you to play a game! Would you like to accept or deny?
+                  {invite.username} invited you to play a game (Category: {invite.category})! Would you like to accept or deny?
                   </h4>
-                  <button onClick={() => handleAccept(invite.username)}>Accept</button>
+                  <button onClick={() => handleAccept(invite.username, invite.category)}>Accept</button>
                   <button onClick={() => handleDeny(invite.username)}>Deny</button>
               </div>
               ))}

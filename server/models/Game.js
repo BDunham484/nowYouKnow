@@ -22,7 +22,6 @@ const gameSchema = new Schema(
             type: String
         },
         questions: [Question.schema],
-        // opponentQuestions: [Question.schema]
     },
 );
 
