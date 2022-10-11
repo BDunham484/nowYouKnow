@@ -12,5 +12,18 @@ export const questions = {
         'What is my favorite pizza topping?',
         'Would I rather eat tacos or pizza?',
         'What is my favorite food?'
+    ],
+
+    'Movies': [
+        'What is my favorite movie?',
+        'Who is my least favorite actor or actress?',
+        'What is my favorite movie genre?',
+        'Who is my celebrity crush?'
+    ],
+    'Animals': [
+        'What is my spirit animal?',
+        'Am I a dog or cat person? ',
+        'W?',
+        'What is my favorite food?'
     ]
 }
