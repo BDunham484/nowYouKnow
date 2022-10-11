@@ -3,6 +3,7 @@ import { useMutation, useQuery } from '@apollo/client';
 import { LEAVE_GAME, SUBMIT_ANSWERS, LEAVE_GAME_ME } from '../utils/mutations';
 import { GET_ME, GET_USER_INFO } from '../utils/queries'
 import { questions } from '../assets/variables/questions'
+import Results from '../components/Results';
 
 
 const Game = () => {
@@ -161,7 +162,7 @@ useEffect(() => {
         </>
       )}
       
-
+          <Results />  
     </div>
   );
 };

@@ -4,6 +4,8 @@ import { useQuery } from '@apollo/client';
 
 
 
+import Results from '../components/Results';
+
 const GameResults = () => {
 
   const { loading, data: myData } = useQuery(GET_ME)
@@ -17,7 +19,7 @@ const GameResults = () => {
 
   return (
     <div>
-      RESULTS!!
+      <Results />
     </div>
   );
 };

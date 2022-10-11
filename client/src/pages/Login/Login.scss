@@ -1,0 +1,56 @@
+@import "../../Styles/variables.scss";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: #adadaa;
+}
+
+.login-form {
+  background: $bg;
+  padding: 10px 40px;
+  border-radius: 4px;
+  box-shadow: 0px 2px 9px $dark;
+  h2 {
+    text-align: center;
+    font-weight: 100;
+    text-transform: uppercase;
+  }
+  i {
+    padding-left: 38%;
+    padding-bottom: 5px;
+    font-size: 55px;
+  }
+  .button-class {
+    padding-bottom: 18px;
+  }
+  input {
+    padding: 8px 15px;
+    border-radius: 45px;
+    border: 2px solid $dark;
+    margin: 15px 0;
+    transition: border 0.7s;
+    &:hover {
+        border: 2px solid $lb;
+    }
+  }
+  button {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: $dark;
+    color: #ffffff;
+    padding: 8px 12px;
+    border-radius: 45px;
+    transition: background 0.7s;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 100;
+    &:hover {
+      background: $lb;
+    }
+  }
+}

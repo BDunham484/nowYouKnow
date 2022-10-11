@@ -69,6 +69,7 @@ type Auth {
 type Mutation {
     login(email: String!, password:String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
+    deleteUser(username: String!, email: String!, password: String!): User
     sendInvite(username: String!, category: String!): String
     cancelInvite(username: String!): String
     acceptInvite(username: String!): String
