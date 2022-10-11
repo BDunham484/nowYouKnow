@@ -11,7 +11,7 @@ function Signup(props) {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    // console.log('handleFormSubmit clicked!')
+    console.log('handleFormSubmit clicked!')
     // const mutationResponse = await addUser({
     //   variables: {
     //     email: formState.email,

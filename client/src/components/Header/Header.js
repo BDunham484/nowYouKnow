@@ -50,9 +50,10 @@ const Header = () => {
               <a href="/">Account</a>
             </li>
           </ul>
-          </Link><Link to="/login">
-            <button>Login/Logout</button>
           
+          <Link to="/login">
+            <button>Login/Logout</button>
+          </Link>
           
         </nav>
         <div className={classes.header__content__toggle}>
