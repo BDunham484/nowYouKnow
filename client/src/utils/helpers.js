@@ -1,57 +1,48 @@
 
+//helper function that takes players data and the questions to output the game model
+export function compareUsers(yourData, opponentData, questions) {
+    let yourQandA = yourData.me.currentGame.QandA;
+    let opponentQandA = opponentData.user.currentGame.QandA;
+    let username = yourData.me.username;
+    let opponent = yourData.me.currentGame.opponent;
+    var winner = '';
+    let yourScore = 0;
+    let opponentScore = 0;
+    let questionArray = [];
+    yourQandA.map((answer, index) => {
+        if (answer.yourAnswer === opponentQandA[index].yourGuess) {
+            opponentScore++
+        } 
+        
+        if (answer.yourGuess === opponentQandA[index].yourAnswer){
+            yourScore++  
+        }
 
-let yourScore = 0
-let opponentScore = 0
-let winner;
+        const questionModel = {
+            'questionBody': questions[index],
+            'yourAnswer': answer.yourAnswer,
+            'opponentAnswer': opponentQandA[index].yourAnswer,
+            'yourGuess': answer.yourGuess,
+            'opponentGuess': opponentQandA[index].yourGuess
+        }
+        questionArray.push(questionModel);
+    })
 
-if (QandA.yourGuess[0] != QandA.yourAnswer[0]) 
-    yourScore += 0
-else yourScore += 1
-    
+    if (yourScore > opponentScore) {
+        var winner = username;
+    } else if (yourScore < opponentScore) {
+        var winner = opponent;
+    } else {
+        var winner = "It's a tie!!";
+    }
 
-
-if (QandA.yourGuess[1] != QandA.yourAnswer
-[1])
-    yourScore += 0
-else yourScore += 1
-
-if (QandA.yourGuess[2] != QandA.yourAnswer[2])
-    yourScore += 0
-else yourScore += 1
-
-
-
-if (QandA.yourGuess[3] != QandA.yourAnswer[3])
-    yourScore += 0
-else yourScore += 1
-
-
-
-if (QandA.yourGuess[4] != QandA.yourAnswer[4])
-    yourScore += 0
-else yourScore += 1
-
-
-if (yourScore > opponentScore) {
-    let winner = your
-}
-
-if (opponentScore > yourScore) {
-    let winner = opponent
-}
-
-
-
-yourData = [
-    {'yourAnswer': }
-]
-
-
-// export const compareUsers = (yourData, opponentData) => {
-//     console.log('hello')
-// };
-
-export function compareUsers() {
-    console.log('hello')
+    return {
+        username: username,
+        opponent: opponent,
+        yourScore: yourScore,
+        opponentScore: opponentScore,
+        winner: winner,
+        question: questionArray
+    }
 }
 
