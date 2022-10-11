@@ -113,7 +113,8 @@ const resolvers = {
             const currentGame = await CurrentGame.create({
                 'answerSubmit': false,
                 'category': category,
-                'opponent': opponent
+                'opponent': opponent,
+                'opponentInGame': true
             })
             await User.findOneAndUpdate(
                 { 'username': context.user.username }, {
@@ -137,7 +138,21 @@ const resolvers = {
             }
                 throw new AuthenticationError('You need to be logged in!');
         },
-        leaveGame: async(parent, args, context) => {
+        leaveGame: async(parent, { username }, context) => {
+            if(context.user) {
+                await User.findOneAndUpdate(
+                    { 'username': context.user.username }, {
+                        'inGame': false
+                })
+                await User.findOneAndUpdate(
+                    { 'username': username }, {
+                        'currentGame.opponentInGame': false
+                })
+                return context.user.username
+            }
+                throw new AuthenticationError('You need to be logged in!');
+        },
+        leaveGameMe: async(parent, args, context) => {
             if(context.user) {
                 await User.findOneAndUpdate(
                     { 'username': context.user.username }, {
@@ -191,35 +206,36 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
-
-        submitAnswer: async (parent, { questions, answers, guesses }, context) => {
-
+        submitAnswer: async (parent, { answers, guesses, opponent }, context) => {
             if (context.user) {
-                let finalArray = []
+                let yourArray = []
+                let opponentArray = []
                 answers.map((answer, index) => {
-                    const questionModel = {
+                    const yourQuestionModel = {
                         'yourAnswer': answer,
                         'yourGuess': guesses[index]
                     }
-                    finalArray.push(questionModel)
+                    const opponentQuestionModel = {
+                        'opponentAnswer': answer,
+                        'opponentGuess': guesses[index]
+                    }
+                    yourArray.push(yourQuestionModel)
+                    opponentArray.push(opponentQuestionModel)
                 })
 
-                const currentGame = await CurrentGame.create({
-                    'QandA': finalArray,
-                    'answerSubmit': true
-                });
-
-                const user = await User.findByIdAndUpdate(
-                    { _id: context.user._id },
-                    { $set: { currentGame: currentGame } },
-                    { new: true }
-                );
+                await User.findOneAndUpdate(
+                    { 'username': context.user.username }, {
+                    'currentGame.QandA': yourArray,
+                    'currentGame.answerSubmit': true
+                })
+                await User.findOneAndUpdate(
+                    { 'username': opponent }, {
+                    'currentGame.opponentQandA': opponentArray
+                })
                 return context.user.username;
             }
-            
-            throw new AuthenticationError('You need to be logged in!');
-        }
-    }
+            throw new AuthenticationError('You need to be logged in!');          
+    }}
 };
 
 module.exports = resolvers;    

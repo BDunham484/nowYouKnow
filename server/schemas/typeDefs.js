@@ -5,10 +5,12 @@ const typeDefs = gql `
 type CurrentGame {
     _id: ID
     QandA: [Question]
+    opponentQandA: [Question]
     answerSubmit: Boolean
     category: String
     opponent: String
     createdAt: String
+    opponentInGame: Boolean
 }
 
 type Game {
@@ -76,10 +78,11 @@ type Mutation {
     addQuestion(questionBody: String!, yourAnswer: String, opponentAnswer: String, yourGuess: String, opponentGuess: String, youCorrect: Boolean, opponentCorrect: Boolean): Game
     newGame(category: String!, opponent: String!): String
     joinGame: String
-    leaveGame: String
+    leaveGame(username: String): String
+    leaveGameMe: String
     newQuestion(questionBody: String): Question
     addAnswer(yourAnswer: String, opponentAnswer: String, yourGuess: String, opponentGuess: String): Question
-    submitAnswer(questions: [String]!, answers: [String]!, guesses: [String]!): String
+    submitAnswer(answers: [String]!, guesses: [String]!, opponent: String!): String
 }
 `;
 
