@@ -1,29 +1,46 @@
-
+// const yourData = {
+//             QandA: QandA,
+//             opponentQandA: opponentQandA,
+//             opponent: opponent,
+//             username: username,
+//             questions: questions[category]
+// }
 //helper function that takes players data and the questions to output the game model
-export function compareUsers(yourData, opponentData, questions) {
-    let yourQandA = yourData.me.currentGame.QandA;
-    let opponentQandA = opponentData.user.currentGame.QandA;
-    let username = yourData.me.username;
-    let opponent = yourData.me.currentGame.opponent;
+export function compareUsers(yourData) {
+    let yourQandA = yourData.QandA;
+    let opponentQandA = yourData.opponentQandA;
+    let username = yourData.username;
+    let opponent = yourData.opponent;
     var winner = '';
     let yourScore = 0;
     let opponentScore = 0;
     let questionArray = [];
+    const questions = yourData.questions
+    let youCorrect
+    let opponentCorrect
     yourQandA.map((answer, index) => {
-        if (answer.yourAnswer === opponentQandA[index].yourGuess) {
+        if (answer.yourAnswer.toLowerCase().trim() === opponentQandA[index].opponentGuess.toLowerCase().trim()) {
             opponentScore++
-        } 
+            opponentCorrect = true;
+        } else {
+            opponentCorrect = false
+        }
         
-        if (answer.yourGuess === opponentQandA[index].yourAnswer){
+        if (answer.yourGuess.toLowerCase().trim() === opponentQandA[index].opponentAnswer.toLowerCase().trim()){
             yourScore++  
+            youCorrect = true
+        } else {
+            youCorrect = false
         }
 
         const questionModel = {
             'questionBody': questions[index],
             'yourAnswer': answer.yourAnswer,
-            'opponentAnswer': opponentQandA[index].yourAnswer,
+            'opponentAnswer': opponentQandA[index].opponentAnswer,
             'yourGuess': answer.yourGuess,
-            'opponentGuess': opponentQandA[index].yourGuess
+            'opponentGuess': opponentQandA[index].opponentGuess,
+            'youCorrect': youCorrect,
+            'opponentCorrect': opponentCorrect
         }
         questionArray.push(questionModel);
     })

@@ -1,100 +1,94 @@
 import React, { useState, useEffect } from "react";
-import { useMutation, useQuery } from '@apollo/client';
-import { GET_ME, GET_USER_INFO } from '../../utils/queries';
+import { useQuery } from '@apollo/client';
+import { GET_ME } from '../../utils/queries';
 import { compareUsers } from '../../utils/helpers';
+import { questions } from '../../assets/variables/questions'
+
 
 
 const Results = () => {
 
     const { loading, data: myData } = useQuery(GET_ME);
-    const [GameInfo, SetGameInfo] = useState({ opponent: '' })
-    const { opponent } = GameInfo
-
-    const { data } = useQuery(GET_USER_INFO, {
-        variables: { username: opponent },
-    });
-
+    const [GameData, setGameData] = useState({username: '', opponent: '', QandA: [], opponentQandA: [], category: ''})
+    const { username, opponent, QandA, opponentQandA, category } = GameData
+    const [finalGame, setFinalGame] = useState({username: '', opponent: '', yourScore: '', opponentScore: '', winner: '', question: []})
+    const { username: finalUsername, opponent: finalOpponent, yourScore, opponentScore, winner, questionsArray } = finalGame
 
     useEffect(() => {
-        if (!loading) {
-            SetGameInfo({
-                ...GameInfo,
-                opponent: myData.me.currentGame.opponent
+    if(!loading) {
+        setGameData({
+            ...GameData,
+            username: myData.me.username,
+            opponent: myData.me.currentGame.opponent,
+            QandA: myData.me.currentGame.QandA,
+            opponentQandA: myData.me.currentGame.opponentQandA,
+            category: myData.me.currentGame.category
+        })
+      }
+    }, [loading])
+
+      useEffect(() => {
+        if(username) {
+            const yourData = {
+                        QandA: QandA,
+                        opponentQandA: opponentQandA,
+                        opponent: opponent,
+                        username: username,
+                        questions: questions[category]
+            }
+            const finalResults = compareUsers(yourData)
+            setFinalGame({
+                ...finalGame,
+                username: finalResults.username,
+                opponent: finalResults.opponent,
+                yourScore: finalResults.yourScore,
+                opponentScore: finalResults.opponentScore,
+                winner: finalResults.winner,
+                questionsArray: finalResults.question
             })
         }
-    }, [myData])
-
-    const yourData = {
-        me: {
-            currentGame: {
-                QandA: [
-                    {
-                        yourAnswer: 'red',
-                        yourGuess: 'red'
-                    },
-                    {
-                        yourAnswer: 'dog',
-                        yourGuess: 'cat'
-                    },
-                    {
-                        yourAnswer: 'taco',
-                        yourGuess: 'pizza'
-                    }
-                ],
-                opponent: 'deb'
-            },
-            username: 'brad'
-        }
-    }
-
-    const opponentData = {
-        user: {
-            currentGame: {
-                QandA: [
-                    {
-                        yourAnswer: 'green',
-                        yourGuess: 'blue'
-                    },
-                    {
-                        yourAnswer: 'cat',
-                        yourGuess: 'dog'
-                    },
-                    {
-                        yourAnswer: 'pizza',
-                        yourGuess: 'salad'
-                    }
-                ],
-                opponent: 'brad'
-            },
-            username: 'deb'
-        }
-    }
-
-    const questions = [
-            'What is my favorite color?',
-            'What is my favorite animal?',
-            'What is my favorite food?'
-        ]
-
-
-
-
-    const testing = () => {
-        console.log('TEST BUTTON CLICKED');
-        console.log(compareUsers(yourData, opponentData, questions))
-        // compareUsers(yourData, opponentData)
-    }
-
-
-
+      }, [GameData])
 
     return (
         <div>
-            {loading ? (
+            {!finalUsername ? (
                 <p>loading...</p>
             ) : (
                 <>
-                    <button onClick={testing}>TEST</button>
+                    <div>
+                        <h2>Your results with {opponent}...
+                        {winner === "It's a tie!!" ? (<span>{winner}</span>) : (
+                        <>
+                            {winner === username ? (
+                                <span>you won</span>
+                            ):(
+                                <span>{winner} won</span>
+                            )}
+                        </>
+                        )}</h2>
+                        <h3>Your final score: {yourScore}. {opponent}'s final score: {opponentScore}</h3>
+                        {questionsArray.map(question => (
+                            <div>
+                                Question: {question.questionBody}
+                                <div>
+                                    <span>
+                                        Your Answer: {question.yourAnswer}
+                                    </span>
+                                    <span>
+                                        Opponent's Guess: {question.opponentQuess}
+                                    </span>
+                                </div>
+                                <div>
+                                    <span>
+                                        Opponent's Answer: {question.opponentAnswer}
+                                    </span>
+                                    <span>
+                                        Your Guess: {question.yourQuess}
+                                    </span>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </>
             )}
 

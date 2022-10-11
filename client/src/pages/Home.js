@@ -2,11 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
-import SendInvite from '../components/SendInvitation';
-import ReceiveInvites from '../components/ReceiveInvitation';
+import SendInvite from '../components/SendInvitation'
+import ReceiveInvites from '../components/ReceiveInvitation'
+import { GET_ME } from '../utils/queries'
 import classes from "../Styles/index.scss";
 
 const Home = () => {
+  const { loading, data } = useQuery(GET_ME)
+
+  useEffect(() => {
+    if(!loading){
+      if(data){
+        window.location.replace('/Game')
+        }
+      }
+    })
 const login = Auth.loggedIn()
 return (
   <div>
@@ -37,7 +47,6 @@ return (
       <SendInvite />
       <ReceiveInvites />
     </>
-
   ) : (
     <>
       <div>
