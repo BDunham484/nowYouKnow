@@ -47,7 +47,7 @@ function Signup(props) {
     <div className="wrapper">
       <div className="login-form">
         <div className="container my-1">
-          <i class="fa-regular fa-user"></i>
+          <i className="fa-regular fa-user"></i>
           <h2>Signup</h2>
           <form onSubmit={handleFormSubmit}>
             <div className="flex-row space-between my-2">

@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import classes from "./Header.module.scss";
 import { BiMenuAltRight } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
+import { Link } from 'react-router-dom';
+import Auth from "../../utils/auth";
+
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -41,6 +44,8 @@ const Header = () => {
             menuOpen ? classes.isMenu : ""
           }`}
         >
+          {Auth.loggedIn() ? (
+        <>
           <ul>
             <li>
               <a href="/">Invites</a>
@@ -49,7 +54,15 @@ const Header = () => {
               <a href="/">Account</a>
             </li>
           </ul>
-          <button>Login/Logout</button>
+          <button><a href="/" onClick={() => Auth.logout()}>
+              Logout
+            </a></button>
+        </>
+          ) : (
+            <Link to="/login">
+            <button>Login/Logout</button>
+          </Link>
+          )}
         </nav>
         <div className={classes.header__content__toggle}>
           {!menuOpen ? (
