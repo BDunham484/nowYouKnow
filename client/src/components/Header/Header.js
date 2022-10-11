@@ -43,9 +43,6 @@ const Header = () => {
         >
           <ul>
             <li>
-              <a href="/">How To Play</a>
-            </li>
-            <li>
               <a href="/">Invites</a>
             </li>
             <li>

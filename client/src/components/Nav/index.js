@@ -8,13 +8,7 @@ function Nav() {
       return (
         <ul className="flex-row">
           <li className="mx-1">
-<<<<<<< HEAD
-            <Link to="/GameHistory">
-              Game History
-            </Link>
-=======
             <Link to="/GameHistory">Game History</Link>
->>>>>>> 09ccd7779ef6fb3cd357c7c1b5547fed795d51a0
           </li>
           <li className="mx-1">
             <a href="/" onClick={() => Auth.logout()}>

@@ -11,119 +11,82 @@ body {
   height: 100vh;
   font-family: $Poppins;
   color: $dark;
+  overflow-x: hidden;
 }
 
 #root {
   height: 100%;
 }
 
-.container {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-
-  .particles {
-    width: 100px;
-    height: 100px;
-    top: -20%;
-    background-color: $primary;
-    position: absolute;
-    border-radius: 50%;
-    animation: fall 15s infinite;
-  }
-}
-@keyframes fall {
-  0% {top: -20%;}
-  20% {top: 0%;}
-  80% {top: 85%;}
-  100% {top: 100%;}
-}
-.particles:nth-of-type(2n) {
-  width: 60px;
-  height: 60px;
-}
-.particles:nth-of-type(3n) {
-  width: 120px;
-  height: 120px;
-}
-.particles:nth-of-type(1) {
-  left: 30%;
-  animation-delay: 1s;
-}
-.particles:nth-of-type(2) {
-  left: 60%;
-  animation-delay: 2s;
-}
-.particles:nth-of-type(3) {
-  left: 25%;
-  animation-delay: 3s;
-}
-.particles:nth-of-type(4) {
-  left: 75%;
-  animation-delay: 4s;
-}
-.particles:nth-of-type(5) {
-  left: 35%;
-  animation-delay: 5s;
-}
-.particles:nth-of-type(6) {
-  left: 50%;
-  animation-delay: 6s;
-}
-.particles:nth-of-type(7) {
-  left: 65%;
-  animation-delay: 7s;
-}
-.particles:nth-of-type(8) {
-  left: 35%;
-  animation-delay: 8s;
-}
-.particles:nth-of-type(9) {
-  left: 55%;
-  animation-delay: 9s;
-}
-.particles:nth-of-type(10) {
-  left: 55%;
-  animation-delay: 10s;
-}
-.particles:nth-of-type(11) {
-  left: 35%;
-  animation-delay: 11s;
-}
-.particles:nth-of-type(12) {
-  left: 50%;
-  animation-delay: 12s;
-}
-.particles:nth-of-type(13) {
-  left: 65%;
-  animation-delay: 13s;
-}
-.particles:nth-of-type(14) {
-  left: 40%;
-  animation-delay: 14s;
-}
-.particles:nth-of-type(15) {
-  left: 60%;
-  animation-delay: 15s;
+.top {
+  display: flex;
+  padding-top: 450px;
+  padding-bottom: 50px;
+  justify-content: center;
 }
 
 /*Effects for button*/
-.ripple {
+div button {
   background-position: center;
   transition: background 0.8s;
 }
 
-.ripple:hover {
-  background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
-}
-.ripple:active {
-  background-color: #6eb9f7;
-  background-size: 100%;
-  transition: background 0s;
+.howto {
+  background-color: $primary;
+  position: relative;
+
+  .howto-title {
+    padding-top: 100px;
+    margin: 45px;
+  }
+  
+  .wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
 }
 
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(147% + 1.3px);
+    height: 105px;
+    padding-bottom: 10px;
+}
 
+.wave .shape-fill {
+    fill: $bg;
+}
+
+.text-section {
+  padding-bottom: 110px;
+  margin: 45px;
+}
+
+.wave-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.wave-bottom svg {
+  position: relative;
+  display: block;
+  width: calc(185% + 1.3px);
+  height: 110px;
+}
+
+.wave-bottom .shape-fill {
+  fill: $bg;
+}
+}
 
 /* Button base style */
 button {
@@ -139,4 +102,12 @@ button {
   outline: none;
   display:flex;
   justify-content: center;
+}
+div button:hover {
+  background: $lb radial-gradient(circle, transparent 1%, $lb 1%) center/15000%;
+}
+div button:active {
+  background-color: $dark;
+  background-size: 100%;
+  transition: background 0s;
 }
