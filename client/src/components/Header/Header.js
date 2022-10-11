@@ -60,7 +60,7 @@ const Header = () => {
         </>
           ) : (
             <Link to="/login">
-            <button>Login/Logout</button>
+            <button>Login</button>
           </Link>
           )}
         </nav>
