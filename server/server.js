@@ -3,11 +3,11 @@
 const express = require('express');
 
 // apollo server 
-const {ApolloServer} = require('apollo-server-express');
+const { ApolloServer } = require('apollo-server-express');
 
 // typeDefs and resolvers
-const {typeDefs, resolvers} = require('./schemas');
-const {authMiddleware} = require('./utils/auth');
+const { typeDefs, resolvers } = require('./schemas');
+const { authMiddleware } = require('./utils/auth');
 
 //import database connection to mongodb via mongoose
 const db = require('./config/connection');
@@ -34,6 +34,11 @@ const startApolloServer = async (typeDefs, resolvers) => {
     await server.start();
     //integrate Apoloo server with the Express application as middleware
     server.applyMiddleware({ app });
+
+    // if we're in production, serve client/build as static assets
+    if (process.env.NODE_ENV === 'production') {
+        app.use(express.static(path.join(__dirname, '../client/build')));
+    }
 
     //establish connection to server via the listen() methos
     db.once('open', () => {
