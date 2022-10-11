@@ -23,7 +23,14 @@ export const questions = {
     'Animals': [
         'What is my spirit animal?',
         'Am I a dog or cat person? ',
-        'W?',
-        'What is my favorite food?'
+        'If I could have any pet what would it be?'
+    ],
+
+    ' Bucket List': [
+        'If I could visit anywhere in the world, what would it be?',
+        'If I could live anywhere, what country would it be?',
+        'Would I rather vacation at the beach or in the mountains?',
+        'Would I rather go camping or glamping?'
     ]
+    
 }
