@@ -13,12 +13,12 @@ const Home = () => {
   console.log(data);
   useEffect(() => {
     
-    // if(!loading){
+    if(!loading){
       if(data.me.inGame){
       // if(data){
         window.location.replace('/Game')
         }
-      // }
+      }
     })
 const login = Auth.loggedIn()
 return (
