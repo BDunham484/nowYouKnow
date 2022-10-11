@@ -1,0 +1,113 @@
+@import "./variables.scss";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: $Poppins;
+  color: $dark;
+  overflow-x: hidden;
+}
+
+#root {
+  height: 100%;
+}
+
+.top {
+  display: flex;
+  padding-top: 450px;
+  padding-bottom: 50px;
+  justify-content: center;
+}
+
+/*Effects for button*/
+div button {
+  background-position: center;
+  transition: background 0.8s;
+}
+
+.howto {
+  background-color: $primary;
+  position: relative;
+
+  .howto-title {
+    padding-top: 100px;
+    margin: 45px;
+  }
+  
+  .wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(147% + 1.3px);
+    height: 105px;
+    padding-bottom: 10px;
+}
+
+.wave .shape-fill {
+    fill: $bg;
+}
+
+.text-section {
+  padding-bottom: 110px;
+  margin: 45px;
+}
+
+.wave-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.wave-bottom svg {
+  position: relative;
+  display: block;
+  width: calc(185% + 1.3px);
+  height: 110px;
+}
+
+.wave-bottom .shape-fill {
+  fill: $bg;
+}
+}
+
+/* Button base style */
+button {
+  border: none;
+  border-radius: 2px;
+  padding: 12px 18px;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: $light;
+  background-color: $dark;
+  box-shadow: 0 0 4px #999;
+  outline: none;
+  display:flex;
+  justify-content: center;
+}
+div button:hover {
+  background: $lb radial-gradient(circle, transparent 1%, $lb 1%) center/15000%;
+}
+div button:active {
+  background-color: $dark;
+  background-size: 100%;
+  transition: background 0s;
+}
