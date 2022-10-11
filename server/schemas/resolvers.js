@@ -43,10 +43,21 @@ const resolvers = {
 
             return { token, user };
         },
+        deleteUser: async (parent, args, context) => {
+            if (context.user) {
+                const user = await User.findByIdAndDelete(
+                    {_id: context.user._id},
+                    {deleteOne: User}
+                );
+                return user;
+            }
+
+            throw new AuthenticationError('You need to be logged in!');
+        },
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
             if (!user) {
-                throw new AuthenticationError('Invalid Username')
+                throw new AuthenticationError('Invalid email')
             }
             const correctPw = await user.isCorrectPassword(password);
             if (!correctPw) {
@@ -182,6 +193,7 @@ const resolvers = {
         },
 
         submitAnswer: async (parent, { questions, answers, guesses }, context) => {
+
             if (context.user) {
                 let finalArray = []
                 answers.map((answer, index) => {
@@ -206,7 +218,7 @@ const resolvers = {
             }
             
             throw new AuthenticationError('You need to be logged in!');
-        },
+        }
     }
 };
 
