@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import classes from "./Header.module.scss";
 import { BiMenuAltRight } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -49,7 +50,10 @@ const Header = () => {
               <a href="/">Account</a>
             </li>
           </ul>
-          <button>Login/Logout</button>
+          <Link to="/login">
+            <button>Login/Logout</button>
+          </Link>
+          
         </nav>
         <div className={classes.header__content__toggle}>
           {!menuOpen ? (
