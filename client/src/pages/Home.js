@@ -12,7 +12,8 @@ const Home = () => {
 
   useEffect(() => {
     if(!loading){
-      if(data.me.inGame){
+      // if(data.me.inGame){
+      if(data){
         window.location.replace('/Game')
         }
       }
