@@ -37,7 +37,7 @@ const Header = () => {
   return (
     <header className={classes.header}>
       <div className={classes.header__content}>
-        <Link to="/">
+        <Link style={{textDecoration: 'none'}} to="/">
           <h2 className={classes.header__content__logo}><span>N</span>ow<span>Y</span>ou<span>K</span>now</h2>
         </Link>
         
