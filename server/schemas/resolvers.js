@@ -102,7 +102,8 @@ const resolvers = {
             const currentGame = await CurrentGame.create({
                 'answerSubmit': false,
                 'category': category,
-                'opponent': opponent
+                'opponent': opponent,
+                'opponentInGame': true
             })
             await User.findOneAndUpdate(
                 { 'username': context.user.username }, {
@@ -118,8 +119,9 @@ const resolvers = {
             if(context.user) {
                 await User.findOneAndUpdate(
                     { 'username': context.user.username }, {
-                        'inGame': true,
-                        'currentGame.opponentInGame': true
+                    $set: {
+                        inGame: true
+                    }
                 })
                 return context.user.username
             }
@@ -193,49 +195,31 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
-
-        // submitAnswer: async (parent, { questions, answers, guesses }, context) => {
-        //     if (context.user) {
-        //         let finalArray = []
-        //         answers.map((answer, index) => {
-        //             const questionModel = {
-        //                 'yourAnswer': answer,
-        //                 'yourGuess': guesses[index],
-        //                 'questionBody': questions[index]
-        //             }
-        //             finalArray.push(questionModel)
-        //         })
-
-        //         const currentGame = await CurrentGame.create({
-        //             'QandA': finalArray,
-        //             'answerSubmit': true
-        //         });
-
-        //         await User.findByIdAndUpdate(
-        //             { _id: context.user._id },
-        //             { $set: { currentGame: currentGame } },
-        //             { new: true }
-        //         );
-        //         return context.user.username;
-        //     }
-            
-        //     throw new AuthenticationError('You need to be logged in!');
-        // },
-        submitAnswer: async (parent, {answers, guesses }, context) => {
+        submitAnswer: async (parent, { answers, guesses, opponent }, context) => {
             if (context.user) {
-                let finalArray = []
+                let yourArray = []
+                let opponentArray = []
                 answers.map((answer, index) => {
-                    const questionModel = {
+                    const yourQuestionModel = {
                         'yourAnswer': answer,
                         'yourGuess': guesses[index]
                     }
-                    finalArray.push(questionModel)
+                    const opponentQuestionModel = {
+                        'opponentAnswer': answer,
+                        'opponentGuess': guesses[index]
+                    }
+                    yourArray.push(yourQuestionModel)
+                    opponentArray.push(opponentQuestionModel)
                 })
 
                 await User.findOneAndUpdate(
                     { 'username': context.user.username }, {
-                    'currentGame.QandA': finalArray,
+                    'currentGame.QandA': yourArray,
                     'currentGame.answerSubmit': true
+                })
+                await User.findOneAndUpdate(
+                    { 'username': opponent }, {
+                    'currentGame.opponentQandA': opponentArray
                 })
                 return context.user.username;
             }

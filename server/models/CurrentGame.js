@@ -8,7 +8,7 @@ const Question = require('./Question');
 const currentGameSchema = new Schema(
     {   
         QandA: [Question.schema],
-        // opponentQandA: [Question.schema],
+        opponentQandA: [Question.schema],
         answerSubmit: {
             type: Boolean
         },

@@ -5,6 +5,7 @@ const typeDefs = gql `
 type CurrentGame {
     _id: ID
     QandA: [Question]
+    opponentQandA: [Question]
     answerSubmit: Boolean
     category: String
     opponent: String
@@ -80,7 +81,7 @@ type Mutation {
     leaveGameMe: String
     newQuestion(questionBody: String): Question
     addAnswer(yourAnswer: String, opponentAnswer: String, yourGuess: String, opponentGuess: String): Question
-    submitAnswer(questions: [String]!, answers: [String]!, guesses: [String]!): String
+    submitAnswer(answers: [String]!, guesses: [String]!, opponent: String!): String
 }
 `;
 

@@ -54,9 +54,15 @@ export const LEAVE_GAME = gql`
   }
 `
 
+export const LEAVE_GAME_ME = gql`
+  mutation leaveGameMe {
+    leaveGameMe
+  }
+`
+
 export const SUBMIT_ANSWERS = gql`
-mutation($questions: [String]!, $answers: [String]!, $guesses: [String]!) {
-  submitAnswer(questions: $questions, answers: $answers, guesses: $guesses)
+mutation($answers: [String]!, $guesses: [String]!, $opponent: String!) {
+  submitAnswer(answers: $answers, guesses: $guesses, opponent: $opponent)
 }
 `
 

@@ -11,6 +11,14 @@ export const GET_ME = gql`
                 opponent
                 category
                 opponentInGame
+                QandA {
+                    yourAnswer
+                    yourGuess
+                }
+                opponentQandA {
+                    opponentAnswer
+                    opponentGuess
+                }
             }
         }
     }

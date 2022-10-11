@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useMutation, useQuery } from '@apollo/client';
-import { LEAVE_GAME, SUBMIT_ANSWERS } from '../utils/mutations';
+import { LEAVE_GAME, SUBMIT_ANSWERS, LEAVE_GAME_ME } from '../utils/mutations';
 import { GET_ME, GET_USER_INFO } from '../utils/queries'
 import { questions } from '../assets/variables/questions'
 
@@ -20,12 +20,16 @@ const { loading: loadingUser, data } = useQuery(GET_USER_INFO, {
 
 const [answerSubmit] = useMutation(SUBMIT_ANSWERS)
 const [leaveGame] = useMutation(LEAVE_GAME)
+const [leaveGameMe] = useMutation(LEAVE_GAME_ME)
+
 
 
 useEffect(() => {
   if(!loading){
-    if(!myData.me.currentGame.opponentInGame){
-      handleLeaveGame()
+    if(myData.me.inGame){
+      if(!myData.me.currentGame.opponentInGame){
+        handleLeaveGame()
+      }
     }
   }
 
@@ -36,7 +40,7 @@ useEffect(() => {
     if(!loadingUser){
       console.log(data.user.currentGame);
       if(data.user.currentGame.answerSubmit){
-        window.location.replace('/gameresults')
+        handleLeaveGameMe();
       }
     }
   }
@@ -54,10 +58,9 @@ const handleFormSubmit = async () => {
     answerArray.push(answer);
     guessArray.push(guess);
   }
-  console.log('hello');
   try {
     await answerSubmit({
-      variables: { questions: categoryQuestions, answers: answerArray, guesses:  guessArray },
+      variables: { questions: categoryQuestions, answers: answerArray, guesses:  guessArray, opponent: opponent },
     });
     SetGameInfo({
       ...GameInfo,
@@ -77,6 +80,15 @@ const handleLeaveGame = async () => {
     console.log(e);
   }
   window.location.replace('/')
+}
+
+const handleLeaveGameMe = async () => {
+  try {
+    await leaveGameMe()
+  } catch(e) {
+    console.log(e);
+  }
+  window.location.replace('/gameresults')
 }
 
 const handleChange = (event) => {
@@ -114,6 +126,8 @@ useEffect(() => {
         <p>loading...</p>
       ) : (
         <>
+        {myData.me.inGame ? (
+        <div>
         <h1>Your game against {opponent} in {category}</h1>
         {categoryQuestions.length && (
           <>
@@ -140,6 +154,8 @@ useEffect(() => {
                     <button onClick={handleLeaveGame}>Leave Game</button>
                     </>
           )}
+          </div>
+          ) : (<div>You are not currently in a Game. Please go to the home page to invite a friend!</div>)}
           </>
         )}  
         </>

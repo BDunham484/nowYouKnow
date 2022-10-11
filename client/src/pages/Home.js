@@ -4,10 +4,20 @@ import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
 import SendInvite from '../components/SendInvitation'
 import ReceiveInvites from '../components/ReceiveInvitation'
+import { GET_ME } from '../utils/queries'
 
 
 
 const Home = () => {
+  const { loading, data } = useQuery(GET_ME)
+
+  useEffect(() => {
+    if(!loading){
+      if(data.me.inGame){
+        window.location.replace('/Game')
+        }
+      }
+    })
 const login = Auth.loggedIn()
 return (
   <div>
@@ -16,7 +26,6 @@ return (
     <SendInvite />
     <ReceiveInvites />
     </>
-
   ) : (
     <h2>Login to start playing</h2>
   )}
