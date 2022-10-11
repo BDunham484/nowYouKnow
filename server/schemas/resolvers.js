@@ -43,6 +43,15 @@ const resolvers = {
 
             return { token, user };
         },
+        deleteUser: async (parent, args, context) => {
+            if (context.user) {
+                const user = await User.findByIdAndDelete(
+                    {_id: context.user._id},
+                    {deleteOne: User}
+                );
+                return user
+            }
+        },
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
             if (!user) {
