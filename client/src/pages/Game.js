@@ -161,8 +161,6 @@ useEffect(() => {
         )}  
         </>
       )}
-      
-          <Results />  
     </div>
   );
 };
