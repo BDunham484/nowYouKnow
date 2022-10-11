@@ -18,6 +18,9 @@ const currentGameSchema = new Schema(
         opponent: {
             type: String
         },
+        opponentInGame: {
+            type: Boolean
+        },
         createdAt: {
             type: Date,
             default: Date.now,
@@ -30,8 +33,3 @@ const CurrentGame = model('CurrentGame', currentGameSchema);
 
 //export the Guess schema
 module.exports = CurrentGame;
-
-
-// submitAnswer(QandA: [Question]): Question
-
-// submitAnswer(questionBody: String, yourAnswer: String, yourGuess: String): Question

@@ -50,7 +50,7 @@ function App() {
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/gamehistory" component={GameHistory} />
               <Route exact path="/game" component={Game} />
-              <Route exact path="/results/:id" component={GameResults} />
+              <Route exact path="/gameresults" component={GameResults} />
               <Route component={NoMatch} />
             </Switch>
           {/* </StoreProvider> */}
