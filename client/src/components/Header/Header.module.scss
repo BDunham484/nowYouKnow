@@ -153,10 +153,7 @@
 (max-device-width: 400px) and
 (orientation: portrait) {
   .header {
-    // height: 100px;
-
     &__content {
-      // height: 100px;
       margin-left: -15px;
       overflow: visible;
     }

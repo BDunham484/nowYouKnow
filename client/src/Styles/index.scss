@@ -39,12 +39,12 @@ div button {
   padding-top: 90px;
   height: fit-content;
   width: 100vw;
-  
+
 
   .howto-title {
     margin: 45px;
   }
-  
+
   .wave {
     position: absolute;
     top: 0;
@@ -52,49 +52,49 @@ div button {
     width: 100%;
     overflow: hidden;
     line-height: 0;
-}
+  }
 
-.wave svg {
+  .wave svg {
     position: relative;
     display: block;
     width: calc(147% + 1.3px);
     height: 105px;
     padding-bottom: 10px;
-}
+  }
 
-.wave .shape-fill {
-  fill: $bg;
-}
+  .wave .shape-fill {
+    fill: $bg;
+  }
 
-.text-section {
-  padding-bottom: 100px;
-  display: flex;
-  margin: 50px;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
+  .text-section {
+    padding-bottom: 100px;
+    display: flex;
+    margin: 50px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
 
-.wave-bottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  transform: rotate(180deg);
-}
+  .wave-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+  }
 
-.wave-bottom svg {
-  position: relative;
-  display: block;
-  width: calc(185% + 1.3px);
-  height: 110px;
-}
+  .wave-bottom svg {
+    position: relative;
+    display: block;
+    width: calc(185% + 1.3px);
+    height: 110px;
+  }
 
-.wave-bottom .shape-fill {
-  fill: $bg;
-}
+  .wave-bottom .shape-fill {
+    fill: $bg;
+  }
 }
 
 /* Button base style */
@@ -109,12 +109,14 @@ button {
   background-color: $dark;
   box-shadow: 0 0 4px #999;
   outline: none;
-  display:flex;
+  display: flex;
   justify-content: center;
 }
+
 div button:hover {
   background: $lb radial-gradient(circle, transparent 1%, $lb 1%) center/15000%;
 }
+
 div button:active {
   background-color: $dark;
   background-size: 100%;
@@ -126,34 +128,79 @@ div button:active {
     font-size: 14px;
   }
 }
+
 @media screen and (min-width: 200px) {
   howto h2 {
     padding: 0;
   }
 }
 
-@media screen and
-(min-device-width: 400px) and
-(max-device-width: 1000px) and
-(orientation: portrait) {
-  .top {
-    margin-top: 35vh;
-    background-color: aqua;
-  }
-}
 
-@media screen and
-(min-device-width: 250px) and
-(max-device-width: 400px) and
+
+//Galaxy Fold Portrait
+@media screen and (min-device-width: 250px) and // (max-device-width: 360px) and
 (orientation: portrait) {
   .top {
-    margin-top: 82vh;
+    margin-top: 85vh;
     font-size: 2vh;
   }
 
   .text-section {
-    margin: 0;
-    background-color: aqua;
+    margin: 0 !important;
+    padding: 10px 20px;
     width: 100vw;
+    align-items: flex-start !important;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form-container {
+    padding: 40px 0;
+    margin-left: 0;
+    width: 90%;
+  }
+
+  .btn-center {
+    margin: 0 auto 40px auto;
+  }
+}
+
+
+@media screen and 
+(min-device-width: 360px) and 
+// (max-device-width: 1000px) and 
+(orientation: portrait) {
+  .top {
+    margin-top: 47vh;
+    font-size: 2vh;
+  }
+}
+
+@media screen and (min-device-width: 375px) and
+(orientation: portrait) {
+  .top {
+    margin-top: 55vh;
+  }
+}
+
+@media screen and (min-device-width: 390px) and
+(orientation: portrait) {
+  .top {
+    margin-top: 25vh;
+  }
+}
+
+@media screen and (min-device-width: 400px) and (max-device-width: 1000px) and (orientation: portrait) {
+  .top {
+    margin-top: 15vh;
+  }
+
+  .form-container {
+    width: 80%;
   }
 }
