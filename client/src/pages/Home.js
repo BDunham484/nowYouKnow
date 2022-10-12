@@ -10,14 +10,15 @@ import classes from "../Styles/index.scss";
 const Home = () => {
   const login = Auth.loggedIn()
   const { loading, data } = useQuery(GET_ME)
-    useEffect(() => {
-      if(!loading && login){
-        if(data.me.inGame){
-          window.location.replace('/Game')
-          }
 
-  
-
+  useEffect(() => {
+    if(!loading && login){
+      if(data.me.inGame){
+        window.location.replace('/Game')
+        }
+      }
+    })
+>>>>>>> develop
 return (
   <div>
   {login ? (
