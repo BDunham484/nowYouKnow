@@ -12,18 +12,21 @@ const Home = () => {
   const { loading, data } = useQuery(GET_ME)
 
   useEffect(() => {
-    if(!loading && login){
+    if(!loading && login && login){
       if(data.me.inGame){
         window.location.replace('/Game')
         }
       }
     })
-return (
+
+    return (
   <div>
   {login ? (
     <>
       <div>
-        <button className="ripple">Start Game</button>
+        <div className="top">
+          <h2>Scroll down to get started!</h2>
+        </div>
         <div className="howto">
           <h2>Rules of the Game:</h2>
           <div className="text-section">

@@ -1,10 +1,15 @@
 <h1 align="center">Interactive MERN Stack Single-Page Application: NowYouKnow 👋</h1>
 
-A game where you try to guess who said what
+<h1 align="center">A game where you try to guess who said what</h1>
 
 ## Table of Contents 🔎
+- [Technologies](#Technologies)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
 
-## Technologies 🦾
+## Technologies
+🦾
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 
@@ -31,7 +36,11 @@ A game where you try to guess who said what
 - Include authentication (JWT).
 - Protect sensitive API key information on the server.
 
-## Usage
+## Installation 
+💾 No installation is needed as the game is deployed on Heroku
+
+## Usage 
+💻 The game can be viewed at - [Heroku](https://arcane-cliffs-23763.herokuapp.com/)
 
 ## Contributing
 
