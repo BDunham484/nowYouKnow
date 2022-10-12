@@ -1,6 +1,6 @@
 <h1 align="center">Interactive MERN Stack Single-Page Application: NowYouKnow 👋</h1>
 
-A game where you try to guess who said what
+<h1 align="center">A game where you try to guess who said what</h1>
 
 ## Table of Contents 🔎
 - [Technologies](#Technologies)
