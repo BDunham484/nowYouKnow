@@ -10,20 +10,21 @@ import classes from "../Styles/index.scss";
 const Home = () => {
   const login = Auth.loggedIn()
   const { loading, data } = useQuery(GET_ME)
+  const login = Auth.loggedIn()
 
   useEffect(() => {
-    if(!loading && login){
+    if(!loading && login && login){
       if(data.me.inGame){
         window.location.replace('/Game')
         }
       }
     })
-return (
+
+    return (
   <div>
   {login ? (
     <>
       <div>
-        <button className="ripple">Start Game</button>
         <div className="howto">
           <h2>HOW TO PLAY:</h2>
           <div className="text-section">
