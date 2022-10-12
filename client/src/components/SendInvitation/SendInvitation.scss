@@ -40,7 +40,7 @@ h2 {
 }
 
 @media screen and (min-width: 280px) {
-  h2{
+  h2 {
     text-align: center;
   }
   .btn-center {
@@ -101,11 +101,15 @@ h2 {
   }
 }
 @media screen and (min-width: 1080px) {
+  h2 {
+    margin-top: 0px;
+  }
   .btn-center {
     margin-left: 46%;
   }
   .form-container {
     justify-content: space-between;
+    width: 45%;
     margin-left: 25%;
   }
 }
@@ -119,4 +123,5 @@ h2 {
     margin-left: 25%;
     width: 50%;
   }
+  
 }
