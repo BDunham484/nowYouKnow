@@ -131,11 +131,9 @@ useEffect(() => {
 
               </div>
           ))}
-
           </form>
-                    <button onClick={handleFormSubmit}>Submit Answers</button>
-                    <button onClick={handleLeaveGame}>Leave Game</button>
-                    </>
+          <button onClick={handleFormSubmit}>Submit Answers</button>
+          </>
           )}
           </div>
           ) : (<div>You are not currently in a Game. Please go to the home page to invite a friend!</div>)}
@@ -143,6 +141,8 @@ useEffect(() => {
         )}  
         </>
       )}
+        <button onClick={handleLeaveGame}>Leave Game</button>
+
     </div>
   );
 };

@@ -48,7 +48,7 @@ const resolvers = {
                     {_id: context.user._id},
                     {deleteOne: User}
                 );
-                return user;
+                return context.user.username;
             }
 
             throw new AuthenticationError('You need to be logged in!');
