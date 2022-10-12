@@ -138,7 +138,7 @@ div button:active {
 
 
 //Galaxy Fold Portrait
-@media screen and (min-device-width: 250px) and // (max-device-width: 360px) and
+@media screen and (min-device-width: 250px) and
 (orientation: portrait) {
   .top {
     margin-top: 85vh;
@@ -168,52 +168,47 @@ div button:active {
   .form-container {
     padding: 40px 0;
     margin-left: 0;
-    width: 90%;
+    // flex-direction: column;
+    width: 100vw;
   }
 
   .btn-center {
-    margin: 0 auto 40px auto;
+    margin: 0 auto 50px auto;
   }
 }
 
-
+//Galaxy S8 portrait and up
 @media screen and 
 (min-device-width: 360px) and 
-// (max-device-width: 1000px) and 
 (orientation: portrait) {
   .top {
     margin-top: 47vh;
     font-size: 2vh;
   }
 }
-
+//iphone SE portrait and up
 @media screen and (min-device-width: 375px) and
 (orientation: portrait) {
   .top {
     margin-top: 55vh;
   }
 }
-
+//iphone 12 Pro and up
 @media screen and (min-device-width: 390px) and
 (orientation: portrait) {
   .top {
     margin-top: 25vh;
   }
 }
-
+//iphone XR - Galaxy A51/71 - Galaxy S20 portrait and up
 @media screen and 
 (min-device-width: 400px) and 
-// (max-device-width: 1000px) and 
 (orientation: portrait) {
   .top {
     margin-top: 15vh;
   }
-
-  .form-container {
-    width: 80%;
-  }
 }
-
+//Surface Duo portrait and up
 @media screen and
 (min-device-width: 520px) and
 (orientation: portrait) {
@@ -224,8 +219,32 @@ div button:active {
   .text-section {
     width: 80vw;
   }
+}
+//ipad mini portrait and up
+@media screen and 
+(min-device-width: 750px) and 
+(orientation: portrait) {
+  .top {
+    margin-top: 5vh;
+  }
 
-  .form-container {
-    width: 60%;
+  .text-section {
+    width: 70vw;
+  }
+}
+
+@media screen and 
+(min-device-width: 800px) and 
+(orientation: portrait) {
+  .top {
+    margin-top: -4vh;
+  }
+
+  .text-section {
+    width: 70vw;
+  }
+
+  .container {
+    margin-top: 6vh;
   }
 }
