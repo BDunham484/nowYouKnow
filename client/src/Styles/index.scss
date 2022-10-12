@@ -20,9 +20,10 @@ body {
 
 .top {
   display: flex;
-  padding-top: 450px;
-  padding-bottom: 50px;
   justify-content: center;
+  margin-bottom: 25px;
+  align-items: center;
+  margin-top: 225px;
 }
 
 /*Effects for button*/
@@ -33,11 +34,14 @@ div button {
 
 .howto {
   background-color: $primary;
+  max-height: 600px;
   position: relative;
   padding-top: 90px;
+  height: fit-content;
+  width: 100vw;
+  
 
   .howto-title {
-    padding-top: 100px;
     margin: 45px;
   }
   
@@ -59,12 +63,16 @@ div button {
 }
 
 .wave .shape-fill {
-    fill: $bg;
+  fill: $bg;
 }
 
 .text-section {
-  padding-bottom: 110px;
-  margin: 45px;
+  padding-bottom: 100px;
+  display: flex;
+  margin: 50px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .wave-bottom {
@@ -111,4 +119,15 @@ div button:active {
   background-color: $dark;
   background-size: 100%;
   transition: background 0s;
+}
+
+@media screen and (max-width: 610px) {
+  .howto p {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 200px) {
+  howto h2 {
+    padding: 0;
+  }
 }
