@@ -67,14 +67,22 @@ const resolvers = {
             return { token, user };
         },
         sendInvite: async (parent, { username, category }, context) => {
-            console.log(username);
+            if(!username || !category) {
+                throw new Error('You must pick a category and username')
+            }
+            if(username === context.user.username) {
+                throw new Error("You cant't play against yourself! :) Please pick another user")
+            }
             const invite = await Invite.create({ 'username': context.user.username, accepted: false, 'category': category })
-            await User.findOneAndUpdate(
+            const user = await User.findOneAndUpdate(
                 { 'username': username }, {
                 $push: {
                     openInvites: invite
                 }
             })
+            if(!user){
+                throw new Error('User does not exist')
+            }
             return username
         },
         cancelInvite: async (parent, { username }, context) => {
@@ -119,24 +127,13 @@ const resolvers = {
             await User.findOneAndUpdate(
                 { 'username': context.user.username }, {
                 $set: {
-                    currentGame: currentGame
+                    currentGame: currentGame,
+                    inGame: true
                 }
             })
             return context.user.username
         }
             throw new AuthenticationError('You need to be logged in!');
-        },
-        joinGame: async(parent, args, context) => {
-            if(context.user) {
-                await User.findOneAndUpdate(
-                    { 'username': context.user.username }, {
-                    $set: {
-                        inGame: true
-                    }
-                })
-                return context.user.username
-            }
-                throw new AuthenticationError('You need to be logged in!');
         },
         leaveGame: async(parent, { username }, context) => {
             if(context.user) {

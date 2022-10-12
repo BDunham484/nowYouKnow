@@ -42,12 +42,6 @@ export const NEW_GAME = gql`
   }
 `
 
-export const JOIN_GAME = gql`
-  mutation joinGame {
-    joinGame
-  }
-`
-
 export const LEAVE_GAME = gql`
   mutation leaveGame($username: String!) {
     leaveGame(username: $username)
