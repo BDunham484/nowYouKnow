@@ -58,7 +58,7 @@ const Header = () => {
                   <a href="/">Invites</a>
                 </li>
                 <button>
-                  <a href="/">Delete Account</a>
+                  <a href="/"  onClick={() => Auth.logout()}>Delete Account</a>
                 </button>
               </ul>
               <button>
