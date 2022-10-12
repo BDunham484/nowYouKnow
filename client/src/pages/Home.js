@@ -8,16 +8,16 @@ import { GET_ME } from '../utils/queries'
 import classes from "../Styles/index.scss";
 
 const Home = () => {
+  const login = Auth.loggedIn()
   const { loading, data } = useQuery(GET_ME)
 
   useEffect(() => {
-    if(!loading){
+    if(!loading && login){
       if(data.me.inGame){
         window.location.replace('/Game')
         }
       }
     })
-const login = Auth.loggedIn()
 return (
   <div>
   {login ? (
