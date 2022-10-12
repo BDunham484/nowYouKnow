@@ -79,6 +79,7 @@ function SendInvite() {
       } catch (e) {
         console.log(e);
       }
+      handleCancelInvite();
       window.location.replace('/Game')
     }
 
@@ -91,10 +92,17 @@ function SendInvite() {
       };
 
     if(!loading && submitSuccess) {
-      const opponentAnswer = (data.user.openInvites.find(invite => invite.username === myData.me.username)).accepted
-      console.log(opponentAnswer);
+      const opponentAnswer = (data.user.openInvites.find(invite => invite.username === myData.me.username))
       if (opponentAnswer) {
+        if(opponentAnswer.accepted){
         startGame();
+        }
+      } else {
+        setOpponentData({
+          ...opponentData,
+          username: '',
+          submitSuccess: false
+        })
       }
     }
 

@@ -34,7 +34,7 @@ function Login(props) {
     <div className="wrapper">
       <div className="login-form">
 
-      <i class="fa-solid fa-user"></i>
+      <i className="fa-solid fa-user"></i>
         <h2>Login</h2>
         <form onSubmit={handleFormSubmit}>
           <div className=" flex-row space-between my-2">

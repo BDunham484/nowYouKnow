@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import classes from "./Header.module.scss";
 import { BiMenuAltRight } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
+import { Link } from 'react-router-dom';
+import Auth from "../../utils/auth";
+
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -34,13 +37,17 @@ const Header = () => {
   return (
     <header className={classes.header}>
       <div className={classes.header__content}>
-        <h2 className={classes.header__content__logo}><span>N</span>ow<span>Y</span>ou<span>K</span>now</h2>
-
+        <Link style={{textDecoration: 'none'}} to="/">
+          <h2 className={classes.header__content__logo}><span>N</span>ow<span>Y</span>ou<span>K</span>now</h2>
+        </Link>
+        
         <nav
           className={`${classes.header__content__nav} ${
             menuOpen ? classes.isMenu : ""
           }`}
         >
+          {Auth.loggedIn() ? (
+        <>
           <ul>
             <li>
               <a href="/">Invites</a>
@@ -49,7 +56,15 @@ const Header = () => {
               <a href="/">Account</a>
             </li>
           </ul>
-          <button>Login/Logout</button>
+          <button><a href="/" onClick={() => Auth.logout()}>
+              Logout
+            </a></button>
+        </>
+          ) : (
+            <Link to="/login">
+            <button>Login</button>
+          </Link>
+          )}
         </nav>
         <div className={classes.header__content__toggle}>
           {!menuOpen ? (

@@ -49,14 +49,20 @@ export const JOIN_GAME = gql`
 `
 
 export const LEAVE_GAME = gql`
-  mutation leaveGame {
-    leaveGame
+  mutation leaveGame($username: String!) {
+    leaveGame(username: $username)
+  }
+`
+
+export const LEAVE_GAME_ME = gql`
+  mutation leaveGameMe {
+    leaveGameMe
   }
 `
 
 export const SUBMIT_ANSWERS = gql`
-mutation($questions: [String]!, $answers: [String]!, $guesses: [String]!) {
-  submitAnswer(questions: $questions, answers: $answers, guesses: $guesses)
+mutation($answers: [String]!, $guesses: [String]!, $opponent: String!) {
+  submitAnswer(answers: $answers, guesses: $guesses, opponent: $opponent)
 }
 `
 
@@ -85,6 +91,35 @@ export const ADD_GAME = gql`
   }
 }
 `;
+
+// //updated ADD_GAME to fit format returned by compareUser helper
+// export const ADD_GAME = gql`
+//   mutation AddGame(
+//     $username: String
+//     $opponent: String
+//     $yourScore: Int
+//     $opponentScore: Int
+//     $winner: String
+//     $questions: [Question]
+//     ) {
+//     addGame(
+//       username: $username
+//       opponent: $opponent
+//       yourScore: $yourScore
+//       opponentScore: $opponentScore
+//       winner: $winner) {
+//         username
+//         games {
+//           opponent {
+//           opponent
+//         }
+//         yourScore
+//         opponentScore
+//         winner
+//     }
+//   }
+// }
+// `;
 
 
 export const SEND_INVITE = gql`

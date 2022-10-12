@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const GET_ME = gql`
+
     {
         me {
             _id
@@ -14,6 +15,15 @@ export const GET_ME = gql`
                 }
                 opponent
                 category
+                opponentInGame
+                QandA {
+                    yourAnswer
+                    yourGuess
+                }
+                opponentQandA {
+                    opponentAnswer
+                    opponentGuess
+                }
             }
         }
     }
@@ -44,6 +54,17 @@ export const GET_USER_INFO = gql`
                 username
                 category
                 accepted
+            }
+            inGame
+            currentGame {
+                opponent
+                category
+                answerSubmit
+                opponentInGame
+                QandA {
+                    yourAnswer
+                    yourGuess
+                }
             }
         }
     }
