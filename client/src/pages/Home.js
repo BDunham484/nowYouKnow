@@ -29,8 +29,14 @@ return (
           <h2>HOW TO PLAY:</h2>
           <div className="text-section">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              1. Login or Signup
+              2. Choose a select category of questions.
+              3. Enter your friend's username for their account and send them an invitation to play with you!
+              4. Once your friend accepts your invitation, the game will automatically start.
+              5. Type in the answer to the question for yourself in the "your answer" section.
+              6. Type in what you think is your friend's answer is in "your guess" section.
+              7. Only use one word answers, and make sure you spell correctly!
+              8. Click submit and see if you really know your friend!
             </p>
           </div>
           <div className="wave">
