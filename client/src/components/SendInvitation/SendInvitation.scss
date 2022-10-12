@@ -1,0 +1,127 @@
+@import "../../Styles/variables.scss";
+
+h2 {
+  display:flex;
+  justify-content: center;
+}
+
+.form-container {
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 600px;
+  margin-left: 23%;
+
+  select, input {
+    margin: 5px;
+    border-radius: 8px;
+    border: none;
+    background-color: $primary;
+    color: $light;
+    width: 175px;
+    height: 40px;
+    padding-left: 8px;
+  }
+  input::placeholder {
+    color: $light;
+  }
+  option {
+    border-radius: 3px;
+  }
+  
+}
+.btn-center {
+  display: flex;
+  justify-content: center;
+  margin-left: 47%;
+  margin-bottom: 50px;
+}
+
+@media screen and (min-width: 280px) {
+  h2 {
+    text-align: center;
+  }
+  .btn-center {
+    margin-left: 32%;
+  }
+  .form-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-left: 0%;
+  }
+  label {
+    margin-left: 8%;
+  }
+}
+
+@media screen and (min-width: 360px) {
+  .btn-center {
+    margin-left: 36%;
+  }
+  .form-container {
+    width: 65%;
+    display: flex;
+    margin-left: 18%;
+  }
+  label {
+    margin-left: 8%;
+  }
+}
+@media screen and (min-width: 540px) {
+  .btn-center {
+    margin-left: 39%;
+  }
+  .form-container {
+    margin-left: 16%;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 768px) {
+  .btn-center {
+    margin-left: 43%;
+  }
+  .form-container {
+    width: 68%;
+  }
+}
+@media screen and (min-width: 820px) {
+  .btn-center {
+    margin-left: 43%;
+  }
+}
+@media screen and (min-width: 912px) {
+  .container {
+    padding-top: 90px;
+  }
+  .btn-center {
+    margin-bottom: -30px;
+  }
+}
+@media screen and (min-width: 1080px) {
+  h2 {
+    margin-top: 0px;
+  }
+  .btn-center {
+    margin-left: 46%;
+  }
+  .form-container {
+    justify-content: space-between;
+    width: 45%;
+    margin-left: 25%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .btn-center {
+    margin-left: 46%;
+    margin-bottom: 75px;
+  }
+  .form-container {
+    justify-content: space-between;
+    margin-left: 25%;
+    width: 50%;
+  }
+  
+}

@@ -4,6 +4,7 @@ import Auth from "../../utils/auth";
 import { SEND_INVITE, CANCEL_INVITE, NEW_GAME, JOIN_GAME } from '../../utils/mutations';
 import { GET_USER_INFO, GET_ME } from '../../utils/queries'
 import { questions } from '../../assets/variables/questions';
+import './SendInvitation.scss';
 
 
 
@@ -114,7 +115,7 @@ function SendInvite() {
           {submitSuccess ? (
             <div>You sent an invite to {username} in category: {category}</div>
           ) : (
-          <div className="flex-row space-between my-2">
+          <div className="flex-row space-between my-2 form-container">
             <label htmlFor="category">Choose a category</label>
             <select id="category" name="category" onChange={handleChange}>
               <option value="" disabled selected>categories...</option>
@@ -143,7 +144,7 @@ function SendInvite() {
             {submitSuccess ? (
                 <button onClick={handleCancelInvite}>Cancel Invitation</button>
             ): (
-                <button onClick={handleSubmitInvite}>Submit</button>
+                <button className="btn-center" onClick={handleSubmitInvite}>Submit</button>
             )}
           </div>
         </form>
