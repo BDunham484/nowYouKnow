@@ -75,7 +75,7 @@ const Results = () => {
                                         Your Answer: {question.yourAnswer}
                                     </span>
                                     <span>
-                                        Opponent's Guess: {question.opponentQuess}
+                                        Opponent's Guess: {question.opponentGuess}
                                     </span>
                                 </div>
                                 <div>
