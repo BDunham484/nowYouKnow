@@ -2,7 +2,6 @@ const { User, Invite } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 const Game = require('../models/Game');
-const Question = require('../models/Question');
 const CurrentGame = require('../models/CurrentGame');
 
 
@@ -100,18 +99,7 @@ const resolvers = {
                 { 'username': context.user.username }, { $pull: { openInvites: { 'username': username } } })
             return username
         },
-        // adds game to current user games array
-        addGame: async (parent, args, context) => {
-            if (context.user) {
-                const user = await User.findByIdAndUpdate(
-                    { _id: context.user._id },
-                    { $push: { games: args } },
-                    { new: true }
-                );
-                return user;
-            };
-        },
-        //creates newGame, generates Game _id, and pushes it to currentGame array in User model
+        //creates an initialized current Game to your user
         newGame: async (parent, { category, opponent }, context) => {
             if(context.user) {
             const currentGame = await CurrentGame.create({
@@ -156,36 +144,6 @@ const resolvers = {
                 return context.user.username
             }
                 throw new AuthenticationError('You need to be logged in!');
-        },
-        //adds question to current Game: questions[]
-        //with the addition of asking/answering all 5 questions at once this resolver may not be needed.  Leaving for now. 
-        addQuestion: async (parent, args, context) => {
-            if (context.user) {
-                const user = await User.findOne({ _id: context.user._id })
-
-                const game = await Game.findByIdAndUpdate(
-                    { _id: user.currentGame },
-                    { $push: { questions: args } },
-                    { new: true }
-                );
-                return game;
-            }
-            throw new AuthenticationError('You need to be logged in!');
-        },
-        //with the addition of asking/answering all 5 questions at once this resolver may not be needed.  Leaving for now. 
-        newQuestion: async (parent, args, context) => {
-
-            if (context.user) {
-                const question = await Question.create({ 'username': context.user.username });
-
-                await User.findByIdAndUpdate(
-                    { _id: context.user._id },
-                    { $set: { currentQuestion: question._id } },
-                    { new: true }
-                );
-                return question;
-            }
-            throw new AuthenticationError('You need to be logged in!');
         },
         submitAnswer: async (parent, { answers, guesses, opponent }, context) => {
             if (context.user) {
