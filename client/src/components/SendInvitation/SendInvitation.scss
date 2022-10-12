@@ -39,6 +39,12 @@ h2 {
   margin-bottom: 50px;
 }
 
+.container p {
+  margin-left: 30%;
+  padding-bottom: 10px;
+  color: red;
+}
+
 @media screen and (min-width: 280px) {
   h2 {
     text-align: center;
@@ -59,7 +65,7 @@ h2 {
 
 @media screen and (min-width: 360px) {
   .btn-center {
-    margin-left: 36%;
+    margin-left: 40%;
   }
   .form-container {
     width: 65%;
@@ -69,6 +75,9 @@ h2 {
   label {
     margin-left: 8%;
   }
+  .container p {
+    margin-left: 16%;
+  }
 }
 @media screen and (min-width: 540px) {
   .btn-center {
@@ -77,6 +86,9 @@ h2 {
   .form-container {
     margin-left: 16%;
     justify-content: center;
+  }
+  .container p {
+    margin-left: 20%;
   }
 }
 @media screen and (min-width: 768px) {
@@ -91,13 +103,21 @@ h2 {
   .btn-center {
     margin-left: 43%;
   }
+  .container p {
+    margin-left: 30%;
+  }
 }
 @media screen and (min-width: 912px) {
   .container {
     padding-top: 90px;
   }
   .btn-center {
+    margin-left: 45%;
     margin-bottom: -30px;
+  }
+
+  .container p {
+    margin-left: 34%;
   }
 }
 @media screen and (min-width: 1080px) {
@@ -109,8 +129,11 @@ h2 {
   }
   .form-container {
     justify-content: space-between;
-    width: 45%;
+    width: 600px;
     margin-left: 25%;
+  }
+  .container p {
+    margin-left: 37%;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -124,4 +147,14 @@ h2 {
     width: 50%;
   }
   
+}
+@media screen and (min-width: 1540px) {
+  .form-container {
+    justify-content: space-between;
+    margin-left: 30%;
+    width: 600px;
+  }
+  .btn-center {
+    margin-bottom: -400px;
+  }
 }

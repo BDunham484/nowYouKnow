@@ -10,7 +10,6 @@ import classes from "../Styles/index.scss";
 const Home = () => {
   const login = Auth.loggedIn()
   const { loading, data } = useQuery(GET_ME)
-  const login = Auth.loggedIn()
 
   useEffect(() => {
     if(!loading && login && login){
@@ -25,6 +24,9 @@ const Home = () => {
   {login ? (
     <>
       <div>
+        <div className="top">
+          <h2>Scroll down to get started!</h2>
+        </div>
         <div className="howto">
           <h2>HOW TO PLAY:</h2>
           <div className="text-section">
