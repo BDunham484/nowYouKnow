@@ -5,7 +5,8 @@ import Auth from '../utils/auth';
 import SendInvite from '../components/SendInvitation'
 import ReceiveInvites from '../components/ReceiveInvitation'
 import { GET_ME } from '../utils/queries'
-import classes from "../Styles/index.scss";
+import "../Styles/index.scss";
+
 
 const Home = () => {
   const login = Auth.loggedIn()
@@ -53,9 +54,9 @@ const Home = () => {
   ) : (
     <>
       <div>
-      <div className="top">
-        <h2>Login to start playing!</h2>
-      </div>
+        <div className="top">
+          <h2>Login to start playing!</h2>
+        </div>
           <div className="howto">
             <div className="wave">
               <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">

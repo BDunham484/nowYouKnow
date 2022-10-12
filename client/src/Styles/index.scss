@@ -21,8 +21,8 @@ body {
 .top {
   display: flex;
   justify-content: center;
-  margin-top: 50%;
   margin-bottom: 25px;
+  align-items: center;
 }
 
 /*Effects for button*/
@@ -33,9 +33,11 @@ div button {
 
 .howto {
   background-color: $primary;
+  max-height: 600px;
   position: relative;
   padding-top: 90px;
   height: fit-content;
+  
 
   .howto-title {
     margin: 45px;
@@ -111,4 +113,15 @@ div button:active {
   background-color: $dark;
   background-size: 100%;
   transition: background 0s;
+}
+
+@media screen and (max-width: 610px) {
+  .howto p {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 200px) {
+  howto h2 {
+    padding: 0;
+  }
 }

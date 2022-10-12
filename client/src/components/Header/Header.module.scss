@@ -10,6 +10,7 @@
   @include breakpoint(md) {
     padding: 0 3rem;
     background: rgba($dark, 0.9);
+    position: static;
   }
   transition: 0.3s ease all;
 
