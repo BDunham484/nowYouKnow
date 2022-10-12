@@ -3,6 +3,10 @@
 A game where you try to guess who said what
 
 ## Table of Contents 🔎
+- [Technologies](#Technologies)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
 
 ## Technologies 🦾
 
@@ -31,7 +35,11 @@ A game where you try to guess who said what
 - Include authentication (JWT).
 - Protect sensitive API key information on the server.
 
-## Usage
+## Installation 
+💾 No installation is needed as the game is deployed on Heroku
+
+## Usage 
+💻 The game can be viewed at - [Heroku](https://arcane-cliffs-23763.herokuapp.com/)
 
 ## Contributing
 

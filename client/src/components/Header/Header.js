@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import classes from "./Header.module.scss";
 import { BiMenuAltRight } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+// import AnimatedLetters from "../AnimatedLetters";
 import Auth from "../../utils/auth";
 
-
 const Header = () => {
+  // const [letterClass, setLetterClass] = useState("text-animate");
+  // const nameArray = ["N", "o", "w", "Y", "o", "u", "K", "n", "o", "w"];
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [size, setSize] = useState({
     width: undefined,
@@ -37,33 +40,37 @@ const Header = () => {
   return (
     <header className={classes.header}>
       <div className={classes.header__content}>
-        <Link style={{textDecoration: 'none'}} to="/">
-          <h2 className={classes.header__content__logo}><span>N</span>ow<span>Y</span>ou<span>K</span>now</h2>
+        <Link style={{ textDecoration: "none" }} to="/">
+          <h2 className={classes.header__content__logo}>
+            <span>N</span>ow<span>Y</span>ou<span>K</span>now
+          </h2>
         </Link>
-        
+
         <nav
           className={`${classes.header__content__nav} ${
             menuOpen ? classes.isMenu : ""
           }`}
         >
           {Auth.loggedIn() ? (
-        <>
-          <ul>
-            <li>
-              <a href="/">Invites</a>
-            </li>
-            <li>
-              <a href="/">Account</a>
-            </li>
-          </ul>
-          <button><a href="/" onClick={() => Auth.logout()}>
-              Logout
-            </a></button>
-        </>
+            <>
+              <ul>
+                <li>
+                  <a href="/">Invites</a>
+                </li>
+                <button>
+                  <a href="/">Delete Account</a>
+                </button>
+              </ul>
+              <button>
+                <a href="/" onClick={() => Auth.logout()}>
+                  Logout
+                </a>
+              </button>
+            </>
           ) : (
             <Link to="/login">
-            <button>Login</button>
-          </Link>
+              <button>Login</button>
+            </Link>
           )}
         </nav>
         <div className={classes.header__content__toggle}>
