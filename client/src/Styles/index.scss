@@ -145,6 +145,12 @@ div button:active {
     font-size: 2vh;
   }
 
+  #text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .text-section {
     margin: 0 !important;
     padding: 10px 20px;
@@ -195,12 +201,31 @@ div button:active {
   }
 }
 
-@media screen and (min-device-width: 400px) and (max-device-width: 1000px) and (orientation: portrait) {
+@media screen and 
+(min-device-width: 400px) and 
+// (max-device-width: 1000px) and 
+(orientation: portrait) {
   .top {
     margin-top: 15vh;
   }
 
   .form-container {
     width: 80%;
+  }
+}
+
+@media screen and
+(min-device-width: 520px) and
+(orientation: portrait) {
+  .top {
+    margin-top: 44vh;
+  }
+
+  .text-section {
+    width: 80vw;
+  }
+
+  .form-container {
+    width: 60%;
   }
 }

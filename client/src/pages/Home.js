@@ -28,7 +28,7 @@ const Home = () => {
         <div className="top">
           <h2>Scroll down to get started!</h2>
         </div>
-        <div className="howto">
+        <div className="howto" id="text-wrapper">
           <h2>Rules of the Game:</h2>
           <div className="text-section">
               <p> 1. Choose a category of questions. </p>
