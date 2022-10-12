@@ -131,3 +131,29 @@ div button:active {
     padding: 0;
   }
 }
+
+@media screen and
+(min-device-width: 400px) and
+(max-device-width: 1000px) and
+(orientation: portrait) {
+  .top {
+    margin-top: 35vh;
+    background-color: aqua;
+  }
+}
+
+@media screen and
+(min-device-width: 250px) and
+(max-device-width: 400px) and
+(orientation: portrait) {
+  .top {
+    margin-top: 82vh;
+    font-size: 2vh;
+  }
+
+  .text-section {
+    margin: 0;
+    background-color: aqua;
+    width: 100vw;
+  }
+}
