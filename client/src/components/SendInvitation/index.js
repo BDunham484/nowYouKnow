@@ -146,7 +146,7 @@ function SendInvite() {
           />
         </div>
         )}
-        {/* display this if the user is not found */}
+        {/* display this if there is a submit error */}
         {error && (
         <div>
           <p className="error-text">{error.message}</p>

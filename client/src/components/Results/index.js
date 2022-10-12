@@ -12,7 +12,7 @@ const Results = () => {
     const [GameData, setGameData] = useState({username: '', opponent: '', QandA: [], opponentQandA: [], category: ''})
     const { username, opponent, QandA, opponentQandA, category } = GameData
     const [finalGame, setFinalGame] = useState({username: '', opponent: '', yourScore: '', opponentScore: '', winner: '', question: []})
-    const { username: finalUsername, opponent: finalOpponent, yourScore, opponentScore, winner, questionsArray } = finalGame
+    const { username: finalUsername, yourScore, opponentScore, winner, questionsArray } = finalGame
 
     useEffect(() => {
     if(!loading) {
@@ -67,8 +67,8 @@ const Results = () => {
                         </>
                         )}</h2>
                         <h3>Your final score: {yourScore}. {opponent}'s final score: {opponentScore}</h3>
-                        {questionsArray.map(question => (
-                            <div>
+                        {questionsArray.map((question, index) => (
+                            <div key={index}>
                                 Question: {question.questionBody}
                                 <div>
                                     <span>

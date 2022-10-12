@@ -102,10 +102,6 @@ const resolvers = {
         },
         // adds game to current user games array
         addGame: async (parent, args, context) => {
-            console.log('ARGS!!!!!')
-            console.log(args)
-            console.log("CONTEXT!!!!")
-            console.log(context.user)
             if (context.user) {
                 const user = await User.findByIdAndUpdate(
                     { _id: context.user._id },
@@ -164,10 +160,6 @@ const resolvers = {
         //adds question to current Game: questions[]
         //with the addition of asking/answering all 5 questions at once this resolver may not be needed.  Leaving for now. 
         addQuestion: async (parent, args, context) => {
-            console.log('ARGS!!!')
-            console.log(args)
-            console.log('CONTEXT!!!');
-            console.log(context.user)
             if (context.user) {
                 const user = await User.findOne({ _id: context.user._id })
 
@@ -176,20 +168,13 @@ const resolvers = {
                     { $push: { questions: args } },
                     { new: true }
                 );
-                console.log('GAME ID!!!!')
-                console.log(user.currentGame)
-                console.log('GAME !!!')
-                console.log(game)
                 return game;
             }
             throw new AuthenticationError('You need to be logged in!');
         },
         //with the addition of asking/answering all 5 questions at once this resolver may not be needed.  Leaving for now. 
         newQuestion: async (parent, args, context) => {
-            console.log('ARGS!!!!!')
-            console.log(args)
-            console.log("CONTEXT!!!!")
-            console.log(context.user)
+
             if (context.user) {
                 const question = await Question.create({ 'username': context.user.username });
 
@@ -198,7 +183,6 @@ const resolvers = {
                     { $set: { currentQuestion: question._id } },
                     { new: true }
                 );
-                console.log(question._id)
                 return question;
             }
             throw new AuthenticationError('You need to be logged in!');
@@ -207,7 +191,7 @@ const resolvers = {
             if (context.user) {
                 let yourArray = []
                 let opponentArray = []
-                answers.map((answer, index) => {
+                answers.forEach((answer, index) => {
                     const yourQuestionModel = {
                         'yourAnswer': answer,
                         'yourGuess': guesses[index]
