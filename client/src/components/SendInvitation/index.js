@@ -123,7 +123,7 @@ function SendInvite() {
     return (
       <div className="container my-1">
         <h2>Send an invite to a friend!</h2>
-        <form>
+        <form className="form">
           {submitSuccess ? (
             <div>
               You sent an invite to {username} in category: {category}

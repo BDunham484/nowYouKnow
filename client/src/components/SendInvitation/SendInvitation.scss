@@ -32,15 +32,12 @@ h2 {
   }
   
 }
+
 .btn-center {
   display: flex;
   justify-content: center;
   margin-left: 47%;
   margin-bottom: 50px;
-}
-
-.container {
-padding-bottom: 50px;
 }
 
 .container p {
@@ -159,6 +156,6 @@ padding-bottom: 50px;
     width: 600px;
   }
   .btn-center {
-    margin-bottom: -400px;
+    margin-bottom: 50px;
   }
 }
