@@ -37,8 +37,10 @@ const Header = () => {
   return (
     <header className={classes.header}>
       <div className={classes.header__content}>
-        <h2 className={classes.header__content__logo}><span>N</span>ow<span>Y</span>ou<span>K</span>now</h2>
-
+        <Link style={{textDecoration: 'none'}} to="/">
+          <h2 className={classes.header__content__logo}><span>N</span>ow<span>Y</span>ou<span>K</span>now</h2>
+        </Link>
+        
         <nav
           className={`${classes.header__content__nav} ${
             menuOpen ? classes.isMenu : ""
@@ -60,7 +62,7 @@ const Header = () => {
         </>
           ) : (
             <Link to="/login">
-            <button>Login/Logout</button>
+            <button>Login</button>
           </Link>
           )}
         </nav>
