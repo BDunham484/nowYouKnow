@@ -4,11 +4,11 @@
 
 ## Table of Contents 🔎
 
+- [Description](#Description)
 - [Technologies](#Technologies)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [Description](#Description)
 
 ## Description
 
