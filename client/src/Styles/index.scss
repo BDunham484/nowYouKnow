@@ -23,7 +23,25 @@ body {
   justify-content: center;
   margin-bottom: 25px;
   align-items: center;
-  margin-top: 225px;
+  // margin-top: 225px;
+  margin-top: 55vh;
+}
+
+#home-logged-out-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-logged-out {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  align-items: center;
+  margin-top: 45vh;
+  width: 90vw;
+  // background-color: aqua;
 }
 
 /*Effects for button*/
@@ -33,17 +51,21 @@ div button {
 }
 
 .howto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: $primary;
-  max-height: 600px;
+  min-height: 600px;
   position: relative;
   padding-top: 90px;
-  height: fit-content;
+  // height: fit-content;
+  // min-height: 95vh;
   width: 100vw;
 
 
-  .howto-title {
-    margin: 45px;
-  }
+  // .howto-title {
+  //   margin: 0;
+  // }
 
   .wave {
     position: absolute;
@@ -73,6 +95,24 @@ div button {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+  }
+
+  .text-section-logged-out {
+    // padding-bottom: 100px;
+    display: flex;
+    margin: 50px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
   }
 
   .wave-bottom {
@@ -124,6 +164,62 @@ div button:active {
   transition: background 0s;
 }
 
+//receive invitation styles
+#receive-invite-wrapper {
+  // background-color: aqua;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#receive-invite-wrapper h4 {
+  text-align: center;
+  padding: 3vh;
+}
+
+#receive-invite-wrapper button {
+  margin: 3vh 0;
+}
+
+//GAME STYLES 
+#in-game-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20vh;
+  text-align: center;
+  // background-color: aqua;
+}
+
+#in-game-wrapper h1 {
+  font-size: 20px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+// #game-form {
+//   display: flex;
+//   flex-direction: co;
+// }
+
+#game-form input {
+  width: 85vw;
+}
+
+#game-form button {
+  margin: 3vh 0;
+}
+
+#in-game-button-wrapper {
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+//MEDIA QUERIES START
 @media screen and (max-width: 610px) {
   .howto p {
     font-size: 14px;
@@ -142,9 +238,15 @@ div button:active {
 @media screen and (min-device-width: 250px) and
 (orientation: portrait) {
   .top {
-    margin-top: 85vh;
+    margin-top: 130vh;
     font-size: 2vh;
   }
+
+  .top-logged-out {
+    margin-top: 70vh;
+    font-size: 2vh;
+  }
+
 
   #text-wrapper {
     display: flex;
@@ -154,17 +256,25 @@ div button:active {
 
   .text-section {
     margin: 0 !important;
-    padding: 10px 20px;
+    padding: 0 20px;
     width: 100vw;
     align-items: flex-start !important;
   }
 
-  form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  .text-section-logged-out {
+    margin: 0 !important;
+    padding: 10px 20px 90px 20px;
+    width: 100vw;
+    align-items: flex-start !important;
   }
+
+  // form {
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
+  //   text-align: center;
+  // }
 
   .form-container {
     padding: 40px 0;
@@ -176,6 +286,10 @@ div button:active {
   .btn-center {
     margin: 0 auto 50px auto;
   }
+
+  #in-game-wrapper {
+    margin-top: 50vh;
+  }
 }
 
 //Galaxy S8 portrait and up
@@ -183,22 +297,53 @@ div button:active {
 (min-device-width: 360px) and 
 (orientation: portrait) {
   .top {
-    margin-top: 47vh;
-    font-size: 2vh;
+    margin-top: 110vh;
+  }
+
+  .top-logged-out {
+    margin-top: 50vh;
+  }
+
+  .text-section {
+    padding: 10px 20px;
+  }
+
+  .text-section-logged-out {
+    padding: 30px 30px 0 30px;
+  }
+
+  #in-game-wrapper {
+    margin-top: 35vh;
   }
 }
 //iphone SE portrait and up
 @media screen and (min-device-width: 375px) and
 (orientation: portrait) {
   .top {
+    margin-top: 125vh;
+  }
+
+  .top-logged-out {
     margin-top: 55vh;
+  }
+
+  #in-game-wrapper {
+    margin-top: 50vh;
   }
 }
 //iphone 12 Pro and up
 @media screen and (min-device-width: 390px) and
 (orientation: portrait) {
   .top {
-    margin-top: 25vh;
+    margin-top: 90vh;
+  }
+
+  .top-logged-out {
+    margin-top: 40vh;
+  }
+
+  #in-game-wrapper {
+    margin-top: 30vh;
   }
 }
 //iphone XR - Galaxy A51/71 - Galaxy S20 portrait and up
@@ -206,7 +351,7 @@ div button:active {
 (min-device-width: 400px) and 
 (orientation: portrait) {
   .top {
-    margin-top: 15vh;
+    margin-top: 80vh;
   }
 }
 //Surface Duo portrait and up
@@ -214,11 +359,29 @@ div button:active {
 (min-device-width: 520px) and
 (orientation: portrait) {
   .top {
-    margin-top: 44vh;
+    margin-top: 110vh;
+  }
+
+  .top-logged-out {
+    margin-top: 45vh;
+    width: 80vw;
   }
 
   .text-section {
     width: 80vw;
+  }
+
+  .text-section-logged-out {
+    width: 80vw;
+  }
+
+  #in-game-wrapper h1 {
+    width: 60vw;
+    margin-top: 8vh;
+  }
+
+  #game-form input {
+    width: 60vw;
   }
 }
 //ipad mini portrait and up
@@ -226,19 +389,36 @@ div button:active {
 (min-device-width: 750px) and 
 (orientation: portrait) {
   .top {
-    margin-top: 5vh;
+    margin-top: 25vh;
+  }
+
+  .top-logged-out {
+    margin-top: -7vh;
   }
 
   .text-section {
     width: 70vw;
   }
-}
 
+  #in-game-wrapper {
+    margin-top: -20vh;
+  }
+
+  #in-game-wrapper h1 {
+    width: 60vw;
+    margin-bottom: 5vh;
+  }
+}
+//ipad air portrait and up
 @media screen and 
 (min-device-width: 800px) and 
 (orientation: portrait) {
   .top {
-    margin-top: -4vh;
+    margin-top: 20vh;
+  }
+
+  .top-logged-out {
+    margin-top: -15vh;
   }
 
   .text-section {
@@ -249,3 +429,199 @@ div button:active {
     margin-top: 6vh;
   }
 }
+
+//NEST HUB
+@media screen and 
+(device-width: 1024px) and
+(device-height: 600px) {
+  .top {
+    margin-top: 120vh !important;
+  }
+
+  .top-logged-out {
+    margin-top: 30vh !important;
+  }
+
+  #in-game-wrapper {
+    margin-top: 25vh !important;
+  }
+}
+//NEST HUB MAX
+@media screen and 
+(device-width: 1280px) and
+(device-height: 800px) {
+  .top {
+    margin-top: 70vh;
+  }
+
+  .top-logged-out {
+    margin-top: 0;
+  }
+}
+
+@media screen and 
+(min-width: 800px) {
+
+}
+
+@media screen and 
+(min-width: 1000px) {
+// .top {
+//   margin-top: 0;
+// }
+
+  .top-logged-out {
+    margin-top: 0;
+  }
+
+  #in-game-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vh;
+    // background-color: aqua;
+  }
+  
+  #in-game-wrapper h1 {
+    font-size: 20px;
+    text-align: center;
+    margin: 0 auto;
+    width: 31vw;
+  }
+  
+  #game-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    text-align: center;
+  }
+  
+  #game-form input {
+    width: 31vw;
+  }
+  
+  #game-form button {
+    margin: 3vh 0;
+  }
+}
+
+@media screen and 
+(min-width: 1293px) and 
+(min-height: 1000px) {
+  .top {
+    margin-top: 20vh;
+  }
+}
+
+@media screen and 
+(min-width: 1540px) and 
+(min-height: 1000px) {
+  // .top {
+  //   margin-top: 0;
+  // }
+}
+
+//LANDSCAPE MODE MEDIA QUERIES
+//galaxy fold-ish landscape styles
+@media screen and 
+(min-device-width: 500px) and
+(orientation: landscape) {
+.top {
+  margin-top: 370vh;
+}
+
+.top-logged-out {
+  margin-top: 200vh;
+}
+
+.top h2 {
+  font-size: 20px;
+}
+
+  .top-logged-out {
+    margin-top: 175vh;
+  }
+
+  #in-game-wrapper {
+    margin-top: 175vh;
+  }
+}
+
+//GALAXY FOLD LANDSCAPE MODE LOGGED OUT
+@media screen and 
+(device-width: 653px) and 
+(device-height: 280px) and 
+(orientation: landscape) {
+  .top-logged-out {
+    margin-top: 205vh;
+  }
+}
+//GALAXY SE-ISH STYLES
+@media screen and 
+(min-device-width: 666px) and
+(orientation: landscape) {
+.top {
+  margin-top: 260vh;
+}
+
+  .top-logged-out {
+    margin-top: 145vh;
+  }
+
+  #in-game-wrapper {
+    margin-top: 120vh;
+  }
+}
+//SURFACE DUO LANDSCAPE STYLES
+@media screen and 
+(device-width: 720px) and 
+(device-height: 540px) and
+(orientation: landscape) {
+.top {
+  margin-top: 155vh;
+}
+
+  .top-logged-out {
+    margin-top: 85vh;
+  }
+
+  #in-game-wrapper {
+    margin-top: 70vh;
+  }
+}
+
+@media screen and 
+(min-device-width: 800px) and
+(orientation: landscape) {
+.top {
+  margin-top: 205vh;
+}
+
+  .top-logged-out {
+    margin-top: 100vh;
+  }
+
+  #in-game-wrapper {
+    margin-top: 90vh;
+  }
+}
+//iPADS AND UP LANDSCAPE STYLES
+@media screen and 
+(min-device-width: 1000px) and
+(min-device-height: 650px) and
+(orientation: landscape) {
+  .top {
+    margin-top: 75vh;
+  }
+  
+  .top-logged-out {
+    margin-top: 10vh;
+  }
+
+  #in-game-wrapper {
+    margin-top: 0;
+  }
+}
+

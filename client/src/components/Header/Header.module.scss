@@ -4,15 +4,18 @@
 .header {
   background: rgba($dark, 0.9);
   width: 100%;
-  height: $headerHeight;
+  min-height: $headerHeight;
   padding: 0 1.5rem;
-  position: relative;
+  position: fixed;
+  z-index: 100;
   @include breakpoint(md) {
     padding: 0 3rem;
     background: rgba($dark, 0.9);
     position: static;
   }
   transition: 0.3s ease all;
+  display: flex;
+  align-items: center;
 
   &__content {
     overflow: hidden;
@@ -24,6 +27,7 @@
     align-items: center;
     position: relative;
     z-index: 100;
+    width: 95%;
 
     &__logo {
       font-size: 2rem;
@@ -153,9 +157,13 @@
 (max-device-width: 400px) and
 (orientation: portrait) {
   .header {
+    // min-height: 20vh;
+
     &__content {
+      // padding-top: 1vh;
       margin-left: -15px;
       overflow: visible;
+      width: 100vh;
     }
   }
 }
