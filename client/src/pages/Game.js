@@ -143,8 +143,13 @@ useEffect(() => {
 
               </div>
           ))}
+          
           </form>
-          <button onClick={handleFormSubmit}>Submit Answers</button>
+          <div id="in-game-button-wrapper">
+            <button onClick={handleFormSubmit}>Submit Answers</button>
+            <button onClick={handleLeaveGame}>Leave Game</button>
+          </div>
+          
           </>
           )}
           </div>
@@ -153,7 +158,7 @@ useEffect(() => {
         )}  
         </>
       )}
-        <button onClick={handleLeaveGame}>Leave Game</button>
+        
 
     </div>
   );

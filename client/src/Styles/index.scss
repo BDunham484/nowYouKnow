@@ -211,6 +211,14 @@ div button:active {
   margin: 3vh 0;
 }
 
+#in-game-button-wrapper {
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 //MEDIA QUERIES START
 @media screen and (max-width: 610px) {
   .howto p {
@@ -230,7 +238,7 @@ div button:active {
 @media screen and (min-device-width: 250px) and
 (orientation: portrait) {
   .top {
-    margin-top: 85vh;
+    margin-top: 100vh;
     font-size: 2vh;
   }
 
@@ -280,7 +288,7 @@ div button:active {
 (min-device-width: 360px) and 
 (orientation: portrait) {
   .top {
-    margin-top: 55vh;
+    margin-top: 75vh;
   }
 
   .top-logged-out {
@@ -303,7 +311,7 @@ div button:active {
 @media screen and (min-device-width: 375px) and
 (orientation: portrait) {
   .top {
-    margin-top: 70vh;
+    margin-top: 95vh;
   }
 
   .top-logged-out {
@@ -318,7 +326,7 @@ div button:active {
 @media screen and (min-device-width: 390px) and
 (orientation: portrait) {
   .top {
-    margin-top: 45vh;
+    margin-top: 60vh;
   }
 
   .top-logged-out {
@@ -334,7 +342,7 @@ div button:active {
 (min-device-width: 400px) and 
 (orientation: portrait) {
   .top {
-    margin-top: 35vh;
+    margin-top: 50vh;
   }
 }
 //Surface Duo portrait and up
@@ -342,7 +350,7 @@ div button:active {
 (min-device-width: 520px) and
 (orientation: portrait) {
   .top {
-    margin-top: 65vh;
+    margin-top: 75vh;
   }
 
   .top-logged-out {
@@ -372,7 +380,7 @@ div button:active {
 (min-device-width: 750px) and 
 (orientation: portrait) {
   .top {
-    margin-top: 20vh;
+    margin-top: 25vh;
   }
 
   .top-logged-out {
@@ -397,7 +405,7 @@ div button:active {
 (min-device-width: 800px) and 
 (orientation: portrait) {
   .top {
-    margin-top: 15vh;
+    margin-top: 20vh;
   }
 
   .top-logged-out {
@@ -418,7 +426,7 @@ div button:active {
 (device-width: 1024px) and
 (device-height: 600px) {
   .top {
-    margin-top: 90vh;
+    margin-top: 120vh;
   }
 
   .top-logged-out {
@@ -433,6 +441,10 @@ div button:active {
 @media screen and 
 (device-width: 1280px) and
 (device-height: 800px) {
+  .top {
+    margin-top: 70vh;
+  }
+
   .top-logged-out {
     margin-top: 0;
   }
