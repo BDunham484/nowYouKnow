@@ -14,9 +14,7 @@ import Game from "./pages/Game";
 import NoMatch from "./pages/NoMatch";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
-import GameHistory from "./pages/GameHistory";
 import GameResults from "./pages/GameResults";
-// import { StoreProvider } from './utils/GlobalState'
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -47,7 +45,6 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
-              <Route exact path="/gamehistory" component={GameHistory} />
               <Route exact path="/game" component={Game} />
               <Route exact path="/gameresults" component={GameResults} />
               <Route component={NoMatch} />

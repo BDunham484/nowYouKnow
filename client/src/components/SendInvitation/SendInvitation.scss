@@ -57,6 +57,11 @@ form {
   color: red;
 }
 
+.inv-sent {
+  display: flex;
+  justify-content: center;
+}
+
 @media screen and (min-width: 280px) {
   h2 {
     text-align: center;

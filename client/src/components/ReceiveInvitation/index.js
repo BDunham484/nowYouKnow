@@ -1,20 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useMutation, useQuery } from '@apollo/client';
-import { GET_INVITES, GET_ME } from '../../utils/queries'
-import { ACCEPT_INVITE, DECLINE_INVITE, NEW_GAME, JOIN_GAME } from '../../utils/mutations'
-
+import { GET_INVITES } from '../../utils/queries';
+import { ACCEPT_INVITE, DECLINE_INVITE, NEW_GAME } from '../../utils/mutations';
+import './ReceiveInvitation.scss';
 
 
 const ReceiveInvites = () => {
+    // query that gets your open invitations, updates every second to check for new or canceled ones
     const {loading, data} = useQuery(GET_INVITES, 
       {pollInterval: 1000})
-    const {loading: myLoading, data: myData} = useQuery(GET_ME, 
-      {pollInterval: 1000})
-    const [acceptInvite, { error }] = useMutation(ACCEPT_INVITE);
+
+    // graphQl mutations 
+    const [acceptInvite] = useMutation(ACCEPT_INVITE);
     const [declineInvite] = useMutation(DECLINE_INVITE);
     const [newGame] = useMutation(NEW_GAME)
-    const [joinGame] = useMutation(JOIN_GAME)
 
+    // start the game with the username of your opponent, and the category
     const startGame = async (username, category) => {
       try {
         await newGame({
@@ -23,26 +24,23 @@ const ReceiveInvites = () => {
       } catch (e) {
         console.log(e);
       }
-      try {
-        await joinGame();
-      } catch (e) {
-        console.log(e);
-      }
       window.location.replace('/Game')
     }
+
+    // if you choose to accept the invite
     const handleAccept = async (username, category) => {
         try {
           await acceptInvite({
             variables: { username: username },
           });
+          startGame(username, category)
         } catch (e) {
           console.log(e);
         }
-        startGame(username, category)
-
       };
 
-    const handleDeny = async (username) => {
+    // if you choose to decline the invite
+    const handleDecline = async (username) => {
         try {
             await declineInvite({
               variables: { username: username },
@@ -58,13 +56,14 @@ const ReceiveInvites = () => {
           <div>loading</div>
         ) : (
           <div>
-              {data.me.openInvites.map(invite => (
-              <div id="receive-invite-wrapper">
+              {/* map over your open invites and display them with the option to accept or decline */}
+              {data.me.openInvites.map((invite, index) => (
+              <div id="receive-invite-wrapper" key={index}>
                   <h4>
-                  {invite.username} invited you to play a game (Category: {invite.category})! Would you like to accept or deny?
+                  {invite.username} invited you to play a game (Category: {invite.category})! Would you like to accept or decline?
                   </h4>
                   <button onClick={() => handleAccept(invite.username, invite.category)}>Accept</button>
-                  <button onClick={() => handleDeny(invite.username)}>Deny</button>
+                  <button onClick={() => handleDecline(invite.username)}>Decline</button>
               </div>
               ))}
           </div>
