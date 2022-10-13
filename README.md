@@ -1,6 +1,6 @@
 <h1 align="center">Interactive MERN Stack Single-Page Application: NowYouKnow 👋</h1>
 
-<h1 align="center">A game to find out how well you and your friends know eachother!</h1>
+<h1 align="center">A game to find out how well you and your friends know each other!</h1>
 
 ## Table of Contents 🔎
 
