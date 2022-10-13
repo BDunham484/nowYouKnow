@@ -111,7 +111,8 @@ useEffect(() => {
 }, [myData, category])
 
   return (
-    <div>
+    
+    <div id='in-game-wrapper'>
       {answersSubmitted ? (
         <div>Waiting on {opponent} to submit their responses....</div>
       ) : (
@@ -142,6 +143,7 @@ useEffect(() => {
 
               </div>
           ))}
+          
           </form>
           <div className="btns">
             <button onClick={handleFormSubmit}>Submit Answers</button>

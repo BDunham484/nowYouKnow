@@ -5,6 +5,13 @@ h2, .inv-sent {
   justify-content: center;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .form-container {
   display: flex;
   flex-direction: column;
@@ -71,41 +78,45 @@ label {
   h2 {
     text-align: center;
   }
-  .btn-center {
-    margin-left: 32%;
-  }
+  // .btn-center {
+  //   margin-left: 32%;
+  // }
   // .form-container {
   //   width: 100%;
   //   display: flex;
   //   justify-content: center;
   //   margin-left: 0%;
   // }
-  label {
-    margin-left: 8%;
+  // label {
+  //   margin-left: 8%;
+  // }
+  .top {
+    margin-top: 85vh;
+    font-size: 2vh;
   }
 }
 
+
 @media screen and (min-width: 360px) {
-  .btn-center {
-    margin-left: 40%;
-    margin-bottom: 30px;
-  }
+  // .btn-center {
+  //   margin-left: 40%;
+  // }
   // .form-container {
   //   width: 65%;
   //   display: flex;
   //   margin-left: 18%;
   // }
-  label {
-    margin-left: 8%;
-  }
+  // label {
+  //   margin-left: 8%;
+  // }
   .container p {
     margin-left: 16%;
   }
 }
 @media screen and (min-width: 540px) {
-  .btn-center {
-    margin-left: 39%;
-  }
+  // .btn-center {
+  //   margin-left: 39%;
+  // }
   // .form-container {
   //   margin-left: 16%;
   //   justify-content: center;
@@ -115,17 +126,17 @@ label {
   }
 }
 @media screen and (min-width: 768px) {
-  .btn-center {
-    margin-left: 43%;
-  }
+  // .btn-center {
+  //   margin-left: 43%;
+  // }
   // .form-container {
   //   width: 68%;
   // }
 }
 @media screen and (min-width: 820px) {
-  .btn-center {
-    margin-left: 43%;
-  }
+  // .btn-center {
+  //   margin-left: 43%;
+  // }
   .container p {
     margin-left: 30%;
   }
@@ -134,10 +145,10 @@ label {
   .container {
     padding-top: 90px;
   }
-  .btn-center {
-    margin-left: 45%;
-    margin-bottom: -30px;
-  }
+  // .btn-center {
+  //   margin-left: 45%;
+  //   margin-bottom: -30px;
+  // }
 
   .container p {
     margin-left: 34%;
@@ -147,9 +158,9 @@ label {
   h2 {
     margin-top: 0px;
   }
-  .btn-center {
-    margin-left: 46%;
-  }
+  // .btn-center {
+  //   margin-left: 46%;
+  // }
   // .form-container {
   //   justify-content: space-between;
   //   width: 600px;
@@ -160,10 +171,10 @@ label {
   }
 }
 @media screen and (min-width: 1280px) {
-  .btn-center {
-    margin-left: 46%;
-    margin-bottom: 75px;
-  }
+  // .btn-center {
+  //   // margin-left: 46%;
+  //   margin-bottom: 75px;
+  // }
   // .form-container {
   //   justify-content: space-between;
   //   margin-left: 25%;
@@ -177,7 +188,7 @@ label {
   //   margin-left: 30%;
   //   width: 600px;
   // }
-  .btn-center {
-    margin-bottom: 50px;
-  }
+  // .btn-center {
+  //   margin-bottom: -400px;
+  // }
 }

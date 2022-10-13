@@ -58,7 +58,7 @@ const ReceiveInvites = () => {
           <div>
               {/* map over your open invites and display them with the option to accept or decline */}
               {data.me.openInvites.map((invite, index) => (
-              <div className="receive-inv" key={index}>
+              <div className="receive-inv" id="receive-invite-wrapper" key={index}>
                   <h4>
                   {invite.username} invited you to play a game (Category: {invite.category})! <p>Would you like to accept or decline?</p>
                   </h4>
