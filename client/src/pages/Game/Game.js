@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useMutation, useQuery } from '@apollo/client';
-import { LEAVE_GAME, SUBMIT_ANSWERS, LEAVE_GAME_ME } from '../utils/mutations';
-import { GET_ME, GET_USER_INFO } from '../utils/queries'
-import { questions } from '../assets/variables/questions'
-
+import { LEAVE_GAME, SUBMIT_ANSWERS, LEAVE_GAME_ME } from '../../utils/mutations';
+import { GET_ME, GET_USER_INFO } from '../../utils/queries'
+import { questions } from '../../assets/variables/questions'
+import './Game.scss';
 
 const Game = () => {
   // references for answers and guesses arrays
@@ -114,7 +114,14 @@ useEffect(() => {
     
     <div id='in-game-wrapper'>
       {answersSubmitted ? (
-        <div>Waiting on {opponent} to submit their responses....</div>
+        <div className="leave-game">
+          <div>Waiting on {opponent} to submit their responses....</div>
+          <div className="leave-button">
+            <button className="leave-game" onClick={handleLeaveGame}>Leave Game</button>
+          </div>
+          
+        </div>
+        
       ) : (
         <>
       { loading ? (
@@ -122,20 +129,20 @@ useEffect(() => {
       ) : (
         <>
         {myData.me.inGame ? (
-        <div>
+        <div className="flex-container">
         <h1>Your game against {opponent} in {category}</h1>
         {categoryQuestions.length && (
-          <>
+          <section>
           <form id="game-form" onSubmit={handleFormSubmit}>
           {categoryQuestions.map((question, index) => (
               <div key={index}>
-                <div>{question}</div>
-                <input
+                <div className="question">{question}</div>
+                <input className="responses"
                 placeholder="your answer"
                 name={"answer-"+index}
                 ref={(el) => (answersRef.current[index] = el)}>
                 </input>
-                <input
+                <input className="responses"
                 placeholder="your guess"
                 name={"guess-"+index}
                 ref={(el) => (guessesRef.current[index] = el)}>
@@ -145,12 +152,11 @@ useEffect(() => {
           ))}
           
           </form>
-          <div id="in-game-button-wrapper">
+          <div className="btns">
             <button onClick={handleFormSubmit}>Submit Answers</button>
-            <button onClick={handleLeaveGame}>Leave Game</button>
+            <button className="leave-game" onClick={handleLeaveGame}>Leave Game</button>
           </div>
-          
-          </>
+          </section>
           )}
           </div>
           ) : (<div>You are not currently in a Game. Please go to the home page to invite a friend!</div>)}
@@ -158,7 +164,7 @@ useEffect(() => {
         )}  
         </>
       )}
-        
+
 
     </div>
   );

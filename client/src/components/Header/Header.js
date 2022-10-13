@@ -3,14 +3,11 @@ import classes from "./Header.module.scss";
 import { BiMenuAltRight } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
-// import AnimatedLetters from "../AnimatedLetters";
 import { DELETE_ACCOUNT } from '../../utils/mutations'
 import { useMutation } from '@apollo/client'
 import Auth from "../../utils/auth";
 
 const Header = () => {
-  // const [letterClass, setLetterClass] = useState("text-animate");
-  // const nameArray = ["N", "o", "w", "Y", "o", "u", "K", "n", "o", "w"];
 
   const [deleteUser] = useMutation(DELETE_ACCOUNT)
   
@@ -56,7 +53,7 @@ const Header = () => {
       <div className={classes.header__content}>
         <Link style={{ textDecoration: "none" }} to="/">
           <h2 className={classes.header__content__logo}>
-            <span>N</span>ow<span>Y</span>ou<span>K</span>now
+            <a href="/"><span>N</span>ow<span>Y</span>ou<span>K</span>now</a>
           </h2>
         </Link>
 
@@ -68,9 +65,6 @@ const Header = () => {
           {Auth.loggedIn() ? (
             <>
               <ul>
-                <li>
-                  <a href="/">Invites</a>
-                </li>
                 <button onClick={handleDeleteAccount}>
                 Delete Account
                 </button>

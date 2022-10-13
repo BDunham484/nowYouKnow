@@ -10,7 +10,7 @@ import { setContext } from "@apollo/client/link/context";
 
 import Layout from "./components/Layout/Layout";
 import Home from "./pages/Home";
-import Game from "./pages/Game";
+import Game from "./pages/Game/Game";
 import NoMatch from "./pages/NoMatch";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";

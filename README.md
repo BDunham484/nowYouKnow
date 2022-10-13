@@ -6,10 +6,12 @@
 
 - [Description](#Description)
 - [Technologies](#Technologies)
-- [Installation](#installation)
+- [Installation](#Installation)
 - [Screenshot](#Screenshot)
-- [Usage](#usage)
-- [Contributing](#contributing)
+- [Usage](#Usage)
+- [Contributing](#Contributing)
+
+
 
 ## Description
 
