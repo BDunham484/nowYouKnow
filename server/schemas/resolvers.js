@@ -2,7 +2,6 @@ const { User, Invite } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 const Game = require('../models/Game');
-const Question = require('../models/Question');
 const CurrentGame = require('../models/CurrentGame');
 
 
@@ -49,7 +48,7 @@ const resolvers = {
                     {_id: context.user._id},
                     {deleteOne: User}
                 );
-                return user;
+                return context.user.username;
             }
 
             throw new AuthenticationError('You need to be logged in!');
@@ -67,14 +66,22 @@ const resolvers = {
             return { token, user };
         },
         sendInvite: async (parent, { username, category }, context) => {
-            console.log(username);
+            if(!username || !category) {
+                throw new Error('You must pick a category and username')
+            }
+            if(username === context.user.username) {
+                throw new Error("You cant't play against yourself! :) Please pick another user")
+            }
             const invite = await Invite.create({ 'username': context.user.username, accepted: false, 'category': category })
-            await User.findOneAndUpdate(
+            const user = await User.findOneAndUpdate(
                 { 'username': username }, {
                 $push: {
                     openInvites: invite
                 }
             })
+            if(!user){
+                throw new Error('User does not exist')
+            }
             return username
         },
         cancelInvite: async (parent, { username }, context) => {
@@ -92,22 +99,7 @@ const resolvers = {
                 { 'username': context.user.username }, { $pull: { openInvites: { 'username': username } } })
             return username
         },
-        // adds game to current user games array
-        addGame: async (parent, args, context) => {
-            console.log('ARGS!!!!!')
-            console.log(args)
-            console.log("CONTEXT!!!!")
-            console.log(context.user)
-            if (context.user) {
-                const user = await User.findByIdAndUpdate(
-                    { _id: context.user._id },
-                    { $push: { games: args } },
-                    { new: true }
-                );
-                return user;
-            };
-        },
-        //creates newGame, generates Game _id, and pushes it to currentGame array in User model
+        //creates an initialized current Game to your user
         newGame: async (parent, { category, opponent }, context) => {
             if(context.user) {
             const currentGame = await CurrentGame.create({
@@ -119,24 +111,13 @@ const resolvers = {
             await User.findOneAndUpdate(
                 { 'username': context.user.username }, {
                 $set: {
-                    currentGame: currentGame
+                    currentGame: currentGame,
+                    inGame: true
                 }
             })
             return context.user.username
         }
             throw new AuthenticationError('You need to be logged in!');
-        },
-        joinGame: async(parent, args, context) => {
-            if(context.user) {
-                await User.findOneAndUpdate(
-                    { 'username': context.user.username }, {
-                    $set: {
-                        inGame: true
-                    }
-                })
-                return context.user.username
-            }
-                throw new AuthenticationError('You need to be logged in!');
         },
         leaveGame: async(parent, { username }, context) => {
             if(context.user) {
@@ -164,53 +145,11 @@ const resolvers = {
             }
                 throw new AuthenticationError('You need to be logged in!');
         },
-        //adds question to current Game: questions[]
-        //with the addition of asking/answering all 5 questions at once this resolver may not be needed.  Leaving for now. 
-        addQuestion: async (parent, args, context) => {
-            console.log('ARGS!!!')
-            console.log(args)
-            console.log('CONTEXT!!!');
-            console.log(context.user)
-            if (context.user) {
-                const user = await User.findOne({ _id: context.user._id })
-
-                const game = await Game.findByIdAndUpdate(
-                    { _id: user.currentGame },
-                    { $push: { questions: args } },
-                    { new: true }
-                );
-                console.log('GAME ID!!!!')
-                console.log(user.currentGame)
-                console.log('GAME !!!')
-                console.log(game)
-                return game;
-            }
-            throw new AuthenticationError('You need to be logged in!');
-        },
-        //with the addition of asking/answering all 5 questions at once this resolver may not be needed.  Leaving for now. 
-        newQuestion: async (parent, args, context) => {
-            console.log('ARGS!!!!!')
-            console.log(args)
-            console.log("CONTEXT!!!!")
-            console.log(context.user)
-            if (context.user) {
-                const question = await Question.create({ 'username': context.user.username });
-
-                await User.findByIdAndUpdate(
-                    { _id: context.user._id },
-                    { $set: { currentQuestion: question._id } },
-                    { new: true }
-                );
-                console.log(question._id)
-                return question;
-            }
-            throw new AuthenticationError('You need to be logged in!');
-        },
         submitAnswer: async (parent, { answers, guesses, opponent }, context) => {
             if (context.user) {
                 let yourArray = []
                 let opponentArray = []
-                answers.map((answer, index) => {
+                answers.forEach((answer, index) => {
                     const yourQuestionModel = {
                         'yourAnswer': answer,
                         'yourGuess': guesses[index]
