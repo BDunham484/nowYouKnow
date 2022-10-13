@@ -27,7 +27,6 @@ a {
   justify-content: center;
   margin-bottom: 25px;
   align-items: center;
-<<<<<<< HEAD
   // margin-top: 225px;
   margin-top: 55vh;
 }
@@ -47,11 +46,9 @@ a {
   margin-top: 45vh;
   width: 90vw;
   // background-color: aqua;
-=======
   margin-top: 225px;
   text-align: center;
   padding: 0 25px 0 25px;
->>>>>>> 28d047967c1550af532ca9800d5dca3acba8e3a3
 }
 
 /*Effects for button*/
@@ -74,17 +71,11 @@ div button {
   padding-bottom: 90px;
 
 
-<<<<<<< HEAD
-  // .howto-title {
-  //   margin: 0;
-  // }
-=======
   .howto-title {
     margin: 45px;
     display: flex;
     justify-content: center;
   }
->>>>>>> 28d047967c1550af532ca9800d5dca3acba8e3a3
 
   .wave {
     position: absolute;
@@ -315,7 +306,6 @@ div button:active {
 (min-device-width: 360px) and 
 (orientation: portrait) {
   .top {
-<<<<<<< HEAD
     margin-top: 110vh;
   }
 
@@ -333,11 +323,9 @@ div button:active {
 
   #in-game-wrapper {
     margin-top: 35vh;
-=======
     padding-top: 200px;
     margin-top: 47vh;
     font-size: 2vh;
->>>>>>> 28d047967c1550af532ca9800d5dca3acba8e3a3
   }
 }
 //iphone SE portrait and up
