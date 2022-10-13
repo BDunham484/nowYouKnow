@@ -14,10 +14,11 @@ h1 {
 }
 
 section {
-  width: 60%;
-  margin-left: 22%;
-  position: absolute;
-  left: -15px;
+  // width: 60%;
+  // margin-left: 22%;
+  // position: absolute;
+  // left: -15px;
+  
 
   .question {
     text-align: center;
@@ -31,11 +32,12 @@ section {
     border: none;
     background-color: $primary;
     color: $light;
-    width: 200px;
+    // width: 200px;
+    width: 25vw;
     max-width: fit-content;
     height: 40px;
     padding-left: 10px;
-    margin-left: 16%;
+    // margin-left: 16%;
     margin-bottom: 5%;
   }
 
@@ -47,3 +49,14 @@ section {
 
 }
 
+
+// @media screen and (min-device-width: 250px) and
+// (orientation: portrait) {
+//   section {
+//     .responses {
+//       width: 85vw;
+//     }
+//   }
+  
+  
+// }

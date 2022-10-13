@@ -126,7 +126,7 @@ useEffect(() => {
         <h1>Your game against {opponent} in {category}</h1>
         {categoryQuestions.length && (
           <section>
-          <form  onSubmit={handleFormSubmit}>
+          <form id="game-form" onSubmit={handleFormSubmit}>
           {categoryQuestions.map((question, index) => (
               <div key={index}>
                 <div className="question">{question}</div>
