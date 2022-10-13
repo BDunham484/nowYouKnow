@@ -165,7 +165,7 @@ div button:active {
 
 //receive invitation styles
 #receive-invite-wrapper {
-  background-color: aqua;
+  // background-color: aqua;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -476,15 +476,17 @@ div button:active {
 }
 
 @media screen and 
-(min-width: 1293px) {
+(min-width: 1293px) and 
+(min-height: 1000px) {
   .top {
     margin-top: 20vh;
   }
 }
 
 @media screen and 
-(min-width: 1540px) {
-  .top {
-    margin-top: 0;
-  }
+(min-width: 1540px) and 
+(min-height: 1000px) {
+  // .top {
+  //   margin-top: 0;
+  // }
 }
