@@ -238,7 +238,12 @@ div button:active {
 @media screen and (min-device-width: 250px) and
 (orientation: portrait) {
   .top {
-    margin-top: 100vh;
+    margin-top: 130vh;
+    font-size: 2vh;
+  }
+
+  .top-logged-out {
+    margin-top: 70vh;
     font-size: 2vh;
   }
 
@@ -288,11 +293,11 @@ div button:active {
 (min-device-width: 360px) and 
 (orientation: portrait) {
   .top {
-    margin-top: 75vh;
+    margin-top: 110vh;
   }
 
   .top-logged-out {
-    margin-top: 15vh;
+    margin-top: 50vh;
   }
 
   .text-section {
@@ -311,11 +316,11 @@ div button:active {
 @media screen and (min-device-width: 375px) and
 (orientation: portrait) {
   .top {
-    margin-top: 95vh;
+    margin-top: 125vh;
   }
 
   .top-logged-out {
-    margin-top: 30vh;
+    margin-top: 55vh;
   }
 
   #in-game-wrapper {
@@ -326,11 +331,11 @@ div button:active {
 @media screen and (min-device-width: 390px) and
 (orientation: portrait) {
   .top {
-    margin-top: 60vh;
+    margin-top: 90vh;
   }
 
   .top-logged-out {
-    margin-top: 8vh;
+    margin-top: 40vh;
   }
 
   #in-game-wrapper {
@@ -342,7 +347,7 @@ div button:active {
 (min-device-width: 400px) and 
 (orientation: portrait) {
   .top {
-    margin-top: 50vh;
+    margin-top: 80vh;
   }
 }
 //Surface Duo portrait and up
@@ -350,11 +355,11 @@ div button:active {
 (min-device-width: 520px) and
 (orientation: portrait) {
   .top {
-    margin-top: 75vh;
+    margin-top: 110vh;
   }
 
   .top-logged-out {
-    margin-top: 15vh;
+    margin-top: 45vh;
     width: 80vw;
   }
 
@@ -426,7 +431,7 @@ div button:active {
 (device-width: 1024px) and
 (device-height: 600px) {
   .top {
-    margin-top: 120vh;
+    margin-top: 120vh !important;
   }
 
   .top-logged-out {
@@ -513,3 +518,76 @@ div button:active {
   //   margin-top: 0;
   // }
 }
+
+//LANDSCAPE MODE MEDIA QUERIES
+//galaxy fold-ish landscape styles
+@media screen and 
+(min-device-width: 500px) and
+(orientation: landscape) {
+.top {
+  margin-top: 370vh;
+}
+
+.top-logged-out {
+  margin-top: 200vh;
+}
+
+.top h2 {
+  font-size: 20px;
+}
+
+  .top-logged-out {
+    margin-top: 175vh;
+  }
+}
+//GALAXY SE-ISH STYLES
+@media screen and 
+(min-device-width: 666px) and
+(orientation: landscape) {
+.top {
+  margin-top: 260vh;
+}
+
+  .top-logged-out {
+    margin-top: 145vh;
+  }
+}
+//SURFACE DUO LANDSCAPE STYLES
+@media screen and 
+(device-width: 720px) and 
+(device-height: 540px) and
+(orientation: landscape) {
+.top {
+  margin-top: 155vh;
+}
+
+  .top-logged-out {
+    margin-top: 85vh;
+  }
+}
+
+@media screen and 
+(min-device-width: 800px) and
+(orientation: landscape) {
+.top {
+  margin-top: 205vh;
+}
+
+  .top-logged-out {
+    margin-top: 100vh;
+  }
+}
+//iPADS AND UP LANDSCAPE STYLES
+@media screen and 
+(min-device-width: 1000px) and
+(min-device-height: 650px) and
+(orientation: landscape) {
+  .top {
+    margin-top: 75vh;
+  }
+  
+  .top-logged-out {
+    margin-top: 10vh;
+  }
+}
+

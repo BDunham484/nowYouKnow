@@ -6,7 +6,8 @@
   width: 100%;
   min-height: $headerHeight;
   padding: 0 1.5rem;
-  position: relative;
+  position: fixed;
+  z-index: 100;
   @include breakpoint(md) {
     padding: 0 3rem;
     background: rgba($dark, 0.9);
