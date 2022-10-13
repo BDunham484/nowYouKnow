@@ -143,7 +143,10 @@ useEffect(() => {
               </div>
           ))}
           </form>
-          <button onClick={handleFormSubmit}>Submit Answers</button>
+          <div className="btns">
+            <button onClick={handleFormSubmit}>Submit Answers</button>
+            <button className="leave-game" onClick={handleLeaveGame}>Leave Game</button>
+          </div>
           </section>
           )}
           </div>
@@ -152,7 +155,7 @@ useEffect(() => {
         )}  
         </>
       )}
-        <button className="leave-game" onClick={handleLeaveGame}>Leave Game</button>
+
 
     </div>
   );
