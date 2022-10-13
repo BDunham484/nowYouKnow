@@ -187,6 +187,7 @@ div button:active {
   justify-content: center;
   align-items: center;
   margin-top: 20vh;
+  text-align: center;
   // background-color: aqua;
 }
 
@@ -358,6 +359,7 @@ div button:active {
 
   #in-game-wrapper h1 {
     width: 60vw;
+    margin-top: 8vh;
   }
 
   #game-form input {
@@ -417,6 +419,14 @@ div button:active {
   .top {
     margin-top: 90vh;
   }
+
+  .top-logged-out {
+    margin-top: 30vh !important;
+  }
+
+  #in-game-wrapper {
+    margin-top: 25vh !important;
+  }
 }
 //NEST HUB MAX
 @media screen and 
@@ -446,7 +456,7 @@ div button:active {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -8vh;
+    margin-top: 5vh;
     // background-color: aqua;
   }
   
