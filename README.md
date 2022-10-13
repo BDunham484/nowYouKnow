@@ -1,6 +1,6 @@
 <h1 align="center">Interactive MERN Stack Single-Page Application: NowYouKnow 👋</h1>
 
-<h1 align="center">A game where you try to guess who said what</h1>
+<h1 align="center">A game to find out how well you and your friends know eachother!</h1>
 
 ## Table of Contents 🔎
 - [Technologies](#Technologies)
@@ -8,10 +8,24 @@
 - [Usage](#usage)
 - [Contributing](#contributing)
 
+## Description
+
+AS A curious person
+
+I WANT a game where I can play against my friend while we learn about each other
+
+SO THAT we can build deeper friendships and community in a fun and light hearted environment
+
+
 ## Technologies
-🦾
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+
+![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+
+![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
+
+![Sass](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
 
 ![GraphQL](https://img.shields.io/badge/-GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white)
 
@@ -38,6 +52,9 @@
 
 ## Installation 
 💾 No installation is needed as the game is deployed on Heroku
+
+## Screenshot
+![Node Image](/client/public/readmeimg.png)
 
 ## Usage 
 💻 The game can be viewed at - [Heroku](https://arcane-cliffs-23763.herokuapp.com/)

@@ -5,14 +5,22 @@ h2 {
   justify-content: center;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .form-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   padding: 40px;
   justify-content: space-between;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
   width: 600px;
-  margin-left: 23%;
+  // margin-left: 23%;
 
   select, input {
     margin: 5px;
@@ -32,11 +40,15 @@ h2 {
   }
   
 }
+// .btn-center {
+//   display: flex;
+//   justify-content: center;
+//   margin-left: 47%;
+//   margin-bottom: 50px;
+// }
+
 .btn-center {
-  display: flex;
-  justify-content: center;
-  margin-left: 47%;
-  margin-bottom: 50px;
+  margin: 0 auto 50px auto;
 }
 
 .container p {
@@ -45,64 +57,74 @@ h2 {
   color: red;
 }
 
+.inv-sent {
+  display: flex;
+  justify-content: center;
+}
+
 @media screen and (min-width: 280px) {
   h2 {
     text-align: center;
   }
-  .btn-center {
-    margin-left: 32%;
-  }
-  .form-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-left: 0%;
-  }
-  label {
-    margin-left: 8%;
+  // .btn-center {
+  //   margin-left: 32%;
+  // }
+  // .form-container {
+  //   width: 100%;
+  //   display: flex;
+  //   justify-content: center;
+  //   margin-left: 0%;
+  // }
+  // label {
+  //   margin-left: 8%;
+  // }
+  .top {
+    margin-top: 85vh;
+    font-size: 2vh;
   }
 }
 
+
 @media screen and (min-width: 360px) {
-  .btn-center {
-    margin-left: 40%;
-  }
-  .form-container {
-    width: 65%;
-    display: flex;
-    margin-left: 18%;
-  }
-  label {
-    margin-left: 8%;
-  }
+  // .btn-center {
+  //   margin-left: 40%;
+  // }
+  // .form-container {
+  //   width: 65%;
+  //   display: flex;
+  //   margin-left: 18%;
+  // }
+  // label {
+  //   margin-left: 8%;
+  // }
   .container p {
     margin-left: 16%;
   }
 }
 @media screen and (min-width: 540px) {
-  .btn-center {
-    margin-left: 39%;
-  }
-  .form-container {
-    margin-left: 16%;
-    justify-content: center;
-  }
+  // .btn-center {
+  //   margin-left: 39%;
+  // }
+  // .form-container {
+  //   margin-left: 16%;
+  //   justify-content: center;
+  // }
   .container p {
     margin-left: 20%;
   }
 }
 @media screen and (min-width: 768px) {
-  .btn-center {
-    margin-left: 43%;
-  }
-  .form-container {
-    width: 68%;
-  }
+  // .btn-center {
+  //   margin-left: 43%;
+  // }
+  // .form-container {
+  //   width: 68%;
+  // }
 }
 @media screen and (min-width: 820px) {
-  .btn-center {
-    margin-left: 43%;
-  }
+  // .btn-center {
+  //   margin-left: 43%;
+  // }
   .container p {
     margin-left: 30%;
   }
@@ -111,10 +133,10 @@ h2 {
   .container {
     padding-top: 90px;
   }
-  .btn-center {
-    margin-left: 45%;
-    margin-bottom: -30px;
-  }
+  // .btn-center {
+  //   margin-left: 45%;
+  //   margin-bottom: -30px;
+  // }
 
   .container p {
     margin-left: 34%;
@@ -124,37 +146,37 @@ h2 {
   h2 {
     margin-top: 0px;
   }
-  .btn-center {
-    margin-left: 46%;
-  }
-  .form-container {
-    justify-content: space-between;
-    width: 600px;
-    margin-left: 25%;
-  }
+  // .btn-center {
+  //   margin-left: 46%;
+  // }
+  // .form-container {
+  //   justify-content: space-between;
+  //   width: 600px;
+  //   margin-left: 25%;
+  // }
   .container p {
     margin-left: 37%;
   }
 }
 @media screen and (min-width: 1280px) {
-  .btn-center {
-    margin-left: 46%;
-    margin-bottom: 75px;
-  }
-  .form-container {
-    justify-content: space-between;
-    margin-left: 25%;
-    width: 50%;
-  }
+  // .btn-center {
+  //   // margin-left: 46%;
+  //   margin-bottom: 75px;
+  // }
+  // .form-container {
+  //   justify-content: space-between;
+  //   margin-left: 25%;
+  //   width: 50%;
+  // }
   
 }
 @media screen and (min-width: 1540px) {
-  .form-container {
-    justify-content: space-between;
-    margin-left: 30%;
-    width: 600px;
-  }
-  .btn-center {
-    margin-bottom: -400px;
-  }
+  // .form-container {
+  //   justify-content: space-between;
+  //   margin-left: 30%;
+  //   width: 600px;
+  // }
+  // .btn-center {
+  //   margin-bottom: -400px;
+  // }
 }
