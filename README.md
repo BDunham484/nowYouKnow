@@ -8,6 +8,15 @@
 - [Usage](#usage)
 - [Contributing](#contributing)
 
+## Description
+
+AS A curious person
+
+I WANT a game where I can play against my friend while we learn about each other
+
+SO THAT we can build deeper friendships and community in a fun and light hearted environment
+
+
 ## Technologies
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
@@ -43,6 +52,9 @@
 
 ## Installation 
 💾 No installation is needed as the game is deployed on Heroku
+
+## Screenshot
+![Node Image](/client/public/readmeimg.png)
 
 ## Usage 
 💻 The game can be viewed at - [Heroku](https://arcane-cliffs-23763.herokuapp.com/)
