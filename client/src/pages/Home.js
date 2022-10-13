@@ -56,7 +56,7 @@ const Home = () => {
     </>
   ) : (
     <>
-      <div>
+      <div id="home-logged-out-wrapper">
       <div className='top-logged-out'>
         <h2>Do You Know Your Friend? Does Your Friend Really Know You?</h2>
       </div>
@@ -68,7 +68,7 @@ const Home = () => {
             </div>
 
             <h2 className="howto-title">Play To Find Out!</h2>
-            <div className="text-section">
+            <div className="text-section-logged-out">
               <p> 1. Login or Signup </p>
               <p> 2. Choose a category of questions. </p>
               <p> 3. Enter your friend's username for their account and send them an invitation to play with you! </p>
