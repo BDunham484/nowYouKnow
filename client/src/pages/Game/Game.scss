@@ -1,0 +1,50 @@
+@import '../../Styles/variables.scss';
+
+input::placeholder {
+  color: $bg;
+}
+input:focus {
+  outline: $dark solid 2px;
+}
+h1 {
+  margin: 55px 75px;
+  min-width: 50px;
+  max-height: fit-content;
+  text-align: center;
+}
+
+section {
+  border: red solid;
+  width: 60%;
+  margin-left: 28%;
+  position: absolute;
+  // left: -15px;
+
+  .question {
+    text-align: center;
+  }
+
+  .responses {
+    margin: 10px 15px;
+    display: inline-flex;
+    flex-direction: row;
+    border-radius: 8px;
+    border: none;
+    background-color: $primary;
+    color: $light;
+    width: 50%;
+    max-width: fit-content;
+    height: 40px;
+    padding-left: 10px;
+    margin-left: 20%;
+  }
+
+  button {
+    margin-left: 12%;
+  }
+}
+
+.leave-game button {
+  position: absolute;
+  top: 80%;
+}

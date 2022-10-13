@@ -1,6 +1,6 @@
 @import "../../Styles/variables.scss";
 
-h2 {
+h2, .inv-sent {
   display:flex;
   justify-content: center;
 }
@@ -12,9 +12,16 @@ h2 {
   padding: 40px;
   justify-content: space-between;
   // flex-wrap: wrap;
-  width: 600px;
+  width: 100vw;
   // margin-left: 23%;
   // background-color: aqua;
+  
+label {
+  margin: 5px;
+  width: 175px;
+  height: 40px;
+  padding-left: 8px;
+}
 
   select, input {
     margin: 5px;
