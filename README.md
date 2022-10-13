@@ -1,12 +1,17 @@
 <h1 align="center">Interactive MERN Stack Single-Page Application: NowYouKnow 👋</h1>
 
-<h1 align="center">A game where you try to guess who said what</h1>
-
 ## Table of Contents 🔎
+
 - [Technologies](#Technologies)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
+- [Description](#Description)
+
+## Description
+
+<h2 align="center">
+Now You Know is a game where you can challenge your friends to see how well they know you! … but also how well you know them. Answer a series of questions for yourself and your friend and see which ones you get correct! See the results at the end to see how well the two of you know each other.</h2>
 
 ## Technologies
 
@@ -41,10 +46,12 @@
 - Include authentication (JWT).
 - Protect sensitive API key information on the server.
 
-## Installation 
+## Installation
+
 💾 No installation is needed as the game is deployed on Heroku
 
-## Usage 
+## Usage
+
 💻 The game can be viewed at - [Heroku](https://arcane-cliffs-23763.herokuapp.com/)
 
 ## Contributing
