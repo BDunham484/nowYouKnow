@@ -26,6 +26,14 @@ body {
   margin-top: 225px;
 }
 
+.top-logged-out {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  align-items: center;
+  margin-top: 245px;
+}
+
 /*Effects for button*/
 div button {
   background-position: center;
@@ -38,12 +46,13 @@ div button {
   position: relative;
   padding-top: 90px;
   height: fit-content;
+  // min-height: 95vh;
   width: 100vw;
 
 
-  .howto-title {
-    margin: 45px;
-  }
+  // .howto-title {
+  //   margin: 0;
+  // }
 
   .wave {
     position: absolute;
@@ -145,6 +154,7 @@ div button:active {
     font-size: 2vh;
   }
 
+
   #text-wrapper {
     display: flex;
     flex-direction: column;
@@ -153,9 +163,10 @@ div button:active {
 
   .text-section {
     margin: 0 !important;
-    padding: 10px 20px;
+    padding: 0 20px;
     width: 100vw;
     align-items: flex-start !important;
+    // background-color: aqua;
   }
 
   form {
@@ -185,6 +196,14 @@ div button:active {
     margin-top: 47vh;
     font-size: 2vh;
   }
+
+  .top-logged-out {
+    margin-top: 15vh;
+  }
+
+  .text-section {
+    padding: 10px 20px;
+  }
 }
 //iphone SE portrait and up
 @media screen and (min-device-width: 375px) and
@@ -199,6 +218,10 @@ div button:active {
   .top {
     margin-top: 25vh;
   }
+
+  .top-logged-out {
+    margin-top: 0;
+  }
 }
 //iphone XR - Galaxy A51/71 - Galaxy S20 portrait and up
 @media screen and 
@@ -207,6 +230,10 @@ div button:active {
   .top {
     margin-top: 15vh;
   }
+
+  .top-logged-out {
+    margin-top: -13vh;
+  }
 }
 //Surface Duo portrait and up
 @media screen and
@@ -214,6 +241,10 @@ div button:active {
 (orientation: portrait) {
   .top {
     margin-top: 44vh;
+  }
+
+  .top-logged-out {
+    margin-top: 10vh;
   }
 
   .text-section {

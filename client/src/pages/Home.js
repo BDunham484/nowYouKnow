@@ -57,7 +57,7 @@ const Home = () => {
   ) : (
     <>
       <div>
-      <div className="top">
+      <div className='top-logged-out'>
         <h2>Do You Know Your Friend? Does Your Friend Really Know You?</h2>
       </div>
           <div className="howto">

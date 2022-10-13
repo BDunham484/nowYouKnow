@@ -64,10 +64,15 @@ h2 {
   //   justify-content: center;
   //   margin-left: 0%;
   // }
-  label {
-    margin-left: 8%;
+  // label {
+  //   margin-left: 8%;
+  // }
+  .top {
+    margin-top: 85vh;
+    font-size: 2vh;
   }
 }
+
 
 @media screen and (min-width: 360px) {
   .btn-center {
@@ -78,9 +83,9 @@ h2 {
   //   display: flex;
   //   margin-left: 18%;
   // }
-  label {
-    margin-left: 8%;
-  }
+  // label {
+  //   margin-left: 8%;
+  // }
   .container p {
     margin-left: 16%;
   }
