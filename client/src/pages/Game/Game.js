@@ -114,7 +114,14 @@ useEffect(() => {
     
     <div id='in-game-wrapper'>
       {answersSubmitted ? (
-        <div>Waiting on {opponent} to submit their responses....</div>
+        <div className="leave-game">
+          <div>Waiting on {opponent} to submit their responses....</div>
+          <div className="leave-button">
+            <button className="leave-game" onClick={handleLeaveGame}>Leave Game</button>
+          </div>
+          
+        </div>
+        
       ) : (
         <>
       { loading ? (

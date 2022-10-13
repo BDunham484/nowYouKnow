@@ -232,6 +232,13 @@ div button:active {
     text-align: center;
 }
 
+.leave-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15vh;
+}
+
 //MEDIA QUERIES START
 @media screen and (max-width: 610px) {
   .howto p {
