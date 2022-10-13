@@ -99,6 +99,7 @@ function SendInvite() {
   }
 
   // once you have successfully submitted an invite, query your opponent to check if they accepted your invite
+
   if(!loading && submitSuccess) {
     // find your invite in your opponent's list of invites
     const openInvite = (data.user.openInvites.find(invite => invite.username === myData.me.username))
@@ -107,82 +108,7 @@ function SendInvite() {
       if(openInvite.accepted){
       startGame();
       }
-      try {
-        await joinGame();
-      } catch (e) {
-        console.log(e);
-      }
-      handleCancelInvite();
-      window.location.replace('/Game')
-    }
-
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-        setFormState({
-          ...formState,
-          [name]: value,
-        });
-      };
-
-    if(!loading && submitSuccess) {
-      const opponentAnswer = (data.user.openInvites.find(invite => invite.username === myData.me.username))
-      if (opponentAnswer) {
-        if(opponentAnswer.accepted){
-        startGame();
-        }
-      } else {
-        setOpponentData({
-          ...opponentData,
-          username: '',
-          submitSuccess: false
-        })
-      }
-    }
-
-    if (Auth.loggedIn()) {
-      return (
-        <div className="container my-1">
-        <h2>Send an invite to a friend!</h2>
-        <form>
-          {submitSuccess ? (
-            <div className="inv-sent">You sent an invite to {username} in category: {category}</div>
-          ) : (
-          <div className="flex-row space-between my-2 form-container">
-            <label htmlFor="category">Choose a category</label>
-            <select id="category" name="category" onChange={handleChange}>
-              <option value="" disabled selected>categories...</option>
-              {categories.map(category => (
-                <option value={category} key={category}>{category}</option>
-              ))}
-            </select>
-            <label htmlFor="username">Who would you like to play?</label>
-            <input
-              placeholder="opponent username..."
-              name="username"
-              id="username"
-              onChange={handleChange}
-            />
-          </div>
-          )}
-          { fieldsEmpty && (
-            <p>You must pick a category and username</p>
-          ) }
-          {error ? (
-          <div>
-            <p className="error-text">This user does not exist</p>
-          </div>
-        ) : null}
-          <div className="flex-row flex-end">
-            {submitSuccess ? (
-                <button className="btn-center" onClick={handleCancelInvite}>Cancel Invitation</button>
-            ): (
-                <button className="btn-center" onClick={handleSubmitInvite}>Submit</button>
-            )}
-          </div>
-        </form>
-      </div>
-      
-      );
+      // if there is no invite found
     } else {
       setOpponentData({
         ...opponentData,
@@ -191,6 +117,8 @@ function SendInvite() {
       })
     }
   }
+
+  
   if (Auth.loggedIn()) {
     return (
       <div className="container my-1">
@@ -245,5 +173,4 @@ function SendInvite() {
     );
   }
 }
-
 export default SendInvite;
