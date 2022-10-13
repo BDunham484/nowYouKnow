@@ -61,15 +61,10 @@ SO THAT we can build deeper friendships and community in a fun and light hearted
 
 💾 No installation is needed as the game is deployed on Heroku
 
-<<<<<<< HEAD
-## Usage
-
-=======
 ## Screenshot
 ![Node Image](/client/public/readmeimg.png)
 
 ## Usage 
->>>>>>> 569dafb23db4254cebbed1c59187245090953084
 💻 The game can be viewed at - [Heroku](https://arcane-cliffs-23763.herokuapp.com/)
 
 ## Contributing
