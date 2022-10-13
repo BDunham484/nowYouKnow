@@ -1,5 +1,7 @@
 <h1 align="center">Interactive MERN Stack Single-Page Application: NowYouKnow 👋</h1>
 
+<h1 align="center">A game to find out how well you and your friends know eachother!</h1>
+
 ## Table of Contents 🔎
 
 - [Technologies](#Technologies)
@@ -12,6 +14,15 @@
 
 <h3 align="center">
 Now You Know is a game where you can challenge your friends to see how well they know you! … but also how well you know them. Answer a series of questions for yourself and your friend and see which ones you get correct! See the results at the end to see how well the two of you know each other.</h3>
+
+## Description
+
+AS A curious person
+
+I WANT a game where I can play against my friend while we learn about each other
+
+SO THAT we can build deeper friendships and community in a fun and light hearted environment
+
 
 ## Technologies
 
@@ -50,8 +61,15 @@ Now You Know is a game where you can challenge your friends to see how well they
 
 💾 No installation is needed as the game is deployed on Heroku
 
+<<<<<<< HEAD
 ## Usage
 
+=======
+## Screenshot
+![Node Image](/client/public/readmeimg.png)
+
+## Usage 
+>>>>>>> 569dafb23db4254cebbed1c59187245090953084
 💻 The game can be viewed at - [Heroku](https://arcane-cliffs-23763.herokuapp.com/)
 
 ## Contributing
