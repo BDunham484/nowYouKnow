@@ -56,7 +56,7 @@ const Header = () => {
       <div className={classes.header__content}>
         <Link style={{ textDecoration: "none" }} to="/">
           <h2 className={classes.header__content__logo}>
-            <span>N</span>ow<span>Y</span>ou<span>K</span>now
+            <a href="/"><span>N</span>ow<span>Y</span>ou<span>K</span>now</a>
           </h2>
         </Link>
 
