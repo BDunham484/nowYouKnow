@@ -105,6 +105,14 @@ div button {
     align-items: center;
   }
 
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
   .wave-bottom {
     position: absolute;
     bottom: 0;
@@ -153,6 +161,53 @@ div button:active {
   transition: background 0s;
 }
 
+//receive invitation styles
+#receive-invite-wrapper {
+  background-color: aqua;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#receive-invite-wrapper h4 {
+  text-align: center;
+  padding: 3vh;
+}
+
+#receive-invite-wrapper button {
+  margin: 3vh 0;
+}
+
+//GAME STYLES 
+#in-game-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20vh;
+  // background-color: aqua;
+}
+
+#in-game-wrapper h1 {
+  font-size: 20px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+// #game-form {
+//   display: flex;
+//   flex-direction: co;
+// }
+
+#game-form input {
+  width: 85vw;
+}
+
+#game-form button {
+  margin: 3vh 0;
+}
+
+//MEDIA QUERIES START
 @media screen and (max-width: 610px) {
   .howto p {
     font-size: 14px;
@@ -201,6 +256,7 @@ div button:active {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
   }
 
   .form-container {
@@ -234,6 +290,10 @@ div button:active {
   .text-section-logged-out {
     padding: 30px 30px 0 30px;
   }
+
+  #in-game-wrapper {
+    margin-top: 10vh;
+  }
 }
 //iphone SE portrait and up
 @media screen and (min-device-width: 375px) and
@@ -245,6 +305,10 @@ div button:active {
   .top-logged-out {
     margin-top: 30vh;
   }
+
+  #in-game-wrapper {
+    margin-top: 15vh;
+  }
 }
 //iphone 12 Pro and up
 @media screen and (min-device-width: 390px) and
@@ -255,6 +319,10 @@ div button:active {
 
   .top-logged-out {
     margin-top: 8vh;
+  }
+
+  #in-game-wrapper {
+    margin-top: 5vh;
   }
 }
 //iphone XR - Galaxy A51/71 - Galaxy S20 portrait and up
@@ -285,6 +353,14 @@ div button:active {
   .text-section-logged-out {
     width: 80vw;
   }
+
+  #in-game-wrapper h1 {
+    width: 60vw;
+  }
+
+  #game-form input {
+    width: 60vw;
+  }
 }
 //ipad mini portrait and up
 @media screen and 
@@ -300,6 +376,15 @@ div button:active {
 
   .text-section {
     width: 70vw;
+  }
+
+  // #in-game-wrapper {
+  //   margin-top: -20vh;
+  // }
+
+  #in-game-wrapper h1 {
+    width: 60vw;
+    margin-bottom: 5vh;
   }
 }
 //ipad air portrait and up
@@ -337,5 +422,40 @@ div button:active {
 (device-height: 800px) {
   .top-logged-out {
     margin-top: 0;
+  }
+}
+
+@media screen and 
+(min-width: 1000px) {
+  #in-game-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // margin-top: 20vh;
+    // background-color: aqua;
+  }
+  
+  #in-game-wrapper h1 {
+    font-size: 20px;
+    text-align: center;
+    margin: 0 auto;
+    width: 31vw;
+  }
+  
+  #game-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    text-align: center;
+  }
+  
+  #game-form input {
+    width: 31vw;
+  }
+  
+  #game-form button {
+    margin: 3vh 0;
   }
 }

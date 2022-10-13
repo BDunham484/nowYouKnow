@@ -118,7 +118,7 @@ useEffect(() => {
 
   return (
     
-    <div>
+    <div id='in-game-wrapper'>
       {answersSubmitted ? (
         <div>Waiting on {opponent} to submit their responses....</div>
       ) : (
@@ -132,7 +132,7 @@ useEffect(() => {
         <h1>Your game against {opponent} in {category}</h1>
         {categoryQuestions.length && (
           <>
-          <form onSubmit={handleFormSubmit}>
+          <form id="game-form" onSubmit={handleFormSubmit}>
           {categoryQuestions.map((question, index) => (
               <div key={index}>
                 <div>{question}</div>
@@ -150,9 +150,11 @@ useEffect(() => {
               </div>
           ))}
 
+            <button onClick={handleFormSubmit}>Submit Answers</button>
+            <button onClick={handleLeaveGame}>Leave Game</button>
+
           </form>
-                    <button onClick={handleFormSubmit}>Submit Answers</button>
-                    <button onClick={handleLeaveGame}>Leave Game</button>
+                    
                     </>
           )}
           </div>

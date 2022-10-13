@@ -59,7 +59,7 @@ const ReceiveInvites = () => {
         ) : (
           <div>
               {data.me.openInvites.map(invite => (
-              <div>
+              <div id="receive-invite-wrapper">
                   <h4>
                   {invite.username} invited you to play a game (Category: {invite.category})! Would you like to accept or deny?
                   </h4>

@@ -4,7 +4,7 @@
 .header {
   background: rgba($dark, 0.9);
   width: 100%;
-  height: $headerHeight;
+  min-height: $headerHeight;
   padding: 0 1.5rem;
   position: relative;
   @include breakpoint(md) {
@@ -13,6 +13,8 @@
     position: static;
   }
   transition: 0.3s ease all;
+  display: flex;
+  align-items: center;
 
   &__content {
     overflow: hidden;
@@ -153,7 +155,10 @@
 (max-device-width: 400px) and
 (orientation: portrait) {
   .header {
+    // min-height: 20vh;
+
     &__content {
+      // padding-top: 1vh;
       margin-left: -15px;
       overflow: visible;
     }
