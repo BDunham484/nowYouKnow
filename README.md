@@ -3,10 +3,15 @@
 <h1 align="center">A game to find out how well you and your friends know eachother!</h1>
 
 ## Table of Contents 🔎
+
+- [Description](#Description)
 - [Technologies](#Technologies)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
+- [Installation](#Installation)
+- [Screenshot](#Screenshot)
+- [Usage](#Usage)
+- [Contributing](#Contributing)
+
+
 
 ## Description
 
