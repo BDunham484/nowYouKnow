@@ -10,8 +10,8 @@
 
 ## Description
 
-<h2 align="center">
-Now You Know is a game where you can challenge your friends to see how well they know you! … but also how well you know them. Answer a series of questions for yourself and your friend and see which ones you get correct! See the results at the end to see how well the two of you know each other.</h2>
+<h3 align="center">
+Now You Know is a game where you can challenge your friends to see how well they know you! … but also how well you know them. Answer a series of questions for yourself and your friend and see which ones you get correct! See the results at the end to see how well the two of you know each other.</h3>
 
 ## Technologies
 
