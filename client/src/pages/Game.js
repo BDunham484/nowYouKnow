@@ -6,25 +6,33 @@ import { questions } from '../assets/variables/questions'
 
 
 const Game = () => {
+  // references for answers and guesses arrays
   const answersRef = useRef([])
   const guessesRef = useRef([])
 
+  // state containing the initial information about the game
   const [GameInfo, SetGameInfo] = useState({category: '', opponent: '', categoryQuestions: [], answersSubmitted: false })
   const { category, opponent, categoryQuestions, answersSubmitted } = GameInfo
 
+  // get logged in user's info, querying once a second
   const { loading, data: myData } = useQuery(GET_ME, {
     pollInterval: 1000
   })
+
+  // get opponents data, only once you have submitted your answers
+  // query once a second
   const { loading: loadingUser, data } = useQuery(GET_USER_INFO, {
     variables: { username: opponent },
     skip: !answersSubmitted,
     pollInterval: 1000
   });
 
+  // graph ql mutations
   const [answerSubmit] = useMutation(SUBMIT_ANSWERS)
   const [leaveGame] = useMutation(LEAVE_GAME)
   const [leaveGameMe] = useMutation(LEAVE_GAME_ME)
 
+  // leave the game if the opponent has left the game
   useEffect(() => {
     if(!loading){
       if(myData.me.inGame){
@@ -35,6 +43,7 @@ const Game = () => {
   }
   }, [myData])
 
+  // set your own "inGame" to false before going to the results page
   useEffect(() => {
     if(answersSubmitted){
       if(!loadingUser){
@@ -45,6 +54,7 @@ const Game = () => {
     }
   }, [data])
 
+// submit answers when button is clicked
 const handleFormSubmit = async () => {
   const answersArray = answersRef.current.map(answer => answer.value)
   const guessesArray = guessesRef.current.map(guess => guess.value)
@@ -61,6 +71,7 @@ const handleFormSubmit = async () => {
   }
 };
 
+// if you choose to leave the game, or the opponent leaves the game
 const handleLeaveGame = async () => {
   try {
     await leaveGame({
@@ -72,6 +83,7 @@ const handleLeaveGame = async () => {
   window.location.replace('/')
 }
 
+// leave game before going to game results
 const handleLeaveGameMe = async () => {
   try {
     await leaveGameMe()
@@ -81,7 +93,7 @@ const handleLeaveGameMe = async () => {
   window.location.replace('/gameresults')
 }
 
-
+// set the username and category of the current game
 useEffect(() => {
   if(!loading) {
     SetGameInfo({
@@ -99,7 +111,6 @@ useEffect(() => {
 }, [myData, category])
 
   return (
-    
     <div>
       {answersSubmitted ? (
         <div>Waiting on {opponent} to submit their responses....</div>
