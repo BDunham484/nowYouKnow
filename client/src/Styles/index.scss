@@ -249,12 +249,12 @@ div button:active {
 @media screen and (min-device-width: 250px) and
 (orientation: portrait) {
   .top {
-    margin-top: 190vh;
+    margin-top: 175vh;
     font-size: 2vh;
   }
 
   .top-logged-out {
-    margin-top: 70vh;
+    margin-top: 110vh;
     font-size: 2vh;
   }
 
@@ -313,11 +313,11 @@ div button:active {
 (min-device-width: 360px) and 
 (orientation: portrait) {
   .top {
-    margin-top: 110vh;
+    margin-top: 130vh;
   }
 
   .top-logged-out {
-    margin-top: 50vh;
+    margin-top: 60vh;
   }
 
   .text-section {
@@ -337,11 +337,11 @@ div button:active {
 @media screen and (min-device-width: 375px) and
 (orientation: portrait) {
   .top {
-    margin-top: 125vh;
+    margin-top: 145vh;
   }
 
   .top-logged-out {
-    margin-top: 55vh;
+    margin-top: 65vh;
   }
 
   #in-game-wrapper {
@@ -352,11 +352,11 @@ div button:active {
 @media screen and (min-device-width: 390px) and
 (orientation: portrait) {
   .top {
-    margin-top: 90vh;
+    margin-top: 105vh;
   }
 
   .top-logged-out {
-    margin-top: 40vh;
+    margin-top: 50vh;
   }
 
   #in-game-wrapper {
@@ -368,7 +368,7 @@ div button:active {
 (min-device-width: 400px) and 
 (orientation: portrait) {
   .top {
-    margin-top: 80vh;
+    margin-top: 95vh;
   }
 }
 //Surface Duo portrait and up
@@ -376,7 +376,7 @@ div button:active {
 (min-device-width: 520px) and
 (orientation: portrait) {
   .top {
-    margin-top: 110vh;
+    margin-top: 125vh;
   }
 
   .top-logged-out {
@@ -406,7 +406,7 @@ div button:active {
 (min-device-width: 750px) and 
 (orientation: portrait) {
   .top {
-    margin-top: 25vh;
+    margin-top: 45vh;
   }
 
   .top-logged-out {
@@ -431,7 +431,7 @@ div button:active {
 (min-device-width: 800px) and 
 (orientation: portrait) {
   .top {
-    margin-top: 20vh;
+    margin-top: 35vh;
   }
 
   .top-logged-out {
@@ -452,7 +452,7 @@ div button:active {
 (device-width: 1024px) and
 (device-height: 600px) {
   .top {
-    margin-top: 120vh !important;
+    margin-top: 140vh !important;
   }
 
   .top-logged-out {
@@ -546,12 +546,12 @@ div button:active {
 (min-device-width: 500px) and
 (orientation: landscape) {
 .top {
-  margin-top: 370vh;
+  margin-top: 450vh;
 }
 
-.top-logged-out {
-  margin-top: 200vh;
-}
+// .top-logged-out {
+//   margin-top: 20vh;
+// }
 
 .top h2 {
   font-size: 20px;
@@ -572,7 +572,7 @@ div button:active {
 (device-height: 280px) and 
 (orientation: landscape) {
   .top-logged-out {
-    margin-top: 205vh;
+    margin-top: 240vh;
   }
 }
 //GALAXY SE-ISH STYLES
@@ -580,11 +580,11 @@ div button:active {
 (min-device-width: 666px) and
 (orientation: landscape) {
 .top {
-  margin-top: 260vh;
+  margin-top: 310vh;
 }
 
   .top-logged-out {
-    margin-top: 145vh;
+    margin-top: 175vh;
   }
 
   #in-game-wrapper {
@@ -597,7 +597,7 @@ div button:active {
 (device-height: 540px) and
 (orientation: landscape) {
 .top {
-  margin-top: 155vh;
+  margin-top: 180vh;
 }
 
   .top-logged-out {
@@ -613,7 +613,7 @@ div button:active {
 (min-device-width: 800px) and
 (orientation: landscape) {
 .top {
-  margin-top: 205vh;
+  margin-top: 245vh;
 }
 
   .top-logged-out {
@@ -630,7 +630,7 @@ div button:active {
 (min-device-height: 650px) and
 (orientation: landscape) {
   .top {
-    margin-top: 75vh;
+    margin-top: 95vh;
   }
   
   .top-logged-out {
