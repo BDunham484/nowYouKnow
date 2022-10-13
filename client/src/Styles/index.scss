@@ -31,6 +31,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .top-logged-out {
@@ -111,6 +112,7 @@ div button {
     justify-content: center;
     align-items: center;
     text-align: center;
+    
   }
 
   .wave-bottom {
@@ -251,13 +253,13 @@ div button:active {
     align-items: flex-start !important;
   }
 
-  form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
+  // form {
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
+  //   text-align: center;
+  // }
 
   .form-container {
     padding: 40px 0;
@@ -426,7 +428,20 @@ div button:active {
 }
 
 @media screen and 
+(min-width: 800px) {
+
+}
+
+@media screen and 
 (min-width: 1000px) {
+// .top {
+//   margin-top: 0;
+// }
+
+  .top-logged-out {
+    margin-top: 0;
+  }
+
   #in-game-wrapper {
     display: flex;
     justify-content: center;
@@ -457,5 +472,19 @@ div button:active {
   
   #game-form button {
     margin: 3vh 0;
+  }
+}
+
+@media screen and 
+(min-width: 1293px) {
+  .top {
+    margin-top: 20vh;
+  }
+}
+
+@media screen and 
+(min-width: 1540px) {
+  .top {
+    margin-top: 0;
   }
 }
