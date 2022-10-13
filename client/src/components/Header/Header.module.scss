@@ -146,3 +146,16 @@
     }
   }
 }
+
+
+@media screen and
+(min-device-width: 250px) and
+(max-device-width: 400px) and
+(orientation: portrait) {
+  .header {
+    &__content {
+      margin-left: -15px;
+      overflow: visible;
+    }
+  }
+}

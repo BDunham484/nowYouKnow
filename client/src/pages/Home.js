@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useMutation, useQuery } from '@apollo/client';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { useQuery } from '@apollo/client';
 import Auth from '../utils/auth';
 import SendInvite from '../components/SendInvitation'
 import ReceiveInvites from '../components/ReceiveInvitation'
@@ -12,13 +11,12 @@ const Home = () => {
   const login = Auth.loggedIn()
   const { loading, data } = useQuery(GET_ME)
 
-  useEffect(() => {
-    if(!loading && login && login){
-      if(data.me.inGame){
-        window.location.replace('/Game')
-        }
-      }
-    })
+  if(!loading && login){
+    if(data.me.inGame){
+      window.location.replace('/Game')
+    }
+  }
+
 
     return (
   <div>
@@ -28,7 +26,7 @@ const Home = () => {
         <div className="top">
           <h2>Scroll down to get started!</h2>
         </div>
-        <div className="howto">
+        <div className="howto" id="text-wrapper">
           <h2>Rules of the Game:</h2>
           <div className="text-section">
               <p> 1. Choose a category of questions. </p>

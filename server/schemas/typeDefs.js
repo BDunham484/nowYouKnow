@@ -69,19 +69,14 @@ type Auth {
 type Mutation {
     login(email: String!, password:String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    deleteUser(username: String!, email: String!, password: String!): User
+    deleteUser: String
     sendInvite(username: String!, category: String!): String
     cancelInvite(username: String!): String
     acceptInvite(username: String!): String
     declineInvite(username: String!): String
-    addGame(opponent: ID!, yourScore: Int, opponentScore: Int, winner: String, questions: [String]): User
-    addQuestion(questionBody: String!, yourAnswer: String, opponentAnswer: String, yourGuess: String, opponentGuess: String, youCorrect: Boolean, opponentCorrect: Boolean): Game
     newGame(category: String!, opponent: String!): String
-    joinGame: String
     leaveGame(username: String): String
     leaveGameMe: String
-    newQuestion(questionBody: String): Question
-    addAnswer(yourAnswer: String, opponentAnswer: String, yourGuess: String, opponentGuess: String): Question
     submitAnswer(answers: [String]!, guesses: [String]!, opponent: String!): String
 }
 `;

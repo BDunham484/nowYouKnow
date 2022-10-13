@@ -30,6 +30,12 @@ export const ADD_USER = gql`
   }
 `;
 
+export const DELETE_ACCOUNT = gql`
+  mutation deleteUser {
+    deleteUser
+  }
+`
+
 export const NEW_GAME = gql`
   mutation newGame(
     $category: String!
@@ -39,12 +45,6 @@ export const NEW_GAME = gql`
       category: $category
       opponent: $opponent
     )
-  }
-`
-
-export const JOIN_GAME = gql`
-  mutation joinGame {
-    joinGame
   }
 `
 

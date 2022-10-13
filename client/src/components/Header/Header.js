@@ -4,17 +4,31 @@ import { BiMenuAltRight } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
 // import AnimatedLetters from "../AnimatedLetters";
+import { DELETE_ACCOUNT } from '../../utils/mutations'
+import { useMutation } from '@apollo/client'
 import Auth from "../../utils/auth";
 
 const Header = () => {
   // const [letterClass, setLetterClass] = useState("text-animate");
   // const nameArray = ["N", "o", "w", "Y", "o", "u", "K", "n", "o", "w"];
 
+  const [deleteUser] = useMutation(DELETE_ACCOUNT)
+  
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [size, setSize] = useState({
     width: undefined,
     height: undefined,
   });
+
+  const handleDeleteAccount = async () => {
+    try {
+      await deleteUser();
+      Auth.logout()
+    } catch (e) {
+      console.log(e);
+    }
+  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -57,8 +71,8 @@ const Header = () => {
                 <li>
                   <a href="/">Invites</a>
                 </li>
-                <button>
-                  <a href="/">Delete Account</a>
+                <button onClick={handleDeleteAccount}>
+                Delete Account
                 </button>
               </ul>
               <button>

@@ -39,12 +39,12 @@ div button {
   padding-top: 90px;
   height: fit-content;
   width: 100vw;
-  
+
 
   .howto-title {
     margin: 45px;
   }
-  
+
   .wave {
     position: absolute;
     top: 0;
@@ -52,49 +52,49 @@ div button {
     width: 100%;
     overflow: hidden;
     line-height: 0;
-}
+  }
 
-.wave svg {
+  .wave svg {
     position: relative;
     display: block;
     width: calc(147% + 1.3px);
     height: 105px;
     padding-bottom: 10px;
-}
+  }
 
-.wave .shape-fill {
-  fill: $bg;
-}
+  .wave .shape-fill {
+    fill: $bg;
+  }
 
-.text-section {
-  padding-bottom: 100px;
-  display: flex;
-  margin: 50px;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
+  .text-section {
+    padding-bottom: 100px;
+    display: flex;
+    margin: 50px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
 
-.wave-bottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  transform: rotate(180deg);
-}
+  .wave-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+  }
 
-.wave-bottom svg {
-  position: relative;
-  display: block;
-  width: calc(185% + 1.3px);
-  height: 110px;
-}
+  .wave-bottom svg {
+    position: relative;
+    display: block;
+    width: calc(185% + 1.3px);
+    height: 110px;
+  }
 
-.wave-bottom .shape-fill {
-  fill: $bg;
-}
+  .wave-bottom .shape-fill {
+    fill: $bg;
+  }
 }
 
 /* Button base style */
@@ -102,6 +102,7 @@ button {
   border: none;
   border-radius: 2px;
   padding: 12px 18px;
+  margin: 10px 0;
   font-size: 16px;
   text-transform: uppercase;
   cursor: pointer;
@@ -109,12 +110,14 @@ button {
   background-color: $dark;
   box-shadow: 0 0 4px #999;
   outline: none;
-  display:flex;
+  display: flex;
   justify-content: center;
 }
+
 div button:hover {
   background: $lb radial-gradient(circle, transparent 1%, $lb 1%) center/15000%;
 }
+
 div button:active {
   background-color: $dark;
   background-size: 100%;
@@ -126,8 +129,123 @@ div button:active {
     font-size: 14px;
   }
 }
+
 @media screen and (min-width: 200px) {
   howto h2 {
     padding: 0;
+  }
+}
+
+
+
+//Galaxy Fold Portrait
+@media screen and (min-device-width: 250px) and
+(orientation: portrait) {
+  .top {
+    margin-top: 85vh;
+    font-size: 2vh;
+  }
+
+  #text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text-section {
+    margin: 0 !important;
+    padding: 10px 20px;
+    width: 100vw;
+    align-items: flex-start !important;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form-container {
+    padding: 40px 0;
+    margin-left: 0;
+    // flex-direction: column;
+    width: 100vw;
+  }
+
+  .btn-center {
+    margin: 0 auto 50px auto;
+  }
+}
+
+//Galaxy S8 portrait and up
+@media screen and 
+(min-device-width: 360px) and 
+(orientation: portrait) {
+  .top {
+    margin-top: 47vh;
+    font-size: 2vh;
+  }
+}
+//iphone SE portrait and up
+@media screen and (min-device-width: 375px) and
+(orientation: portrait) {
+  .top {
+    margin-top: 55vh;
+  }
+}
+//iphone 12 Pro and up
+@media screen and (min-device-width: 390px) and
+(orientation: portrait) {
+  .top {
+    margin-top: 25vh;
+  }
+}
+//iphone XR - Galaxy A51/71 - Galaxy S20 portrait and up
+@media screen and 
+(min-device-width: 400px) and 
+(orientation: portrait) {
+  .top {
+    margin-top: 15vh;
+  }
+}
+//Surface Duo portrait and up
+@media screen and
+(min-device-width: 520px) and
+(orientation: portrait) {
+  .top {
+    margin-top: 44vh;
+  }
+
+  .text-section {
+    width: 80vw;
+  }
+}
+//ipad mini portrait and up
+@media screen and 
+(min-device-width: 750px) and 
+(orientation: portrait) {
+  .top {
+    margin-top: 5vh;
+  }
+
+  .text-section {
+    width: 70vw;
+  }
+}
+
+@media screen and 
+(min-device-width: 800px) and 
+(orientation: portrait) {
+  .top {
+    margin-top: -4vh;
+  }
+
+  .text-section {
+    width: 70vw;
+  }
+
+  .container {
+    margin-top: 6vh;
   }
 }
