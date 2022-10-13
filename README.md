@@ -59,6 +59,10 @@ SO THAT we can build deeper friendships and community in a fun and light hearted
 ## Usage 
 💻 The game can be viewed at - [Heroku](https://arcane-cliffs-23763.herokuapp.com/)
 
+## License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ## Contributing
 
 :octocat: [Kaysie A](https://github.com/Kaysie04)
