@@ -7,6 +7,7 @@ const CurrentGame = require('../models/CurrentGame');
 
 const resolvers = {
     Query: {
+        // gets logged in user's data
         me: async (parent, args, context) => {
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
@@ -25,23 +26,17 @@ const resolvers = {
         user: async (parent, { username }) => {
             return User.findOne({ username })
                 .select('-__v -password')
-        },
-        //get all games
-        game: async (parent, args, context) => {
-            if (context.user) {
-                return await Game.find();
-            }
-
         }
-
     },
     Mutation: {
+        // add a new user
         addUser: async (parent, args) => {
             const user = await User.create(args);
             const token = signToken(user);
 
             return { token, user };
         },
+        // deletes signed in user
         deleteUser: async (parent, args, context) => {
             if (context.user) {
                 const user = await User.findByIdAndDelete(
@@ -53,6 +48,7 @@ const resolvers = {
 
             throw new AuthenticationError('You need to be logged in!');
         },
+        // takes credentials and creates a token for user login
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
             if (!user) {
@@ -65,6 +61,7 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
+        // send an invite to a friend with their username and the chosen category
         sendInvite: async (parent, { username, category }, context) => {
             if(!username || !category) {
                 throw new Error('You must pick a category and username')
@@ -72,6 +69,7 @@ const resolvers = {
             if(username === context.user.username) {
                 throw new Error("You cant't play against yourself! :) Please pick another user")
             }
+            // create a new invite and push it to the chosen user's open invites
             const invite = await Invite.create({ 'username': context.user.username, accepted: false, 'category': category })
             const user = await User.findOneAndUpdate(
                 { 'username': username }, {
@@ -84,16 +82,19 @@ const resolvers = {
             }
             return username
         },
+        // takes invite away from chosen user's open invites if you choose to cancel the invitation
         cancelInvite: async (parent, { username }, context) => {
             await User.findOneAndUpdate(
                 { 'username': username }, { $pull: { openInvites: { 'username': context.user.username } } })
             return username
         },
+        // changes your open invite from a user to show that it has been accepted
         acceptInvite: async (parent, { username }, context) => {
             await User.findOneAndUpdate(
                 { 'username': context.user.username, "openInvites.username": username }, { 'openInvites.$.accepted': true })
             return context.user.username
         },
+        // remove someones game invite from your own open invite list
         declineInvite: async (parent, { username }, context) => {
             await User.findOneAndUpdate(
                 { 'username': context.user.username }, { $pull: { openInvites: { 'username': username } } })
@@ -119,6 +120,7 @@ const resolvers = {
         }
             throw new AuthenticationError('You need to be logged in!');
         },
+        // leave the game if you no longer want to play. Forces the other user to leave the game as well
         leaveGame: async(parent, { username }, context) => {
             if(context.user) {
                 await User.findOneAndUpdate(
@@ -133,6 +135,7 @@ const resolvers = {
             }
                 throw new AuthenticationError('You need to be logged in!');
         },
+        // leave the game but only update your own in game status
         leaveGameMe: async(parent, args, context) => {
             if(context.user) {
                 await User.findOneAndUpdate(
@@ -145,6 +148,7 @@ const resolvers = {
             }
                 throw new AuthenticationError('You need to be logged in!');
         },
+        // submit your answers and guesses to both you and your opponent's current game
         submitAnswer: async (parent, { answers, guesses, opponent }, context) => {
             if (context.user) {
                 let yourArray = []
