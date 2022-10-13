@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
-import { GET_INVITES, GET_ME } from '../../utils/queries'
-import { ACCEPT_INVITE, DECLINE_INVITE, NEW_GAME, JOIN_GAME } from '../../utils/mutations'
-
+import { GET_INVITES, GET_ME } from '../../utils/queries';
+import { ACCEPT_INVITE, DECLINE_INVITE, NEW_GAME, JOIN_GAME } from '../../utils/mutations';
+import './ReceiveInvitation.scss';
 
 
 const ReceiveInvites = () => {

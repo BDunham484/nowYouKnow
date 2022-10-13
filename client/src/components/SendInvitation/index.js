@@ -113,7 +113,7 @@ function SendInvite() {
         <h2>Send an invite to a friend!</h2>
         <form>
           {submitSuccess ? (
-            <div>You sent an invite to {username} in category: {category}</div>
+            <div className="inv-sent">You sent an invite to {username} in category: {category}</div>
           ) : (
           <div className="flex-row space-between my-2 form-container">
             <label htmlFor="category">Choose a category</label>
