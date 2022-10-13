@@ -286,6 +286,10 @@ div button:active {
   .btn-center {
     margin: 0 auto 50px auto;
   }
+
+  #in-game-wrapper {
+    margin-top: 50vh;
+  }
 }
 
 //Galaxy S8 portrait and up
@@ -309,7 +313,7 @@ div button:active {
   }
 
   #in-game-wrapper {
-    margin-top: 10vh;
+    margin-top: 35vh;
   }
 }
 //iphone SE portrait and up
@@ -324,7 +328,7 @@ div button:active {
   }
 
   #in-game-wrapper {
-    margin-top: 15vh;
+    margin-top: 50vh;
   }
 }
 //iphone 12 Pro and up
@@ -339,7 +343,7 @@ div button:active {
   }
 
   #in-game-wrapper {
-    margin-top: 5vh;
+    margin-top: 30vh;
   }
 }
 //iphone XR - Galaxy A51/71 - Galaxy S20 portrait and up
@@ -396,9 +400,9 @@ div button:active {
     width: 70vw;
   }
 
-  // #in-game-wrapper {
-  //   margin-top: -20vh;
-  // }
+  #in-game-wrapper {
+    margin-top: -20vh;
+  }
 
   #in-game-wrapper h1 {
     width: 60vw;
@@ -539,6 +543,20 @@ div button:active {
   .top-logged-out {
     margin-top: 175vh;
   }
+
+  #in-game-wrapper {
+    margin-top: 175vh;
+  }
+}
+
+//GALAXY FOLD LANDSCAPE MODE LOGGED OUT
+@media screen and 
+(device-width: 653px) and 
+(device-height: 280px) and 
+(orientation: landscape) {
+  .top-logged-out {
+    margin-top: 205vh;
+  }
 }
 //GALAXY SE-ISH STYLES
 @media screen and 
@@ -550,6 +568,10 @@ div button:active {
 
   .top-logged-out {
     margin-top: 145vh;
+  }
+
+  #in-game-wrapper {
+    margin-top: 120vh;
   }
 }
 //SURFACE DUO LANDSCAPE STYLES
@@ -564,6 +586,10 @@ div button:active {
   .top-logged-out {
     margin-top: 85vh;
   }
+
+  #in-game-wrapper {
+    margin-top: 70vh;
+  }
 }
 
 @media screen and 
@@ -575,6 +601,10 @@ div button:active {
 
   .top-logged-out {
     margin-top: 100vh;
+  }
+
+  #in-game-wrapper {
+    margin-top: 90vh;
   }
 }
 //iPADS AND UP LANDSCAPE STYLES
@@ -588,6 +618,10 @@ div button:active {
   
   .top-logged-out {
     margin-top: 10vh;
+  }
+
+  #in-game-wrapper {
+    margin-top: 0;
   }
 }
 
