@@ -158,7 +158,7 @@ function SendInvite() {
         <div className="flex-row flex-end">
           {/* display submit button before invite is submitted, and cancel button after invite is submitted */}
           {submitSuccess ? (
-              <button className="btn-center" onClick={handleCancelInvite}>Cancel Invitation</button>
+              <button className="btn-cancel" onClick={handleCancelInvite}>Cancel Invitation</button>
           ): (
               <button className="btn-center" onClick={handleSubmitInvite}>Submit</button>
           )}

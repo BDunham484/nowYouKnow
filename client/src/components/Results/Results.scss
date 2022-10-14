@@ -1,0 +1,47 @@
+@import '../../Styles/variables.scss';
+
+
+
+.results {
+  text-align: center;
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 300px;
+}
+
+.result-titles {
+  display: flex;
+  justify-content: space-between;
+  width: 560px;
+  margin-left: 65px;
+  margin-top: 50px;
+
+  #Qs {
+    display:flex;
+    margin-left: 10px;
+  }
+  #theirs {
+    margin-right: 6px;
+  }
+  #yours {
+    margin-left: 55px;
+  }
+}
+
+.responses {
+    display: flex;
+    justify-content: space-between;
+    width: 560px;
+    margin-left: 25px;
+    margin-top: 50px;
+    background: $primary;
+
+    .questions {
+      width: 200px;
+      display:flex;
+      align-items: center;
+    }
+
+
+}
