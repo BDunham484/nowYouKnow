@@ -129,10 +129,10 @@ function SendInvite() {
         </h2>
       <form>
         {submitSuccess ? (
-          <div>You sent an invite to {opponentUsername} in category: {category}</div>
+          <div className="inv-sent">You sent an invite to {opponentUsername} in category: {category}</div>
         ) : (
         <div className="flex-row space-between my-2 form-container">
-          <label htmlFor="category">Choose a category</label>
+          <label htmlFor="category">Choose a category:</label>
           <select id="category" name="category" ref={categoryRef} defaultValue="">
             <option value="" disabled>categories...</option>
             {/* map over categories and create an option in the drop down for each one */}
@@ -158,7 +158,7 @@ function SendInvite() {
         <div className="flex-row flex-end">
           {/* display submit button before invite is submitted, and cancel button after invite is submitted */}
           {submitSuccess ? (
-              <button className="btn-center" onClick={handleCancelInvite}>Cancel Invitation</button>
+              <button className="btn-cancel" onClick={handleCancelInvite}>Cancel Invitation</button>
           ): (
               <button className="btn-center" onClick={handleSubmitInvite}>Submit</button>
           )}

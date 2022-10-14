@@ -1,5 +1,12 @@
 @import "../../Styles/variables.scss";
 @import "../../Styles/index.scss";
+h2 a {
+  color: $bg;
+}
+
+a:visited {
+  color: $bg;
+}
 
 .header {
   background: rgba($dark, 0.9);
