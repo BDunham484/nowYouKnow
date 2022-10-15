@@ -9,25 +9,21 @@ const questionSchema = new Schema(
         },
         yourAnswer: {
             type: String,
-            // required: 'You need to leave an answer!',
             minlength: 1,
             maxlength: 280
         },
         opponentAnswer: {
             type: String,
-            // required: 'You need to leave an answer!',
             minlength: 1,
             maxlength: 280
         },
         yourGuess: {
             type: String,
-            // required: 'You need to make a guess!',
             minlength: 1,
             maxlength: 280
         },
         opponentGuess: {
             type: String,
-            // required: 'You need to make a guess!',
             minlength: 1,
             maxlength: 280
         },
@@ -39,8 +35,6 @@ const questionSchema = new Schema(
         }
     }
 );
-
-
 
 //create the comment model using the CommentSchema
 const Question = model('Question', questionSchema);

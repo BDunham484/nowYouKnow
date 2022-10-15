@@ -18,10 +18,7 @@ form {
   align-items: center;
   padding: 40px;
   justify-content: space-between;
-  // flex-wrap: wrap;
   width: 100vw;
-  // margin-left: 23%;
-  // background-color: aqua;
   
 label {
   margin: 5px;
@@ -48,12 +45,6 @@ label {
   }
   
 }
-// .btn-center {
-//   display: flex;
-//   justify-content: center;
-//   margin-left: 47%;
-//   margin-bottom: 50px;
-// }
 
 .btn-center {
   margin: 0 auto 50px auto;
@@ -78,18 +69,7 @@ label {
   h2 {
     text-align: center;
   }
-  // .btn-center {
-  //   margin-left: 32%;
-  // }
-  // .form-container {
-  //   width: 100%;
-  //   display: flex;
-  //   justify-content: center;
-  //   margin-left: 0%;
-  // }
-  // label {
-  //   margin-left: 8%;
-  // }
+
   .top {
     margin-top: 85vh;
     font-size: 2vh;
@@ -98,45 +78,17 @@ label {
 
 
 @media screen and (min-width: 360px) {
-  // .btn-center {
-  //   margin-left: 40%;
-  // }
-  // .form-container {
-  //   width: 65%;
-  //   display: flex;
-  //   margin-left: 18%;
-  // }
-  // label {
-  //   margin-left: 8%;
-  // }
   .container p {
     margin-left: 16%;
   }
 }
 @media screen and (min-width: 540px) {
-  // .btn-center {
-  //   margin-left: 39%;
-  // }
-  // .form-container {
-  //   margin-left: 16%;
-  //   justify-content: center;
-  // }
   .container p {
     margin-left: 20%;
   }
 }
-@media screen and (min-width: 768px) {
-  // .btn-center {
-  //   margin-left: 43%;
-  // }
-  // .form-container {
-  //   width: 68%;
-  // }
-}
+
 @media screen and (min-width: 820px) {
-  // .btn-center {
-  //   margin-left: 43%;
-  // }
   .container p {
     margin-left: 30%;
   }
@@ -145,10 +97,6 @@ label {
   .container {
     padding-top: 90px;
   }
-  // .btn-center {
-  //   margin-left: 45%;
-  //   margin-bottom: -30px;
-  // }
 
   .container p {
     margin-left: 34%;
@@ -158,37 +106,9 @@ label {
   h2 {
     margin-top: 0px;
   }
-  // .btn-center {
-  //   margin-left: 46%;
-  // }
-  // .form-container {
-  //   justify-content: space-between;
-  //   width: 600px;
-  //   margin-left: 25%;
-  // }
+  
   .container p {
     margin-left: 37%;
   }
 }
-@media screen and (min-width: 1280px) {
-  // .btn-center {
-  //   // margin-left: 46%;
-  //   margin-bottom: 75px;
-  // }
-  // .form-container {
-  //   justify-content: space-between;
-  //   margin-left: 25%;
-  //   width: 50%;
-  // }
-  
-}
-@media screen and (min-width: 1540px) {
-  // .form-container {
-  //   justify-content: space-between;
-  //   margin-left: 30%;
-  //   width: 600px;
-  // }
-  // .btn-center {
-  //   margin-bottom: -400px;
-  // }
-}
+

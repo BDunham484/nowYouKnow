@@ -29,6 +29,7 @@ const currentGameSchema = new Schema(
     },
 );
 
+//create the CurrentGame model using the currentGame sch
 const CurrentGame = model('CurrentGame', currentGameSchema);
 
 //export the Guess schema

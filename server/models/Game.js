@@ -25,8 +25,8 @@ const gameSchema = new Schema(
     },
 );
 
-
-
+//create the Game model using the gameSchema
 const Game = model('Game', gameSchema);
 
+//export the Game model
 module.exports = Game;

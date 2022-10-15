@@ -46,7 +46,6 @@ a {
   align-items: center;
   margin-top: 45vh;
   width: 90vw;
-  // background-color: aqua;
   margin-top: 225px;
   text-align: center;
   padding: 0 25px 0 25px;
@@ -66,8 +65,6 @@ div button {
   min-height: 600px;
   position: relative;
   padding-top: 90px;
-  // height: fit-content;
-  // min-height: 95vh;
   width: 100vw;
   padding-bottom: 90px;
 
@@ -110,7 +107,6 @@ div button {
   }
 
   .text-section-logged-out {
-    // padding-bottom: 100px;
     display: flex;
     margin: 50px;
     justify-content: center;
@@ -201,7 +197,6 @@ div button:active {
   align-items: center;
   margin-top: 20vh;
   text-align: center;
-  // background-color: aqua;
 }
 
 #in-game-wrapper h1 {
@@ -286,14 +281,6 @@ div button:active {
     align-items: flex-start !important;
   }
 
-  // form {
-  //   display: flex;
-  //   flex-direction: column;
-  //   justify-content: center;
-  //   align-items: center;
-  //   text-align: center;
-  // }
-
   .form-container {
     padding: 40px 0;
     margin-left: 0;
@@ -307,12 +294,7 @@ div button:active {
 
   #in-game-wrapper {
     margin-top: 110vh;
-  }
-
-  
-
-
-  
+  } 
 }
 
 //Galaxy S8 portrait and up
@@ -490,9 +472,6 @@ div button:active {
 
 @media screen and 
 (min-width: 1000px) {
-// .top {
-//   margin-top: 0;
-// }
 
   .top-logged-out {
     margin-top: 0;
@@ -503,7 +482,6 @@ div button:active {
     justify-content: center;
     align-items: center;
     margin-top: 5vh;
-    // background-color: aqua;
   }
   
   #in-game-wrapper h1 {
@@ -539,14 +517,6 @@ div button:active {
   }
 }
 
-@media screen and 
-(min-width: 1540px) and 
-(min-height: 1000px) {
-  // .top {
-  //   margin-top: 0;
-  // }
-}
-
 //LANDSCAPE MODE MEDIA QUERIES
 //galaxy fold-ish landscape styles
 @media screen and 
@@ -555,10 +525,6 @@ div button:active {
 .top {
   margin-top: 450vh;
 }
-
-// .top-logged-out {
-//   margin-top: 20vh;
-// }
 
 .top h2 {
   font-size: 20px;
