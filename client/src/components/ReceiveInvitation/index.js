@@ -2,7 +2,7 @@ import React from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { GET_INVITES } from '../../utils/queries';
 import { ACCEPT_INVITE, DECLINE_INVITE, NEW_GAME } from '../../utils/mutations';
-import './ReceiveInvitation.scss';
+
 
 
 const ReceiveInvites = () => {
